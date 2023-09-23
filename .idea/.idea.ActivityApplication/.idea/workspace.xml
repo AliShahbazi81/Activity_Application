@@ -9,13 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Seeding DataBase">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Refactoring Activity Service">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/Activity/ActivityController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/BaseApiController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication.Services.Activity/ActivityService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,6 +51,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.73478264",
     "git-widget-placeholder": "master",
     "javascript.nodejs.core.library.configured.version": "20.6.0",
     "javascript.nodejs.core.library.typings.version": "20.6.0",
@@ -70,7 +74,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.ActivityApplication">
+  <component name="RunManager" selected=".NET Launch Settings Profile.ActivityApplication: https">
     <configuration name="ActivityApplication" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -104,7 +108,7 @@
     <configuration name="ActivityApplication: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="LAUNCH_PROFILE_NAME" value="ActivityApplication" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -127,7 +131,7 @@
       <updated>1695411662530</updated>
       <workItem from="1695411664957" duration="5000" />
       <workItem from="1695411682343" duration="8030000" />
-      <workItem from="1695431095945" duration="4659000" />
+      <workItem from="1695431095945" duration="6271000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -153,7 +157,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695432798008</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First coding for Activity Service">
+      <option name="closed" value="true" />
+      <created>1695439561677</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695439561677</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactoring Activity Service">
+      <option name="closed" value="true" />
+      <created>1695440283945</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695440283945</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +184,8 @@
     <MESSAGE value="Init files" />
     <MESSAGE value="Init basic files for DataBase and DataSets" />
     <MESSAGE value="Seeding DataBase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Seeding DataBase" />
+    <MESSAGE value="First coding for Activity Service" />
+    <MESSAGE value="Refactoring Activity Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Activity Service" />
   </component>
 </project>
