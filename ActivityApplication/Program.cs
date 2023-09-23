@@ -1,6 +1,7 @@
 using ActivityApplication.DataAccess;
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Users;
+using ActivityApplication.Services.Activity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,9 @@ builder.Services.AddIdentity<User, Role>(opt =>
     })
     .AddRoles<Role>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Activity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddScoped<IActivityService, ActivityService>();
 
 
 

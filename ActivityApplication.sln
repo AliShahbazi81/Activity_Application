@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Infrast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.DataAccess", "ActivityApplication.DataAccess\ActivityApplication.DataAccess.csproj", "{7B083D4A-9DDD-4749-9CB5-41CDCC7080DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Services.Activity", "ActivityApplication.Services.Activity\ActivityApplication.Services.Activity.csproj", "{3B956874-8E0F-459B-A745-B46C007BA72B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,11 +42,16 @@ Global
 		{7B083D4A-9DDD-4749-9CB5-41CDCC7080DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B083D4A-9DDD-4749-9CB5-41CDCC7080DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B083D4A-9DDD-4749-9CB5-41CDCC7080DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B956874-8E0F-459B-A745-B46C007BA72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B956874-8E0F-459B-A745-B46C007BA72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B956874-8E0F-459B-A745-B46C007BA72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B956874-8E0F-459B-A745-B46C007BA72B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{108EE573-9AE3-4A92-B3DE-6D5F5D2C1E5D} = {9F42ABE2-58D3-4651-ABDD-161FB50F17D3}
 		{4A660871-5841-4164-BEBD-AA46886845F1} = {1B7E4A8E-1847-42BB-BEE9-892399F59C52}
 		{E86EFA24-F697-4EF1-8DA9-27E1F573374C} = {1B7E4A8E-1847-42BB-BEE9-892399F59C52}
 		{7B083D4A-9DDD-4749-9CB5-41CDCC7080DC} = {55342C0F-87E0-4077-B669-A88F1FE8422E}
+		{3B956874-8E0F-459B-A745-B46C007BA72B} = {184D38E2-9C0E-4401-872F-EBB8BD321F19}
 	EndGlobalSection
 EndGlobal
