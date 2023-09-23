@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="RD-232.9559.61">
-    <data-source name="reativities.db" uuid="12ef1747-a5bd-4940-919a-69cd95d87104">
+    <data-source name="reactivities" uuid="5560f5ac-dac0-47e1-ab72-aa74a65140b8">
       <database-info product="SQLite" version="3.43.0" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.43.0.0" dbms="SQLITE" exact-version="3.43.0" exact-driver-version="3.43">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
