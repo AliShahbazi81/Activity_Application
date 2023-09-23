@@ -10,7 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Activities/Activity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbInitializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Users/Role.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Users/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +39,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2VlXVB00FbOdac3Z5IHq0fJvuI0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,6 +62,9 @@
     "ts.external.directory.path": "/Users/ali/RiderProjects/ActivityApplication/ActivityApplication/ClientApp/node_modules/typescript/lib"
   },
   "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ],
     "rider.external.source.directories": [
       "/Users/ali/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
       "/Users/ali/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
@@ -114,8 +128,17 @@
       <option name="presentableId" value="Default" />
       <updated>1695411662530</updated>
       <workItem from="1695411664957" duration="5000" />
-      <workItem from="1695411682343" duration="4109000" />
+      <workItem from="1695411682343" duration="8030000" />
     </task>
+    <task id="LOCAL-00001" summary="Init files">
+      <option name="closed" value="true" />
+      <created>1695416064177</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695416064177</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,5 +146,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Init files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init files" />
   </component>
 </project>
