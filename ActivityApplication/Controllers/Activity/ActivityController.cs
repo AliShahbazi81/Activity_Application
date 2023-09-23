@@ -1,5 +1,6 @@
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.DTO;
+using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActivityApplication.Controllers.Activity;
@@ -7,61 +8,91 @@ namespace ActivityApplication.Controllers.Activity;
 public class ActivityController : BaseApiController
 {
     private readonly IActivityService _service;
+    private readonly ILogger<ActivityController> _logger;
 
-    public ActivityController(IActivityService service)
+    public ActivityController(IActivityService service, ILogger<ActivityController> logger)
     {
         _service = service;
+        _logger = logger;
     }
 
     [HttpGet("GetActivities")]
-    public async Task<IEnumerable<ActivityDto>> GetActivities()
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IEnumerable<ActivityDto>>> GetActivities()
     {
         try
         {
-            var getActivities = await _service.GetActivitiesAsync();
-
-            return getActivities;
+            return Ok(await _service.GetActivitiesAsync());
+        }
+        catch (IdNotFoundException e)
+        {
+            _logger.LogError("Error on getting the activity: " + e.Message);
+            return NotFound();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            _logger.LogError("Error while getting activity: " + e.Message);
+            return BadRequest();
         }
     }
 
     [HttpGet("GetActivity")]
-    public async Task<ActivityDto?> GetActivity(Guid activityId)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ActivityDto?>> GetActivity(Guid activityId)
     {
         try
         {
-            return await _service.GetActivityAsync(activityId);
+            return Ok(await _service.GetActivityAsync(activityId));
+        }
+        catch (IdNotFoundException e)
+        {
+            _logger.LogError("Error on getting the activity: " + e.Message);
+            return NotFound();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            _logger.LogError("Error while getting activity: " + e.Message);
+            return BadRequest();
         }
     }
 
     [HttpPost("Create")]
-    public async Task<ActivityDto?> CreateActivity(ActivityDto activityDto)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<ActivityDto?>> CreateActivity(ActivityDto activityDto)
     {
         try
         {
             if (!ModelState.IsValid)
                 throw new Exception("Error in data's format!");
 
-            var createActivity = await _service.CreateActivityAsync(activityDto);
-            return createActivity;
+            return Ok(await _service.CreateActivityAsync(activityDto));
+        }
+        catch (DateTimeValidationException e)
+        {
+            _logger.LogError("Problem with saving date entered in the Date input: " + e.Message);
+            return BadRequest();
+        }
+        catch (StringLengthException e)
+        {
+            _logger.LogError("Problem with saving inputs: " + e.Message);
+            return BadRequest();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            _logger.LogError("Error while getting activity: " + e.Message);
+            return BadRequest();
         }
     }
 
     [HttpPut("Update")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ActivityDto?>> UpdateActivity(
         Guid activityId,
         ActivityDto activityDto)
@@ -71,35 +102,55 @@ public class ActivityController : BaseApiController
             if (!ModelState.IsValid)
                 throw new Exception("Error in data's format!");
 
-            var update = await _service.UpdateActivityAsync(activityId, activityDto);
+            if (await _service.UpdateActivityAsync(activityId, activityDto))
+                return Ok(await _service.GetActivityAsync(activityId));
 
-            if (update)
-                return await _service.GetActivityAsync(activityId);
-
+            return BadRequest();
+        }
+        catch (IdNotFoundException e)
+        {
+            _logger.LogError("Error on getting the activity: " + e.Message);
             return NotFound();
+        }
+        catch (DateTimeValidationException e)
+        {
+            _logger.LogError("Problem with saving date entered in the Date input: " + e.Message);
+            return BadRequest();
+        }
+        catch (StringLengthException e)
+        {
+            _logger.LogError("Problem with saving inputs: " + e.Message);
+            return BadRequest();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            _logger.LogError("Error while getting activity: " + e.Message);
+            return BadRequest();
         }
     }
 
     [HttpDelete("Delete")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult> DeleteActivity(Guid activityId)
     {
         try
         {
-            var delete = await _service.DeleteActivityAsync(activityId);
+            if (await _service.DeleteActivityAsync(activityId))
+                return Ok("The activity has been deleted successfully!");
 
-            if (delete)
-                return Ok();
             return BadRequest("Error deleting the activity!");
+        }
+        catch (IdNotFoundException e)
+        {
+            _logger.LogError("Error on getting the activity: " + e.Message);
+            return NotFound();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            _logger.LogError("Error while getting activity: " + e.Message);
+            return BadRequest();
         }
     }
 }

@@ -9,18 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Exceptions/DateTimeValidationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Exceptions/IdNotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Exceptions/StringLengthException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Guards/ActivityGuard.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Create guard for activity service">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/Activity/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/Activity/ActivityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +29,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
   </component>
@@ -143,7 +136,7 @@
       <workItem from="1695411682343" duration="8030000" />
       <workItem from="1695431095945" duration="7583000" />
       <workItem from="1695444238635" duration="5907000" />
-      <workItem from="1695478674788" duration="5161000" />
+      <workItem from="1695478674788" duration="7649000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -209,12 +202,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695448870493</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Create guard for activity service">
+      <option name="closed" value="true" />
+      <created>1695496743301</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695496743301</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Init files" />
@@ -225,7 +227,8 @@
     <MESSAGE value="Use service in Controller, add Swagger" />
     <MESSAGE value="Implemented all of the services in Controller" />
     <MESSAGE value="Add Exception Solution folder to Activity Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Exception Solution folder to Activity Service" />
+    <MESSAGE value="Create guard for activity service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create guard for activity service" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

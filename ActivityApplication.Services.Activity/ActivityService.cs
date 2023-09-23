@@ -168,12 +168,12 @@ public class ActivityService : IActivityService
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
 
-        var getActivity = await dbContext.Activities
-            .SingleAsync(x => x.Id == activityId);
+        var getActivity = dbContext.Activities
+            .Where(x => x.Id == activityId);
 
-        if (getActivity == null)
+        if (!await getActivity.AnyAsync())
             throw new IdNotFoundException();
 
-        return getActivity;
+        return await getActivity.SingleAsync();
     }
 }
