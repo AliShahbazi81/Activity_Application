@@ -8,162 +8,128 @@ namespace ActivityApplication.Services.Activity;
 
 public class ActivityService : IActivityService
 {
-    private readonly IDbContextFactory<ApplicationDbContext> _context;
+    private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
     private readonly ILogger<ActivityService> _logger;
 
     public ActivityService(IDbContextFactory<ApplicationDbContext> context, ILogger<ActivityService> logger)
     {
-        _context = context;
+        _contextFactory = context;
         _logger = logger;
     }
 
     public async Task<ActivityDto?> CreateActivityAsync(ActivityDto activityDto)
     {
-        await using var dbContext = await _context.CreateDbContextAsync();
-        await using var transaction = await dbContext.Database.BeginTransactionAsync(IsolationLevel.Serializable);
-        
-        try
+        return await ExecuteInTransactionAsync<ActivityDto?>(async dbContext =>
         {
-            _ = dbContext.Add(new DataAccess.Activities.Activity
+            var activity = MapToEntity(activityDto);
+            dbContext.Add(activity);
+            return await dbContext.SaveChangesAsync() > 0 ? activityDto : null;
+        }, "An error has occurred during creating an Activity");
+    }
+
+        public async Task<ActivityDto?> GetActivityAsync(Guid activityId)
+        {
+            await using var dbContext = await _contextFactory.CreateDbContextAsync();
+            
+            var activity = await dbContext.Activities
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == activityId);
+            
+            return activity != null ? MapToDto(activity) : null;
+        }
+
+        public async Task<IEnumerable<ActivityDto>> GetActivitiesAsync()
+        {
+            await using var dbContext = await _contextFactory.CreateDbContextAsync();
+            var activities = await dbContext.Activities
+                .AsNoTracking()
+                .ToListAsync();
+            return activities.Select(MapToDto);
+        }
+
+        public async Task<bool> UpdateActivityAsync(Guid activityId, ActivityDto activityDto)
+        {
+            return await ExecuteInTransactionAsync(async dbContext =>
+            {
+                var activity = await dbContext.Activities
+                    .SingleAsync(x => x.Id == activityId);
+                
+                UpdateEntity(activity, activityDto);
+                
+                return await dbContext.SaveChangesAsync() > 0;
+            }, "An error occurred during updating the activity");
+        }
+
+        public async Task<bool> DeleteActivityAsync(Guid activityId)
+        {
+            return await ExecuteInTransactionAsync(async dbContext =>
+            {
+                var activity = await dbContext.Activities
+                    .SingleAsync(x => x.Id == activityId);
+                
+                dbContext.Activities.Remove(activity);
+                
+                return await dbContext.SaveChangesAsync() > 0;
+            }, "An error occurred when deleting the activity");
+        }
+        
+        private async Task<TResult?> ExecuteInTransactionAsync<TResult>(
+            Func<ApplicationDbContext, 
+                Task<TResult?>> action, 
+            string errorMessage)
+        {
+            await using var dbContext = await _contextFactory.CreateDbContextAsync();
+            await using var transaction = await dbContext.Database.BeginTransactionAsync(IsolationLevel.Serializable);
+            try
+            {
+                var result = await action(dbContext);
+                await transaction.CommitAsync();
+                return result;
+            }
+            catch (Exception e)
+            {
+                _logger.LogInformation(e, errorMessage);
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+        
+        private static ActivityDto MapToDto(DataAccess.Activities.Activity activity)
+        {
+            return new ActivityDto
+            {
+                Title = activity.Title,
+                Date = activity.Date,
+                Description = activity.Description,
+                Category = activity.Category,
+                City = activity.City,
+                Venue = activity.Venue,
+            };
+        }
+
+        private static DataAccess.Activities.Activity MapToEntity(ActivityDto activityDto)
+        {
+            return new DataAccess.Activities.Activity
             {
                 Title = activityDto.Title,
                 Date = Convert.ToDateTime(activityDto.Date.ToUniversalTime().ToString("g")),
                 Description = activityDto.Description,
                 Category = activityDto.Category,
                 City = activityDto.City,
-                Venue = activityDto.Venue
-            }).Entity;
-
-            var saved = await dbContext.SaveChangesAsync() > 0;
-
-            if (!saved)
-                return null;
-
-            return new ActivityDto
-            {
-                Title = activityDto.Title,
-                Date = activityDto.Date,
-                Description = activityDto.Description,
-                Category = activityDto.Category,
-                City = activityDto.City,
                 Venue = activityDto.Venue,
-                
             };
         }
-        catch (Exception e)
+
+        private static void UpdateEntity(
+            DataAccess.Activities.Activity activity, 
+            ActivityDto activityDto)
         {
-            _logger.LogInformation(e, "An error has occured during creating an Activity");
-            await transaction.RollbackAsync();
-            throw;
+            activity.Title = activityDto.Title;
+            activity.Date = Convert.ToDateTime(activityDto.Date.ToUniversalTime().ToString("g"));
+            activity.Description = activityDto.Description;
+            activity.Category = activityDto.Category;
+            activity.City = activityDto.City;
+            activity.Venue = activityDto.Venue;
         }
-    }
 
-    public async Task<ActivityDto?> GetActivityAsync(Guid activityId)
-    {
-        await using var dbContext = await _context.CreateDbContextAsync();
-
-        var getActivity = await dbContext.Activities
-            .AsNoTracking()
-            .Where(x => x.Id == activityId)
-            .FirstOrDefaultAsync();
-
-        if (getActivity != null)
-            return new ActivityDto
-            {
-                Title = getActivity.Title,
-                Date = getActivity.Date,
-                Description = getActivity.Description,
-                Category = getActivity.Category,
-                City = getActivity.City,
-                Venue = getActivity.Venue,
-            };
-
-        return null;
-    }
-
-    public async Task<IEnumerable<ActivityDto>> GetActivitiesAsync()
-    {
-        await using var dbContext = await _context.CreateDbContextAsync();
-        var getActivities = await dbContext.Activities
-            .AsNoTracking()
-            .ToListAsync();
-
-        var activityList = getActivities.Select(getActivity => new ActivityDto
-        {
-            Title = getActivity.Title,
-            Date = getActivity.Date,
-            Description = getActivity.Description,
-            Category = getActivity.Category,
-            City = getActivity.City,
-            Venue = getActivity.Venue,
-        });
-
-        return activityList;
-    }
-
-    public async Task<bool> UpdateActivityAsync(
-        Guid activityId, 
-        ActivityDto activityDto)
-    {
-        await using var dbContext = await _context.CreateDbContextAsync();
-        await using var transaction = await dbContext.Database.BeginTransactionAsync(IsolationLevel.Serializable);
-
-        var getActivity = await dbContext.Activities
-            .Where(x => x.Id == activityId)
-            .SingleAsync();
-        
-        try
-        {
-            getActivity.Title = activityDto.Title;
-            getActivity.Date = Convert.ToDateTime(activityDto.Date.ToUniversalTime().ToString("g"));
-            getActivity.Description = activityDto.Description;
-            getActivity.Category = activityDto.Category;
-            getActivity.City = activityDto.City;
-            getActivity.Venue = activityDto.Venue;
-
-            var saved = await dbContext.SaveChangesAsync() > 0;
-
-            if (!saved) return false;
-            
-            await transaction.CommitAsync();
-            return true;
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            _logger.LogInformation(e, "An error occured during updating the activity");
-            await transaction.RollbackAsync();
-            throw;
-        }
-    }
-
-    public async Task<bool> DeleteActivityAsync(Guid activityId)
-    {
-        await using var dbContext = await _context.CreateDbContextAsync();
-        await using var transaction = await dbContext.Database.BeginTransactionAsync(IsolationLevel.Serializable);
-
-        var getActivity = await dbContext.Activities
-            .Where(x => x.Id == activityId)
-            .SingleAsync();
-
-        try
-        {
-            dbContext.Activities.Remove(getActivity);
-            var saved = await dbContext.SaveChangesAsync() > 0;
-
-            if (!saved) return false;
-            
-            await transaction.CommitAsync();
-            return true;
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            _logger.LogInformation(e, "An error occured when Deleting the activity");
-            await transaction.RollbackAsync();
-            throw;
-        }
-    }
 }
