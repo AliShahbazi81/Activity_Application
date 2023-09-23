@@ -1,6 +1,7 @@
 using System.Data;
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.Services.Activity.DTO;
+using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -10,6 +11,11 @@ public class ActivityService : IActivityService
 {
     private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
     private readonly ILogger<ActivityService> _logger;
+    private const int TitleLength = 5;
+    private const int CityLength = 5;
+    private const int CategoryLength = 5;
+    private const int VenueLength = 5;
+    private const int DescriptionLength = 10;
 
     public ActivityService(IDbContextFactory<ApplicationDbContext> context, ILogger<ActivityService> logger)
     {
@@ -19,6 +25,13 @@ public class ActivityService : IActivityService
 
     public async Task<ActivityDto?> CreateActivityAsync(ActivityDto activityDto)
     {
+        InputValidation(activityDto.Date,
+            activityDto.Title,
+            activityDto.Category,
+            activityDto.City,
+            activityDto.Venue,
+            activityDto.Description);
+
         return await ExecuteInTransactionAsync<ActivityDto?>(async dbContext =>
         {
             var activity = MapToEntity(activityDto);
@@ -27,15 +40,13 @@ public class ActivityService : IActivityService
         }, "An error has occurred during creating an Activity");
     }
 
-    public async Task<ActivityDto?> GetActivityAsync(Guid activityId)
+    public async Task<ActivityDto> GetActivityAsync(Guid activityId)
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
 
-        var activity = await dbContext.Activities
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == activityId);
+        var activity = await CheckActivityId(activityId);
 
-        return activity != null ? MapToDto(activity) : null;
+        return MapToDto(activity);
     }
 
     public async Task<IEnumerable<ActivityDto>> GetActivitiesAsync()
@@ -49,10 +60,16 @@ public class ActivityService : IActivityService
 
     public async Task<bool> UpdateActivityAsync(Guid activityId, ActivityDto activityDto)
     {
+        InputValidation(activityDto.Date,
+            activityDto.Title,
+            activityDto.Category,
+            activityDto.City,
+            activityDto.Venue,
+            activityDto.Description);
+
         return await ExecuteInTransactionAsync(async dbContext =>
         {
-            var activity = await dbContext.Activities
-                .SingleAsync(x => x.Id == activityId);
+            var activity = await CheckActivityId(activityId);
 
             UpdateEntity(activity, activityDto);
 
@@ -64,8 +81,7 @@ public class ActivityService : IActivityService
     {
         return await ExecuteInTransactionAsync(async dbContext =>
         {
-            var activity = await dbContext.Activities
-                .SingleAsync(x => x.Id == activityId);
+            var activity = await CheckActivityId(activityId);
 
             dbContext.Activities.Remove(activity);
 
@@ -130,5 +146,34 @@ public class ActivityService : IActivityService
         activity.Category = activityDto.Category;
         activity.City = activityDto.City;
         activity.Venue = activityDto.Venue;
+    }
+
+    private static void InputValidation(
+        DateTime date,
+        string title,
+        string category,
+        string city,
+        string venue,
+        string description)
+    {
+        Guards.ActivityGuard.CheckDate(date);
+        Guards.ActivityGuard.CheckLength(title, TitleLength);
+        Guards.ActivityGuard.CheckLength(category, CategoryLength);
+        Guards.ActivityGuard.CheckLength(city, CityLength);
+        Guards.ActivityGuard.CheckLength(venue, VenueLength);
+        Guards.ActivityGuard.CheckLength(description, DescriptionLength);
+    }
+
+    private async Task<DataAccess.Activities.Activity> CheckActivityId(Guid activityId)
+    {
+        await using var dbContext = await _contextFactory.CreateDbContextAsync();
+
+        var getActivity = await dbContext.Activities
+            .SingleAsync(x => x.Id == activityId);
+
+        if (getActivity == null)
+            throw new IdNotFoundException();
+
+        return getActivity;
     }
 }

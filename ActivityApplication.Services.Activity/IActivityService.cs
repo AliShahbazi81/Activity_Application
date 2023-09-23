@@ -6,7 +6,7 @@ public interface IActivityService
 {
     Task<ActivityDto?> CreateActivityAsync(ActivityDto activityDto);
 
-    Task<ActivityDto?> GetActivityAsync(Guid activityId);
+    Task<ActivityDto> GetActivityAsync(Guid activityId);
 
     Task<IEnumerable<ActivityDto>> GetActivitiesAsync();
 

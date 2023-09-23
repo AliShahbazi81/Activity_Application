@@ -1,5 +1,3 @@
-using System.Net;
-using System.Runtime.InteropServices;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.DTO;
 using Microsoft.AspNetCore.Mvc;

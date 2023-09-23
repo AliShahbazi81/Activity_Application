@@ -10,11 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/12ef1747-a5bd-4940-919a-69cd95d87104.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/12ef1747-a5bd-4940-919a-69cd95d87104/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Exceptions/DateTimeValidationException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Exceptions/IdNotFoundException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Exceptions/StringLengthException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Guards/ActivityGuard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/Activity/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/Activity/ActivityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +57,8 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.6065217",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.73478264",
     "git-widget-placeholder": "master",
     "javascript.nodejs.core.library.configured.version": "20.6.0",
     "javascript.nodejs.core.library.typings.version": "20.6.0",
@@ -62,8 +69,9 @@
     "nodejs_package_manager_path": "npm",
     "rider.code.cleanup.on.save": "true",
     "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Users/ali/RiderProjects/ActivityApplication/ActivityApplication/ClientApp/node_modules/typescript/lib"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/ali/RiderProjects/ActivityApplication/ActivityApplication/ClientApp/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -134,7 +142,8 @@
       <workItem from="1695411664957" duration="5000" />
       <workItem from="1695411682343" duration="8030000" />
       <workItem from="1695431095945" duration="7583000" />
-      <workItem from="1695444238635" duration="2110000" />
+      <workItem from="1695444238635" duration="5907000" />
+      <workItem from="1695478674788" duration="5161000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -184,7 +193,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695441294270</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Implemented all of the services in Controller">
+      <option name="closed" value="true" />
+      <created>1695446768229</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695446768229</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add Exception Solution folder to Activity Service">
+      <option name="closed" value="true" />
+      <created>1695448870493</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695448870493</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +223,9 @@
     <MESSAGE value="First coding for Activity Service" />
     <MESSAGE value="Refactoring Activity Service" />
     <MESSAGE value="Use service in Controller, add Swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use service in Controller, add Swagger" />
+    <MESSAGE value="Implemented all of the services in Controller" />
+    <MESSAGE value="Add Exception Solution folder to Activity Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Exception Solution folder to Activity Service" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
