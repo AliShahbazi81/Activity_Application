@@ -9,17 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Start implementing MediatR in Activity Service">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mapper/Mapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/CreateActivity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/GetActivity.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Replace the services with MediatR queries and commands">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Activities/Activity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Activities/Activity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/MediatorList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/GetActivityList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/Activity/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +23,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication.DataAccess/Activities/Activity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication/Controllers/Activity/ActivityController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -151,7 +144,7 @@
       <workItem from="1695411682343" duration="8030000" />
       <workItem from="1695431095945" duration="7583000" />
       <workItem from="1695444238635" duration="5907000" />
-      <workItem from="1695478674788" duration="22308000" />
+      <workItem from="1695478674788" duration="25588000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -249,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695660419185</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Replace the services with MediatR queries and commands">
+      <option name="closed" value="true" />
+      <created>1695667210138</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1695667210138</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +271,8 @@
     <MESSAGE value="Flow error handling, refactoring Activity flow" />
     <MESSAGE value="Make the first request from clientSide to Back" />
     <MESSAGE value="Start implementing MediatR in Activity Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start implementing MediatR in Activity Service" />
+    <MESSAGE value="Replace the services with MediatR queries and commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replace the services with MediatR queries and commands" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
