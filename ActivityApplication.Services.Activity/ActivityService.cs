@@ -110,7 +110,7 @@ public class ActivityService : IActivityService
         }
     }
 
-    private static ActivityDto MapToDto(DataAccess.Activities.Activity activity)
+    private static ActivityDto MapToDto(DataAccess.Activities.Activity? activity)
     {
         return new ActivityDto
         {
@@ -137,7 +137,7 @@ public class ActivityService : IActivityService
     }
 
     private static void UpdateEntity(
-        DataAccess.Activities.Activity activity,
+        DataAccess.Activities.Activity? activity,
         ActivityDto activityDto)
     {
         activity.Title = activityDto.Title;
@@ -164,7 +164,7 @@ public class ActivityService : IActivityService
         Guards.ActivityGuard.CheckLength(description, DescriptionLength);
     }
 
-    private async Task<DataAccess.Activities.Activity> CheckActivityId(Guid activityId)
+    private async Task<DataAccess.Activities.Activity?> CheckActivityId(Guid activityId)
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
 

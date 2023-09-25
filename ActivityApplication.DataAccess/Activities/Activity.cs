@@ -18,6 +18,5 @@ public class ActivityBuilder : IEntityTypeConfiguration<Activity>
 {
     public void Configure(EntityTypeBuilder<Activity> builder)
     {
-        
     }
 }

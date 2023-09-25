@@ -33,7 +33,7 @@ builder.Services.AddScoped<IActivityService, ActivityService>();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Mediator Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddMediatR
-(cfg => cfg.RegisterServicesFromAssembly(typeof(MediatorList.Query)
+(cfg => cfg.RegisterServicesFromAssembly(typeof(GetActivityList.Query)
     .Assembly));
 
 

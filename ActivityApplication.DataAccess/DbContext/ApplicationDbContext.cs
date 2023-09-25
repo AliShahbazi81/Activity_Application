@@ -9,10 +9,9 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, Guid>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        
     }
 
-    public DbSet<Activity> Activities { get; set; }
+    public DbSet<Activity?> Activities { get; set; }
     public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
