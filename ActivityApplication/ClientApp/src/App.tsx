@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {Header, List} from "semantic-ui-react";
 
 const App: React.FC = () => {
   const [activities, setActivities] = useState<any[]>([]);
@@ -13,14 +14,14 @@ const App: React.FC = () => {
 
   return (
         <div>
-          <h1>Reactivities</h1>
-          <ul>
+          <Header as={"h2"} icon={"users"} content={"Reactivities"}/>
+          <List>
             {activities.map(activity => (
-                  <li key={activity.id}>
+                  <List.Item key={activity.id}>
                     {activity.title}
-                  </li>
+                  </List.Item>
             ))}
-          </ul>
+          </List>
         </div>
   );
 };
