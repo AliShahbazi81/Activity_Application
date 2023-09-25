@@ -1,6 +1,7 @@
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
+using ActivityApplication.Services.Activity.Services.Mediator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActivityApplication.Controllers.Activity;
@@ -35,6 +36,20 @@ public class ActivityController : BaseApiController
         {
             _logger.LogError("Error while getting activity: " + e.Message);
             return BadRequest();
+        }
+    }
+
+    [HttpGet("GetWithMediator")]
+    public async Task<List<DataAccess.Activities.Activity>> GetActivitiesWithMediator()
+    {
+        try
+        {
+            return await Mediator?.Send(new MediatorList.Query())!;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 

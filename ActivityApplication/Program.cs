@@ -2,6 +2,7 @@ using ActivityApplication.DataAccess;
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Users;
 using ActivityApplication.Services.Activity;
+using ActivityApplication.Services.Activity.Services.Mediator;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -29,6 +30,11 @@ builder.Services.AddIdentity<User, Role>(opt =>
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Activity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<IActivityService, ActivityService>();
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Mediator Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddMediatR
+(cfg => cfg.RegisterServicesFromAssembly(typeof(MediatorList.Query)
+    .Assembly));
 
 
 var app = builder.Build();
@@ -65,7 +71,16 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseCors(opt => { opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("https://localhost:3000"); });
+app.UseCors(opt =>
+{
+    opt.AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials()
+        .WithOrigins(
+            "https://localhost:3000",
+            "http://localhost:5162",
+            "https://localhost:7290");
+});
 
 
 app.MapControllerRoute(
