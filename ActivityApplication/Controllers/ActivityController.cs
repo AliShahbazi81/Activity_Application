@@ -16,7 +16,7 @@ public class ActivityController : BaseApiController
         _service = service;
     }
 
-    [HttpGet("GetActivity/{activityId}")]
+    [HttpGet("Get/{activityId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -40,7 +40,7 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpGet("GetActivities")]
+    [HttpGet("Get")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IEnumerable<ActivityDto>?> GetActivities()
@@ -58,7 +58,7 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpPost("CreateActivity")]
+    [HttpPost("Create")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateActivity(ActivityDto activityDto)
@@ -85,7 +85,7 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpPut("UpdateActivity")]
+    [HttpPut("Update")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -119,7 +119,7 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpDelete("DeleteActivity")]
+    [HttpDelete("Delete")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
