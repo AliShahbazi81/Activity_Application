@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {Header, List} from "semantic-ui-react";
+import {Container, Header, List} from "semantic-ui-react";
+import {Activity} from "./types/activity";
+import NavBar from "./components/navbar";
+import ActivityDashboard from "./features/activity/ActivityDashboard";
 
 const App: React.FC = () => {
-  const [activities, setActivities] = useState<any[]>([]);
+  const [activities, setActivities] = useState<Activity[]>([]);
 
   useEffect(() => {
-    axios.get('https://localhost:7290/api/Activity/GetActivities')
+    axios.get<Activity[]>('https://localhost:7290/api/Activity/Get')
           .then(response => {
             setActivities(response.data);
           });
   }, []);
 
   return (
-        <div>
-          <Header as={"h2"} icon={"users"} content={"Reactivities"}/>
-          <List>
-            {activities.map(activity => (
-                  <List.Item key={activity.id}>
-                    {activity.title}
-                  </List.Item>
-            ))}
-          </List>
-        </div>
+        <>
+          <NavBar />
+              <Container style={{marginTop: "7rem"}}>
+                   <ActivityDashboard activities={activities} />
+              </Container>
+          
+        </>
   );
 };
 

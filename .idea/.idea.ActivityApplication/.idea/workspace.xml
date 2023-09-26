@@ -9,9 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Bring back the previous service to controller">
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Adjust namespaces in Activity Controller">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/activity-assessment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/categoryImages/culture.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/categoryImages/drinks.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/categoryImages/film.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/categoryImages/food.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/categoryImages/music.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/categoryImages/travel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/assets/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/styles/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/activity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/setupProxy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/configs/setupProxy.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +42,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication.DataAccess/Activities/Activity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication/Controllers/Activity/ActivityController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication/Controllers/ActivityController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -144,7 +162,7 @@
       <workItem from="1695411682343" duration="8030000" />
       <workItem from="1695431095945" duration="7583000" />
       <workItem from="1695444238635" duration="5907000" />
-      <workItem from="1695478674788" duration="26436000" />
+      <workItem from="1695478674788" duration="28421000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -258,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695674484325</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adjust namespaces in Activity Controller">
+      <option name="closed" value="true" />
+      <created>1695741483912</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1695741483912</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +307,8 @@
     <MESSAGE value="Start implementing MediatR in Activity Service" />
     <MESSAGE value="Replace the services with MediatR queries and commands" />
     <MESSAGE value="Bring back the previous service to controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bring back the previous service to controller" />
+    <MESSAGE value="Adjust namespaces in Activity Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjust namespaces in Activity Controller" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
