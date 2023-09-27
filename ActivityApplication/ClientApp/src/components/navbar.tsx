@@ -1,4 +1,4 @@
-import {Button, Container, Menu, MenuItem} from "semantic-ui-react";
+import {Button, Container, Image, Menu, MenuItem} from "semantic-ui-react";
 import React from "react";
 
 
@@ -8,7 +8,7 @@ export default function NavBar()
 			<Menu inverted fixed="top">
 				  <Container>
 						<MenuItem header>
-							  <img src="../assets/activity-assessment.png" alt="Logo"/>
+							  <Image src={"../assets/activity-assessment.png"} alt="Logo"/>
 							  Reactivities
 						</MenuItem>
 						<MenuItem name={"activities"}/>

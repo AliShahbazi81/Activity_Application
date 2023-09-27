@@ -115,7 +115,7 @@ public class ActivityService : IActivityService
         return new ActivityDto
         {
             Title = activity.Title,
-            Date = activity.Date,
+            Date = Convert.ToDateTime(activity.Date.ToLocalTime().ToString("g")),
             Description = activity.Description,
             Category = activity.Category,
             City = activity.City,
