@@ -2,6 +2,7 @@ namespace ActivityApplication.Services.Activity.DTO;
 
 public record struct ActivityDto
 {
+    public Guid Id { get; set; }
     public string Title { get; set; }
     public DateTime Date { get; set; }
     public string Description { get; set; }
