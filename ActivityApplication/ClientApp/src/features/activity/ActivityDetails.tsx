@@ -9,7 +9,7 @@ interface Props {
 export default function ActivityDetails({activity}: Props) {
 	  return (
 			<Card fluid>
-				  <Image src={`/assets/categoryImages/${activity.category}.jpg`}/>
+				  <Image src={`/assets/categoryImages/${activity.category}.jpg`} wrapped ui={false}/>
 				  <Card.Content>
 						<Card.Header>
 							  {activity.title}

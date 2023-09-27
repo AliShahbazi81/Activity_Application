@@ -8,7 +8,7 @@ export default function NavBar()
 			<Menu inverted fixed="top">
 				  <Container>
 						<MenuItem header>
-							  <Image src={"../assets/activity-assessment.png"} alt="Logo"/>
+							  <Image src={"/assets/activity-assessment.png"} alt="Logo" style={{width: "35px", marginRight:"5px"}}/>
 							  Reactivities
 						</MenuItem>
 						<MenuItem name={"activities"}/>
