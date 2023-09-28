@@ -31,6 +31,22 @@ const App: React.FC = () => {
   {
         setEditMode(false);
   }
+  
+  // If the activity has id, it means that we are gonna edit it,
+      // Otherwise, if it does not have any id, then we are creating a new activity
+  function handleEditOrCreateActivity(activity: Activity)
+  {
+        activity.id 
+              ? setActivities([...activities.filter(x => x.id !== activity.id), activity])
+              : setActivities([...activities, activity])
+        setEditMode(false)
+        setSelectedActivity(activity)
+  }
+  
+  function handleDeleteActivity(id: string)
+  {
+        setActivities([...activities.filter(x => x.id !== id)])
+  }
 
   useEffect(() => {
     axios.get<Activity[]>('https://localhost:7290/api/Activity/Get')
@@ -51,6 +67,8 @@ const App: React.FC = () => {
                          editMode={editMode}
                          openForm = {handleFormOpen}
                          closeForm={handleFormClose}
+                         createOrEditActivity={handleEditOrCreateActivity}
+                         deleteActivity={handleDeleteActivity}
                    />
               </Container>
           

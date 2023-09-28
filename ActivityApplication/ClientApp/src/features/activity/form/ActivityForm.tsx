@@ -6,11 +6,13 @@ interface Props{
     activity: Activity | undefined
     editMode: boolean
     closeForm: () => void
+    createOrEditActivity: (activity: Activity) => void
 }
-export default function ActivityForm({activity: selectedActivity, editMode, closeForm}: Props)
+export default function ActivityForm({activity: selectedActivity, editMode, closeForm, createOrEditActivity}: Props)
 {
 
     const initialState = selectedActivity ?? [{
+        id: "",
         title: "",
         description: "",
         category: "",
@@ -23,7 +25,7 @@ export default function ActivityForm({activity: selectedActivity, editMode, clos
     
     function handleSubmit()
     {
-        console.log(activity)
+        createOrEditActivity(activity as Activity)
     }
     
     function handleOnChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
@@ -73,7 +75,8 @@ export default function ActivityForm({activity: selectedActivity, editMode, clos
                       positive 
                       type={"submit"} 
                       content={"Submit"} 
-                      onChange={handleOnChange}/>
+                      onClick={handleSubmit}
+                />
                 <Button 
                       onClick={closeForm}
                       floated={"right"} 
