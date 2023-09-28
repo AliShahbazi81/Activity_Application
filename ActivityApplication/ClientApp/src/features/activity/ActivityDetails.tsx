@@ -1,15 +1,16 @@
 import {Activity} from "../../types/activity";
 import {Button, Card, Image} from "semantic-ui-react";
-import React from "react";
+import React, {useState} from "react";
 
 interface Props {
-	  activity: Activity
+	  activity: Activity 
 	  cancelSelectActivity: () => void
 	  openForm: (id: string) => void
 	  closeForm: () => void
 }
 
 export default function ActivityDetails({activity, cancelSelectActivity, openForm, closeForm}: Props) {
+	  
 	  return (
 			<Card fluid>
 				  <Image src={`/assets/categoryImages/${activity.category}.jpg`} wrapped ui={false}/>
