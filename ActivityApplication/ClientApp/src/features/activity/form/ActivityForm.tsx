@@ -11,7 +11,7 @@ interface Props{
 export default function ActivityForm({activity: selectedActivity, editMode, closeForm, createOrEditActivity}: Props)
 {
 
-    const initialState = selectedActivity ?? [{
+    const initialState = selectedActivity ?? {
         id: "",
         title: "",
         description: "",
@@ -19,13 +19,13 @@ export default function ActivityForm({activity: selectedActivity, editMode, clos
         date: "",
         city: "",
         venue: ""
-    }]
+    }
 
     const [activity, setActivity] = useState(initialState);
     
     function handleSubmit()
     {
-        createOrEditActivity(activity as Activity)
+        createOrEditActivity(activity)
     }
     
     function handleOnChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
@@ -40,32 +40,32 @@ export default function ActivityForm({activity: selectedActivity, editMode, clos
                 {/*! Form input elements*/}
                 <Form.Input 
                       placeholder={"Title"} 
-                      value={selectedActivity?.title} 
+                      value={activity.title} 
                       name={"title"} 
                       onChange={handleOnChange}/>
                 <Form.TextArea 
                       placeholder={"Description"} 
-                      value={selectedActivity?.description} 
+                      value={activity.description} 
                       name={"description"} 
                       onChange={handleOnChange}/>
                 <Form.Input 
                       placeholder={"Category"} 
-                      value={selectedActivity?.category} 
+                      value={activity.category} 
                       name={"category"} 
                       onChange={handleOnChange}/>
                 <Form.Input 
                       placeholder={"Date"} 
-                      value={selectedActivity?.date} 
+                      value={activity.date} 
                       name={"date"} 
                       onChange={handleOnChange}/>
                 <Form.Input 
                       placeholder={"City"} 
-                      value={selectedActivity?.city} 
+                      value={activity.city} 
                       name={"city"} 
                       onChange={handleOnChange}/>
                 <Form.Input 
                       placeholder={"Venue"} 
-                      value={selectedActivity?.venue} 
+                      value={activity.venue} 
                       name={"venue"} 
                       onChange={handleOnChange}/>
                 
