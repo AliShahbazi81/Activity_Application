@@ -8,15 +8,28 @@ import ActivityDashboard from "./features/activity/ActivityDashboard";
 const App: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
+  const [editMode, setEditMode] = useState(false);
   
+  // Functionality: Select an activity
   function handleSelectActivity(id: string)
   {
         setSelectedActivity(activities.find(x => x.id === id))
   }
-  
-  function handleCancelActivity()
+  // Functionality: Cancel selection of an activity
+  function handleCancelSelectActivity()
   {
         setSelectedActivity(undefined);
+  }
+  // Functionality: Open the form which means that the edit mode is true 
+  function handleFormOpen(id?: string)
+  {
+        id ? handleSelectActivity(id) : handleCancelSelectActivity();
+        setEditMode(true);
+  }
+  
+  function handleFormClose()
+  {
+        setEditMode(false);
   }
 
   useEffect(() => {
@@ -28,13 +41,16 @@ const App: React.FC = () => {
 
   return (
         <>
-          <NavBar />
+          <NavBar openForm={handleFormOpen}/>
               <Container style={{marginTop: "7rem"}}>
                    <ActivityDashboard 
                          activities={activities} 
                          selectedActivity = {selectedActivity}
                          selectActivity =  {handleSelectActivity}
-                         cancelSelectActivity = {handleCancelActivity}
+                         cancelSelectActivity = {handleCancelSelectActivity}
+                         editMode={editMode}
+                         openForm = {handleFormOpen}
+                         closeForm={handleFormClose}
                    />
               </Container>
           

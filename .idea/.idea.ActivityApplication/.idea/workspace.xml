@@ -10,14 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/ActivityDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/ActivityDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/ActivityDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/ActivityDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/ActivityList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/ActivityList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +22,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication.DataAccess/Activities/Activity.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication/Controllers/Activity/ActivityController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication/Controllers/ActivityController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication.Services.Activity/ActivityService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -155,7 +146,7 @@
       <workItem from="1695478674788" duration="30382000" />
       <workItem from="1695766915020" duration="23000" />
       <workItem from="1695766951721" duration="90000" />
-      <workItem from="1695767054686" duration="3061000" />
+      <workItem from="1695767054686" duration="5987000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -277,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695741483912</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Adding comment">
+      <option name="closed" value="true" />
+      <created>1695860770798</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1695860770798</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +300,8 @@
     <MESSAGE value="Replace the services with MediatR queries and commands" />
     <MESSAGE value="Bring back the previous service to controller" />
     <MESSAGE value="Adjust namespaces in Activity Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust namespaces in Activity Controller" />
+    <MESSAGE value="Adding comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding comment" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
