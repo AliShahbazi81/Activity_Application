@@ -55,6 +55,7 @@ export default function ActivityForm({activity: selectedActivity, editMode, clos
                       onChange={handleOnChange}/>
                 <Form.Input 
                       placeholder={"Date"} 
+                      type={"date"}
                       value={activity.date} 
                       name={"date"} 
                       onChange={handleOnChange}/>

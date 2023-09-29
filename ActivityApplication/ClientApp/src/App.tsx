@@ -5,6 +5,7 @@ import {Activity} from "./types/activity";
 import NavBar from "./components/navbar";
 import ActivityDashboard from "./features/activity/ActivityDashboard";
 import agent from "./api/agent";
+import ActivityForm from "./features/activity/form/ActivityForm";
 
 const App: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -52,7 +53,12 @@ const App: React.FC = () => {
   useEffect(() => {
     agent.Activities.list()
           .then(response => {
-            setActivities(response);
+                let activities: Activity[] = []
+                response.forEach(activity => {
+                      activity.date = activity.date.split("T")[0]
+                      activities.push(activity)
+                })
+            setActivities(activities);
           });
   }, []);
 
