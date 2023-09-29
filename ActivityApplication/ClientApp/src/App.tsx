@@ -4,6 +4,7 @@ import {Container, Header, List} from "semantic-ui-react";
 import {Activity} from "./types/activity";
 import NavBar from "./components/navbar";
 import ActivityDashboard from "./features/activity/ActivityDashboard";
+import agent from "./api/agent";
 
 const App: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -49,9 +50,9 @@ const App: React.FC = () => {
   }
 
   useEffect(() => {
-    axios.get<Activity[]>('https://localhost:7290/api/Activity/Get')
+    agent.Activities.list()
           .then(response => {
-            setActivities(response.data);
+            setActivities(response);
           });
   }, []);
 
