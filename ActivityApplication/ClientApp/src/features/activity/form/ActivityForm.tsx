@@ -11,7 +11,6 @@ interface Props{
 }
 export default function ActivityForm({activity: selectedActivity, editMode, closeForm, createOrEditActivity, submitting}: Props)
 {
-
     const initialState = selectedActivity ?? {
         id: "",
         title: "",
