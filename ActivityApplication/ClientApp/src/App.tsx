@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import {Container, Header, List} from "semantic-ui-react";
+import {Container} from "semantic-ui-react";
 import {Activity} from "./types/activity";
 import NavBar from "./components/navbar";
 import ActivityDashboard from "./features/activity/ActivityDashboard";
 import agent from "./api/agent";
-import ActivityForm from "./features/activity/form/ActivityForm";
 
 const App: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -34,7 +32,7 @@ const App: React.FC = () => {
         setEditMode(false);
   }
   
-  // If the activity has id, it means that we are gonna edit it,
+  // If the activity has id, it means that we are going to edit it,
       // Otherwise, if it does not have any id, then we are creating a new activity
   function handleEditOrCreateActivity(activity: Activity)
   {
