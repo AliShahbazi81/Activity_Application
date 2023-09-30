@@ -7,8 +7,9 @@ interface Props{
     editMode: boolean
     closeForm: () => void
     createOrEditActivity: (activity: Activity) => void
+    submitting: boolean
 }
-export default function ActivityForm({activity: selectedActivity, editMode, closeForm, createOrEditActivity}: Props)
+export default function ActivityForm({activity: selectedActivity, editMode, closeForm, createOrEditActivity, submitting}: Props)
 {
 
     const initialState = selectedActivity ?? {
@@ -76,6 +77,7 @@ export default function ActivityForm({activity: selectedActivity, editMode, clos
                       positive 
                       type={"submit"} 
                       content={"Submit"} 
+                      loading={submitting}
                       onClick={handleSubmit}
                 />
                 <Button 

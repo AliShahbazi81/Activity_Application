@@ -5,12 +5,14 @@ import NavBar from "./components/navbar";
 import ActivityDashboard from "./features/activity/ActivityDashboard";
 import agent from "./api/agent";
 import LoadingComponent from "./components/LoadingComponent";
+import { v4 as uuid } from 'uuid';
 
 const App: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   
   // Functionality: Select an activity
   function handleSelectActivity(id: string)
@@ -38,11 +40,30 @@ const App: React.FC = () => {
       // Otherwise, if it does not have any id, then we are creating a new activity
   function handleEditOrCreateActivity(activity: Activity)
   {
-        activity.id 
-              ? setActivities([...activities.filter(x => x.id !== activity.id), activity])
-              : setActivities([...activities, activity])
-        setEditMode(false)
-        setSelectedActivity(activity)
+        setSubmitting(true)
+        // If there is an id, it means we are updating the data
+        if (activity.id)
+        {
+              agent.Activities.update(activity)
+                    .then(() => {
+                          setActivities([...activities.filter(x => x.id !== activity.id), activity])
+                          setSelectedActivity(activity)
+                          setEditMode(false)
+                          setSubmitting(false)
+                    })
+        }
+        // If there is no id, then we are creating a data
+        else
+        {
+              activity.id = uuid();
+              agent.Activities.create(activity)
+                    .then(() => {
+                          setActivities([...activities, activity])
+                          setSelectedActivity(activity)
+                          setEditMode(false)
+                          setSubmitting(false)
+                    })
+        }
   }
   
   function handleDeleteActivity(id: string)
@@ -80,6 +101,7 @@ const App: React.FC = () => {
                          closeForm={handleFormClose}
                          createOrEditActivity={handleEditOrCreateActivity}
                          deleteActivity={handleDeleteActivity}
+                         submitting={submitting}
                    />
               </Container>
           

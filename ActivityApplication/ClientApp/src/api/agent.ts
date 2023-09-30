@@ -1,5 +1,6 @@
 import axios, {AxiosResponse} from "axios";
 import {Activity} from "../types/activity";
+import ActivityDashboard from "../features/activity/ActivityDashboard";
 
 // Set some delay
 const sleep = (delay: number) => {
@@ -9,7 +10,7 @@ const sleep = (delay: number) => {
 }
 
 // Configure default URL for APIs
-axios.defaults.baseURL = "https://localhost:7290/api";
+axios.defaults.baseURL = "https://localhost:7290/api/Activity";
 
 // Add delay for getting response from our API
 axios.interceptors.response.use(async response => {
@@ -35,7 +36,11 @@ const requests = {
 
 // Implementing the requests for each service/ section
 const Activities ={
-	  list: () => requests.get<Activity[]>("/Activity/Get")
+	  list: () => requests.get<Activity[]>("/Get"),
+	  details: (id: string) => requests.get<Activity>(`/Get/${id}`),
+	  create: (activity: Activity) => requests.post<void>("/Create", activity),
+	  update: (activity: Activity) => requests.put<void>(`/Update/${activity.id}`, activity),
+	  delete: (id: string) => requests.del<void>(`/Delete/${id}`)
 }
 
 // Configuring which requests can be accessed in the application
