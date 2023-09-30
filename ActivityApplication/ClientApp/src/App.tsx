@@ -68,7 +68,14 @@ const App: React.FC = () => {
   
   function handleDeleteActivity(id: string)
   {
-        setActivities([...activities.filter(x => x.id !== id)])
+        setSubmitting(true)
+        // Delete the activity from the DataBase
+        agent.Activities.delete(id)
+              .then(() => {
+                    // Also delete the activity from the client side so that we will not require to recall Get function
+                    setActivities([...activities.filter(x => x.id !== id)])
+                    setSubmitting(false)
+              })
   }
 
   useEffect(() => {

@@ -9,7 +9,7 @@ interface Props {
 	  closeForm: () => void
 }
 
-export default function ActivityDetails({activity, cancelSelectActivity, openForm, closeForm}: Props) {
+export default function ActivityDetails({activity, cancelSelectActivity, openForm}: Props) {
 	  
 	  return (
 			<Card fluid>

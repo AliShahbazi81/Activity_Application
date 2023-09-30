@@ -16,7 +16,7 @@ public class ActivityController : BaseApiController
         _service = service;
     }
 
-    [HttpGet("Get/{activityId}")]
+    [HttpGet("Get/{activityId:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -85,7 +85,7 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpPut("Update")]
+    [HttpPut("Update/{activityId:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -119,7 +119,7 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpDelete("Delete")]
+    [HttpDelete("Delete/{activityId:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
