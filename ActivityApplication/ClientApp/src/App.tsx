@@ -4,11 +4,13 @@ import {Activity} from "./types/activity";
 import NavBar from "./components/navbar";
 import ActivityDashboard from "./features/activity/ActivityDashboard";
 import agent from "./api/agent";
+import LoadingComponent from "./components/LoadingComponent";
 
 const App: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true)
   
   // Functionality: Select an activity
   function handleSelectActivity(id: string)
@@ -56,9 +58,13 @@ const App: React.FC = () => {
                       activity.date = activity.date.split("T")[0]
                       activities.push(activity)
                 })
-            setActivities(activities);
+            setActivities(activities)
+                setLoading(false)
           });
   }, []);
+  
+  // Display loading component if the data is not retrieved yet
+  if (loading) return <LoadingComponent content={"Loading App..."} />
 
   return (
         <>

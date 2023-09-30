@@ -1,8 +1,26 @@
 import axios, {AxiosResponse} from "axios";
 import {Activity} from "../types/activity";
 
+// Set some delay
+const sleep = (delay: number) => {
+	  return new Promise((resolve) => {
+			setTimeout(resolve, delay)
+	  })
+}
+
 // Configure default URL for APIs
 axios.defaults.baseURL = "https://localhost:7290/api";
+
+// Add delay for getting response from our API
+axios.interceptors.response.use(async response => {
+	  try {
+			await sleep(1000);
+			return response
+	  } catch (error) {
+			console.log(error);
+			return Promise.reject(error)
+	  }
+})
 
 // After calling API, we will get a response
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
