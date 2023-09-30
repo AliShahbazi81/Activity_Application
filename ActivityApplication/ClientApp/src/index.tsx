@@ -3,16 +3,10 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "semantic-ui-css/semantic.min.css";
 import "./styles/styles.css";
-import {DevSupport} from "@react-buddy/ide-toolbox";
-import {ComponentPreviews, useInitial} from "./dev";
 
 ReactDOM.render(
 	  <React.StrictMode>
-			<DevSupport ComponentPreviews={ComponentPreviews}
-						useInitialHook={useInitial}
-			>
 				  <App/>
-			</DevSupport>
 	  </React.StrictMode>,
 	  document.getElementById('root')
 );

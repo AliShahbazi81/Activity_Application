@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.1",
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
+    "@react-buddy/palette-mui": "^5.0.1",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "axios": "^1.5.0",
@@ -34,9 +36,7 @@
     "workbox-range-requests": "^6.5.4",
     "workbox-routing": "^6.5.4",
     "workbox-strategies": "^6.5.4",
-    "workbox-streams": "^6.5.4",
-    "@react-buddy/ide-toolbox": "^2.4.0",
-    "@react-buddy/palette-mui": "^5.0.1"
+    "workbox-streams": "^6.5.4"
   },
   "devDependencies": {
     "ajv": "^8.12.0",
