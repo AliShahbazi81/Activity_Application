@@ -4,37 +4,29 @@ import {Activity} from "../../types/activity";
 import ActivityList from "./ActivityList";
 import ActivityDetails from "./ActivityDetails";
 import ActivityForm from "./form/ActivityForm";
+import {useStore} from "../../stores/store";
 
 interface Props{
 	  activities: Activity[]
-	  selectedActivity: Activity | undefined
-	  selectActivity: (id: string) => void
-	  cancelSelectActivity: () => void
-	  editMode: boolean
-	  openForm: (id: string) => void
-	  closeForm: () => void
 	  createOrEditActivity: (activity: Activity) => void
 	  deleteActivity:(id: string) => void
 	  submitting: boolean
 }
 export default function ActivityDashboard(
-	  {activities, 
-			selectActivity, 
-			selectedActivity, 
-			cancelSelectActivity, 
-			editMode, 
-			openForm, 
-			closeForm,
+	  {activities,
 	  		createOrEditActivity,
 	  		deleteActivity,
 			submitting}: Props) {
+	  
+	  const {activityStore} = useStore();
+	  const {editMode, selectedActivity} = activityStore
+	  
 	  return (
 			 <Grid >
 				   <Grid.Column width={"10"}>
 						 <List>
 							   <ActivityList 
 									 activities={activities} 
-									 selectActivity={selectActivity}
 									 deleteActivity={deleteActivity}
 									 submitting={submitting}
 							   />
@@ -42,17 +34,9 @@ export default function ActivityDashboard(
 				   </Grid.Column>
 				   <Grid.Column width={"6"}>
 						 { selectedActivity && !editMode &&
-							 < ActivityDetails 
-								 activity={selectedActivity} 
-								 cancelSelectActivity={cancelSelectActivity}
-								 openForm={openForm}
-								 closeForm={closeForm}
-							 />}
+							 < ActivityDetails />}
 						 {editMode &&
-						 <ActivityForm 
-							   activity={selectedActivity}
-							   closeForm={closeForm}
-							   editMode={editMode}
+						 <ActivityForm
 							   createOrEditActivity={createOrEditActivity}
                                submitting={submitting}
 						 />}

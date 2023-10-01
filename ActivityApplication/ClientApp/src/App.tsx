@@ -17,28 +17,6 @@ const App: React.FC = () => {
   const [editMode, setEditMode] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   
-  // Functionality: Select an activity
-  function handleSelectActivity(id: string)
-  {
-        setSelectedActivity(activities.find(x => x.id === id))
-  }
-  // Functionality: Cancel selection of an activity
-  function handleCancelSelectActivity()
-  {
-        setSelectedActivity(undefined);
-  }
-  // Functionality: Open the form which means that the edit mode is true 
-  function handleFormOpen(id?: string)
-  {
-        id ? handleSelectActivity(id) : handleCancelSelectActivity();
-        setEditMode(true);
-  }
-  
-  function handleFormClose()
-  {
-        setEditMode(false);
-  }
-  
   // If the activity has id, it means that we are going to edit it,
       // Otherwise, if it does not have any id, then we are creating a new activity
   function handleEditOrCreateActivity(activity: Activity)
@@ -90,16 +68,10 @@ const App: React.FC = () => {
 
   return (
         <>
-          <NavBar openForm={handleFormOpen}/>
+          <NavBar />
               <Container style={{marginTop: "7rem"}}>
                    <ActivityDashboard 
                          activities={activityStore.activities} 
-                         selectedActivity = {selectedActivity}
-                         selectActivity =  {handleSelectActivity}
-                         cancelSelectActivity = {handleCancelSelectActivity}
-                         editMode={editMode}
-                         openForm = {handleFormOpen}
-                         closeForm={handleFormClose}
                          createOrEditActivity={handleEditOrCreateActivity}
                          deleteActivity={handleDeleteActivity}
                          submitting={submitting}

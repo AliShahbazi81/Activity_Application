@@ -1,15 +1,17 @@
 import {Activity} from "../../types/activity";
 import React, {SyntheticEvent, useState} from "react";
 import {Button, Item, Label, Segment} from "semantic-ui-react";
+import {useStore} from "../../stores/store";
 
 interface Props{
 	  activities: Activity[]
 	  submitting: boolean
-	  selectActivity: (id: string) => void
 	  deleteActivity: (id: string) => void
 }
-export default function ActivityList({activities, submitting, selectActivity, deleteActivity}: Props)
+export default function ActivityList({activities, submitting, deleteActivity}: Props)
 {
+	  const {activityStore} = useStore()
+	  
 	  // In order to prevent the app from activating all Delete buttons
 	  // 1. Create a function with e as event and id of the data as the second parameter
 	  // 2. Use setTarget for triggering the name of event
@@ -39,7 +41,7 @@ export default function ActivityList({activities, submitting, selectActivity, de
 									  </Item.Description>
 									  <Item.Extra>
 											<Button 
-												  onClick={() => selectActivity(activity.id)}
+												  onClick={() => activityStore.selectActivity(activity.id)}
 												  floated={"right"} 
 												  content={"View"} 
 												  color={"facebook"}/>

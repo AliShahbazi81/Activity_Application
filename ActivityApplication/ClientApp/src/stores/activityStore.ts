@@ -5,7 +5,7 @@ import agent from "../api/agent";
 export default class ActivityStore
 {
 	  activities: Activity[] = []
-	  activity: Activity | null = null
+	  selectedActivity: Activity | undefined = undefined
 	  editMode = false
 	  loading = false
 	  loadingInitial = false
@@ -32,5 +32,22 @@ export default class ActivityStore
 				  console.log(error);
 			}
 	  };
+	  
+	  selectActivity = (id: string) => {
+			this.selectedActivity = this.activities.find(act => act.id === id)
+	  }
+	  
+	  cancelSelectedActivity = () => {
+			this.selectedActivity = undefined
+	  }
+	  
+	  openForm = (id?: string) => {
+			id ? this.selectActivity(id) : this.cancelSelectedActivity();
+			this.editMode = true
+	  }
+	  
+	  closeForm = () => {
+			this.editMode = false
+	  }
 	  
 }
