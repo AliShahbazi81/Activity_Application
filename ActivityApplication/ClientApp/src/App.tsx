@@ -6,12 +6,15 @@ import ActivityDashboard from "./features/activity/ActivityDashboard";
 import agent from "./api/agent";
 import LoadingComponent from "./components/LoadingComponent";
 import { v4 as uuid } from 'uuid';
+import {useStore} from "./stores/store";
+import {observer} from "mobx-react-lite";
 
 const App: React.FC = () => {
+      const {activityStore} = useStore()
+      
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   
   // Functionality: Select an activity
@@ -79,27 +82,18 @@ const App: React.FC = () => {
   }
 
   useEffect(() => {
-    agent.Activities.list()
-          .then(response => {
-                let activities: Activity[] = []
-                response.forEach(activity => {
-                      activity.date = activity.date.split("T")[0]
-                      activities.push(activity)
-                })
-            setActivities(activities)
-                setLoading(false)
-          });
-  }, []);
+    activityStore.loadActivities()
+  }, [activityStore]);
   
   // Display loading component if the data is not retrieved yet
-  if (loading) return <LoadingComponent content={"Loading App..."} />
+  if (activityStore.loadingInitial) return <LoadingComponent content={"Loading App..."} />
 
   return (
         <>
           <NavBar openForm={handleFormOpen}/>
               <Container style={{marginTop: "7rem"}}>
                    <ActivityDashboard 
-                         activities={activities} 
+                         activities={activityStore.activities} 
                          selectedActivity = {selectedActivity}
                          selectActivity =  {handleSelectActivity}
                          cancelSelectActivity = {handleCancelSelectActivity}
@@ -116,4 +110,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default observer(App);
