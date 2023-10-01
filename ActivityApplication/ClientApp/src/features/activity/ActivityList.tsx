@@ -1,16 +1,18 @@
-import {Activity} from "../../types/activity";
 import React, {SyntheticEvent, useState} from "react";
 import {Button, Item, Label, Segment} from "semantic-ui-react";
 import {useStore} from "../../stores/store";
+import {observer} from "mobx-react-lite";
 
-interface Props{
-	  activities: Activity[]
-	  submitting: boolean
-	  deleteActivity: (id: string) => void
-}
-export default function ActivityList({activities, submitting, deleteActivity}: Props)
+
+export default observer(function ActivityList()
 {
+	  const [target, setTarget] = useState("");
 	  const {activityStore} = useStore()
+	  const {
+			selectActivity,
+			deleteActivity, 
+			loading, 
+			activitiesByDate} = activityStore
 	  
 	  // In order to prevent the app from activating all Delete buttons
 	  // 1. Create a function with e as event and id of the data as the second parameter
@@ -26,11 +28,11 @@ export default function ActivityList({activities, submitting, deleteActivity}: P
 			setTarget(e.currentTarget.name)
 			deleteActivity(id)
 	  }
-	  const [target, setTarget] = useState("");
+	  
 	  return (
 			<Segment>
 				  <Item.Group divided>
-						{activities.map((activity) => (
+						{activitiesByDate.map((activity) => (
 							  <Item key={activity.id}>
 								<Item.Content>
 									  <Item.Header as={"a"}>{activity.title}</Item.Header>
@@ -41,7 +43,7 @@ export default function ActivityList({activities, submitting, deleteActivity}: P
 									  </Item.Description>
 									  <Item.Extra>
 											<Button 
-												  onClick={() => activityStore.selectActivity(activity.id)}
+												  onClick={() => selectActivity(activity.id)}
 												  floated={"right"} 
 												  content={"View"} 
 												  color={"facebook"}/>
@@ -49,7 +51,7 @@ export default function ActivityList({activities, submitting, deleteActivity}: P
 												  // In order to prevent the application to activate all the deleting buttons
 												  name={activity.id}
 												  //! && target === activity.id is being added for preventing the app from triggering all the delete buttons
-												  loading={submitting && target === activity.id}
+												  loading={loading && target === activity.id}
 												  onClick={(e) => handleDeleteButton(e, activity.id)}
 												  floated={"right"}
 												  content={"Delete"}
@@ -62,4 +64,4 @@ export default function ActivityList({activities, submitting, deleteActivity}: P
 				  </Item.Group>
 			</Segment>
 	  )
-}
+})

@@ -1,64 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {Container} from "semantic-ui-react";
-import {Activity} from "./types/activity";
 import NavBar from "./components/navbar";
 import ActivityDashboard from "./features/activity/ActivityDashboard";
-import agent from "./api/agent";
 import LoadingComponent from "./components/LoadingComponent";
-import { v4 as uuid } from 'uuid';
 import {useStore} from "./stores/store";
 import {observer} from "mobx-react-lite";
 
 const App: React.FC = () => {
       const {activityStore} = useStore()
-      
-  const [activities, setActivities] = useState<Activity[]>([]);
-  const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
-  const [editMode, setEditMode] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   
-  // If the activity has id, it means that we are going to edit it,
-      // Otherwise, if it does not have any id, then we are creating a new activity
-  function handleEditOrCreateActivity(activity: Activity)
-  {
-        setSubmitting(true)
-        // If there is an id, it means we are updating the data
-        if (activity.id)
-        {
-              agent.Activities.update(activity)
-                    .then(() => {
-                          setActivities([...activities.filter(x => x.id !== activity.id), activity])
-                          setSelectedActivity(activity)
-                          setEditMode(false)
-                          setSubmitting(false)
-                    })
-        }
-        // If there is no id, then we are creating a data
-        else
-        {
-              activity.id = uuid();
-              agent.Activities.create(activity)
-                    .then(() => {
-                          setActivities([...activities, activity])
-                          setSelectedActivity(activity)
-                          setEditMode(false)
-                          setSubmitting(false)
-                    })
-        }
-  }
-  
-  function handleDeleteActivity(id: string)
-  {
-        setSubmitting(true)
-        // Delete the activity from the DataBase
-        agent.Activities.delete(id)
-              .then(() => {
-                    // Also delete the activity from the client side so that we will not require to recall Get function
-                    setActivities([...activities.filter(x => x.id !== id)])
-                    setSubmitting(false)
-              })
-  }
-
   useEffect(() => {
     activityStore.loadActivities()
   }, [activityStore]);
@@ -70,12 +20,7 @@ const App: React.FC = () => {
         <>
           <NavBar />
               <Container style={{marginTop: "7rem"}}>
-                   <ActivityDashboard 
-                         activities={activityStore.activities} 
-                         createOrEditActivity={handleEditOrCreateActivity}
-                         deleteActivity={handleDeleteActivity}
-                         submitting={submitting}
-                   />
+                   <ActivityDashboard />
               </Container>
           
         </>

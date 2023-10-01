@@ -1,6 +1,5 @@
-import {Activity} from "../../types/activity";
 import {Button, Card, Image} from "semantic-ui-react";
-import React, {useState} from "react";
+import React from "react";
 import {useStore} from "../../stores/store";
 import LoadingComponent from "../../components/LoadingComponent";
 
