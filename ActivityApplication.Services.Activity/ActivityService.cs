@@ -16,7 +16,7 @@ public class ActivityService : IActivityService
     private const int CategoryLength = 5;
     private const int VenueLength = 5;
     private const int DescriptionLength = 10;
-
+    
     // Comment
     public ActivityService(IDbContextFactory<ApplicationDbContext> context, ILogger<ActivityService> logger)
     {

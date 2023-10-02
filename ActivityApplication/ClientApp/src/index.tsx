@@ -10,7 +10,7 @@ import {router} from "./router/Routes";
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error('Failed to find the root element')
 const root = createRoot(rootElement);
-
+// test ioff the assasdasdasd
 root.render(
 	  <StrictMode>
 			<StoreContext.Provider value={store}>
