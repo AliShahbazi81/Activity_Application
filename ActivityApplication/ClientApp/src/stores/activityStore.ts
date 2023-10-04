@@ -15,6 +15,11 @@ export default class ActivityStore
 			makeAutoObservable(this)
 	  }
 	  
+	  setLoadingInitial = (state: boolean) =>
+	  {
+			this.loadingInitial = state;
+	  }
+	  
 	  // Sort the activities list by Date
 	  get activitiesByDate()
 	  {
@@ -23,6 +28,7 @@ export default class ActivityStore
 	  }
 
 	  loadActivities = async () => {
+			this.setLoadingInitial(true)
 			try {
 				  const activities = await agent.Activities.list();
 				  runInAction(() => {  // Wrap state changes in runInAction
@@ -40,23 +46,41 @@ export default class ActivityStore
 			}
 	  };
 	  
-	  selectActivity = (id: string) => {
-			// this.selectedActivity = this.activities.find(act => act.id === id)
-			//! The code down below is better in terms of coding rather than the above
-			this.selectedActivity = this.activityRegistry.get(id)
+	  loadActivity = async (id: string) => {
+			/*! First, we will check if we do have the activity in the list in which we got from the beginning. 
+			* If the activity is found, then we will simply return the activity
+			* Otherwise, we will send a request to the server in order to get it's using its ID 
+			*! NOTE: This will reduce the number of requests to the server.*/
+			let activity = this.getActivity(id)
+			if (activity) this.selectedActivity = activity;
+			else
+			{
+				  this.setLoadingInitial(true)
+				  try 
+				  {
+						activity = await agent.Activities.details(id);
+						this.selectedActivity = activity;
+						this.setActivityDate(activity);
+						this.setLoadingInitial(false);
+				  }
+				  catch (error)
+				  {
+						console.log(error)
+						this.setLoadingInitial(false)
+				  }
+			}
+			
+			
 	  }
 	  
-	  cancelSelectedActivity = () => {
-			this.selectedActivity = undefined
+	  private getActivity = (id: string) => {
+			// The method down below, returns either An Activity OR Undefined. We have to check the returned value
+			return this.activityRegistry.get(id)
 	  }
 	  
-	  openForm = (id?: string) => {
-			id ? this.selectActivity(id) : this.cancelSelectedActivity();
-			this.editMode = true
-	  }
-	  
-	  closeForm = () => {
-			this.editMode = false
+	  private setActivityDate = (activity: Activity) => {
+			 activity.date = activity.date.split("T")[0]
+			this.activityRegistry.set(activity.id, activity)
 	  }
 	  
 	  createActivity = async (activity: Activity) => {
@@ -107,7 +131,6 @@ export default class ActivityStore
 				  runInAction(() => {
 						// this.activities = [...this.activities.filter(x => x.id !== id)]
 						this.activityRegistry.delete(id)
-						if (this.selectedActivity?.id === id) this.cancelSelectedActivity()
 						this.loading = false
 				  })
 			}

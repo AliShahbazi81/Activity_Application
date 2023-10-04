@@ -2,6 +2,7 @@ import React, {SyntheticEvent, useState} from "react";
 import {Button, Item, Label, Segment} from "semantic-ui-react";
 import {useStore} from "../../stores/store";
 import {observer} from "mobx-react-lite";
+import {Link} from "react-router-dom";
 
 
 export default observer(function ActivityList()
@@ -9,7 +10,6 @@ export default observer(function ActivityList()
 	  const [target, setTarget] = useState("");
 	  const {activityStore} = useStore()
 	  const {
-			selectActivity,
 			deleteActivity, 
 			loading, 
 			activitiesByDate} = activityStore
@@ -42,8 +42,10 @@ export default observer(function ActivityList()
 											<div>{activity.city}, {activity.venue}</div>
 									  </Item.Description>
 									  <Item.Extra>
+											{/*Since we are not navigating between our NavLinks, we will use just a normal Link for the Button*/}
 											<Button 
-												  onClick={() => selectActivity(activity.id)}
+												  as={Link}
+												  to={`/activities/${activity.id}`}
 												  floated={"right"} 
 												  content={"View"} 
 												  color={"facebook"}/>

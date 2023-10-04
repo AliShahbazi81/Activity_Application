@@ -36,7 +36,7 @@ const requests = {
 // Implementing the requests for each service/ section
 const Activities ={
 	  list: () => requests.get<Activity[]>("/Get"),
-	  // details: (id: string) => requests.get<Activity>(`/Get/${id}`),
+	  details: (id: string) => requests.get<Activity>(`/Get/${id}`),
 	  create: (activity: Activity) => requests.post<void>("/Create", activity),
 	  update: (activity: Activity) => requests.put<void>(`/Update/${activity.id}`, activity),
 	  delete: (id: string) => requests.del<void>(`/Delete/${id}`)

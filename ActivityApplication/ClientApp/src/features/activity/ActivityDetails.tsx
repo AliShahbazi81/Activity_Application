@@ -1,17 +1,31 @@
 import {Button, Card, Image} from "semantic-ui-react";
-import React from "react";
+import React, {useEffect} from "react";
 import {useStore} from "../../stores/store";
 import LoadingComponent from "../../components/LoadingComponent";
+import {observer} from "mobx-react-lite";
+import {useParams} from "react-router-dom";
 
 
-export default function ActivityDetails() {
+export default observer(function ActivityDetails() {
 	  const {activityStore} = useStore()
 	  const {
-			selectedActivity: activity, 
-			openForm, 
-			cancelSelectedActivity} = activityStore
+			selectedActivity: activity,
+			loadingInitial,
+			loadActivity
+	  } = activityStore
 	  
-	  if (!activity) return <LoadingComponent />;
+	  // we use useParams hooks to get the id from the route
+	  const {id} = useParams();
+	  
+	  // Then we are using the ID above to get the desired activity
+	  //! NOTE: useEffect hook works once the component is loaded.
+	  useEffect(() => {
+			if (id) loadActivity(id)
+	  }, [id, loadActivity])
+	  
+	  // If we forget to inject loadingInitial, Loading indicator will never disappear once we reload the page.
+	  // Do not forget to add it up 
+	  if (loadingInitial || !activity) return <LoadingComponent />;
 	  
 	  return (
 			<Card fluid>
@@ -32,10 +46,8 @@ export default function ActivityDetails() {
 							  <Button 
 									basic color={"blue"} 
 									content={"Edit"}
-									onClick={() => openForm(activity.id)}
 							  />
 							  <Button 
-									onClick={cancelSelectedActivity}
 									basic 
 									color={"grey"} 
 									content={"Cancel"}/>
@@ -43,4 +55,4 @@ export default function ActivityDetails() {
 				  </Card.Content>
 			</Card>
 	  )
-}
+})

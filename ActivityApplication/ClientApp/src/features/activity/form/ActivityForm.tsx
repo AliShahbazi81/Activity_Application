@@ -7,8 +7,7 @@ export default observer(function ActivityForm()
 {
     const {activityStore} = useStore();
     const {
-        selectedActivity, 
-        closeForm, 
+        selectedActivity,
         editMode, 
         createActivity,
         updateActivity,
@@ -84,7 +83,6 @@ export default observer(function ActivityForm()
                       onClick={handleSubmit}
                 />
                 <Button 
-                      onClick={closeForm}
                       floated={"right"} 
                       type={"button"} 
                       content={"Cancel"}
