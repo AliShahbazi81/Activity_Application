@@ -2,22 +2,16 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import {Button, Form, Segment} from "semantic-ui-react";
 import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {Activity} from "../../../types/activity";
 import LoadingComponent from "../../../components/LoadingComponent";
+import {v4 as uuid} from "uuid";
 
 export default observer(function ActivityForm()
 {
     const {activityStore} = useStore();
     const {id} = useParams();
-    const {
-        selectedActivity,
-        createActivity,
-        updateActivity,
-        loading,
-        loadActivity,
-        loadingInitial
-    } = activityStore
+    const navigate = useNavigate();
     
     const [activity, setActivity] = useState<Activity>({
         id: "",
@@ -28,7 +22,16 @@ export default observer(function ActivityForm()
         city: "",
         venue: ""
     })
-
+    
+    const {
+        selectedActivity,
+        createActivity,
+        updateActivity,
+        loading,
+        loadActivity,
+        loadingInitial
+    } = activityStore
+    
     useEffect(() => {
         if(id) loadActivity(id)
               // Since we know that in this case DEFINITELY we will have an activity, we will not consider TypeScript's error
@@ -39,7 +42,16 @@ export default observer(function ActivityForm()
     function handleSubmit()
     {
         // If we do have an id, then we are updating the activity, otherwise, we are creating a new one
-        activity.id ? updateActivity(activity) : createActivity(activity)
+        if (!activity.id)
+        {
+            createActivity(activity)
+                  .then(() => navigate(`/activities/${activity.id}`))
+        }
+        else
+        {
+            updateActivity(activity)
+                  .then(() => navigate(`/activities/${activity.id}`))
+        }
     }
     
     function handleOnChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
