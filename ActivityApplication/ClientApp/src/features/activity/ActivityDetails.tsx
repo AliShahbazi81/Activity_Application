@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import {useStore} from "../../stores/store";
 import LoadingComponent from "../../components/LoadingComponent";
 import {observer} from "mobx-react-lite";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 
 export default observer(function ActivityDetails() {
@@ -44,13 +44,19 @@ export default observer(function ActivityDetails() {
 				  <Card.Content extra>
 						<Button.Group widths={"2"}>
 							  <Button 
-									basic color={"blue"} 
+									basic 
+									color={"blue"} 
 									content={"Edit"}
+									as={Link}
+									to={`/manage/${activity.id}`}
 							  />
 							  <Button 
 									basic 
 									color={"grey"} 
-									content={"Cancel"}/>
+									content={"Cancel"}
+									as={Link}
+									to={"/activities"}
+							  />
 						</Button.Group>
 				  </Card.Content>
 			</Card>

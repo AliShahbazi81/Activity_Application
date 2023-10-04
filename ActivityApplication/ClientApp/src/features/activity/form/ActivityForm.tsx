@@ -1,19 +1,25 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import {Button, Form, Segment} from "semantic-ui-react";
 import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
+import {useParams} from "react-router-dom";
+import {Activity} from "../../../types/activity";
+import LoadingComponent from "../../../components/LoadingComponent";
 
 export default observer(function ActivityForm()
 {
     const {activityStore} = useStore();
+    const {id} = useParams();
     const {
         selectedActivity,
-        editMode, 
         createActivity,
         updateActivity,
-        loading} = activityStore
+        loading,
+        loadActivity,
+        loadingInitial
+    } = activityStore
     
-    const initialState = selectedActivity ?? {
+    const [activity, setActivity] = useState<Activity>({
         id: "",
         title: "",
         description: "",
@@ -21,9 +27,14 @@ export default observer(function ActivityForm()
         date: "",
         city: "",
         venue: ""
-    }
+    })
 
-    const [activity, setActivity] = useState(initialState);
+    useEffect(() => {
+        if(id) loadActivity(id)
+              // Since we know that in this case DEFINITELY we will have an activity, we will not consider TypeScript's error
+              .then(activity => setActivity(activity!))
+    }, [id, loadActivity]);
+
     
     function handleSubmit()
     {
@@ -36,9 +47,10 @@ export default observer(function ActivityForm()
         const{name, value} = event.target
         setActivity({...activity, [name]: value})
     }
+    if (loadingInitial) return <LoadingComponent content={"Loading the activity..."}/>
+    
     return (
         <Segment clearing>
-            {editMode &&
             <Form onSubmit={handleSubmit} autoComplete={"off"}>
                 {/*! Form input elements*/}
                 <Form.Input 
@@ -87,7 +99,7 @@ export default observer(function ActivityForm()
                       type={"button"} 
                       content={"Cancel"}
                 />
-            </Form>}
+            </Form>
         </Segment>
     )
 })

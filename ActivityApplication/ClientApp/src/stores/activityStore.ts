@@ -52,7 +52,10 @@ export default class ActivityStore
 			* Otherwise, we will send a request to the server in order to get it's using its ID 
 			*! NOTE: This will reduce the number of requests to the server.*/
 			let activity = this.getActivity(id)
-			if (activity) this.selectedActivity = activity;
+			if (activity) {
+				  this.selectedActivity = activity;
+				  return activity;
+			}
 			else
 			{
 				  this.setLoadingInitial(true)
@@ -62,6 +65,7 @@ export default class ActivityStore
 						this.selectedActivity = activity;
 						this.setActivityDate(activity);
 						this.setLoadingInitial(false);
+						return activity;
 				  }
 				  catch (error)
 				  {

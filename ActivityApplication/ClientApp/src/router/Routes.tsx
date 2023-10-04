@@ -15,6 +15,8 @@ export const routes: RouteObject[] = [
 				  {path: "activities", element: <ActivityDashboard />},
 				  {path: "activities/:id", element: <ActivityDetails />},
 				  {path: "createActivity", element: <ActivityForm />},
+				  /* Editing an activity will be done in the ActivityForm as well*/
+				  {path: "manage/:id", element: <ActivityForm />},
 			]
 	  }
 ]
