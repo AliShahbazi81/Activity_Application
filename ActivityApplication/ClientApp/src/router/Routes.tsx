@@ -14,9 +14,11 @@ export const routes: RouteObject[] = [
 				  {path: "", element: <HomePage />},
 				  {path: "activities", element: <ActivityDashboard />},
 				  {path: "activities/:id", element: <ActivityDetails />},
-				  {path: "createActivity", element: <ActivityForm />},
+				  //! Since both create and manage are using the same component, we HAVE TO set key property to them, otherwise, react cannot
+				  //! understand the difference when we route between these 2 components
+				  {path: "createActivity", element: <ActivityForm key={"create"}/>},
 				  /* Editing an activity will be done in the ActivityForm as well*/
-				  {path: "manage/:id", element: <ActivityForm />},
+				  {path: "manage/:id", element: <ActivityForm key={"manage"}/>},
 			]
 	  }
 ]

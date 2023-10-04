@@ -9,7 +9,7 @@ export default class ActivityStore
 	  selectedActivity: Activity | undefined = undefined
 	  editMode = false
 	  loading = false
-	  loadingInitial = true
+	  loadingInitial = false
 	  constructor()
 	  {
 			makeAutoObservable(this)
@@ -62,8 +62,10 @@ export default class ActivityStore
 				  try 
 				  {
 						activity = await agent.Activities.details(id);
-						this.selectedActivity = activity;
-						this.setActivityDate(activity);
+						runInAction(() => {
+							  this.selectedActivity = activity;
+						})
+						this.setActivityDate(activity)
 						this.setLoadingInitial(false);
 						return activity;
 				  }
