@@ -2,10 +2,9 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import {Button, Form, Segment} from "semantic-ui-react";
 import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {Activity} from "../../../types/activity";
 import LoadingComponent from "../../../components/LoadingComponent";
-import {v4 as uuid} from "uuid";
 
 export default observer(function ActivityForm()
 {
@@ -24,7 +23,6 @@ export default observer(function ActivityForm()
     })
     
     const {
-        selectedActivity,
         createActivity,
         updateActivity,
         loading,
@@ -110,6 +108,8 @@ export default observer(function ActivityForm()
                       floated={"right"} 
                       type={"button"} 
                       content={"Cancel"}
+                      as={Link}
+                      to={'/activities'}
                 />
             </Form>
         </Segment>

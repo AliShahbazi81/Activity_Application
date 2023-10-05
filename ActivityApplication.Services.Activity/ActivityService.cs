@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ActivityApplication.Services.Activity;
 
-public class ActivityService : IActivityService
+public class ActivityService : IActivityService     
 {
     private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
     private readonly ILogger<ActivityService> _logger;

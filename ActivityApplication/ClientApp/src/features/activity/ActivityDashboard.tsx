@@ -8,10 +8,11 @@ import LoadingComponent from "../../components/LoadingComponent";
 export default observer(function ActivityDashboard() {
 
 	  const {activityStore} = useStore();
+	  const {loadActivities, activityRegistry} = activityStore;
 	  
 	  useEffect(() => {
-			activityStore.loadActivities()
-	  }, [activityStore]);
+			if (activityRegistry.size <= 1) loadActivities()
+	  }, [loadActivities, activityRegistry.size]);
 
 	  // Display loading component if the data is not retrieved yet
 	  if (activityStore.loadingInitial) return <LoadingComponent content={"Loading App..."} />

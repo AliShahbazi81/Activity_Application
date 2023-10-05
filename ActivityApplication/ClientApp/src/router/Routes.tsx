@@ -1,7 +1,6 @@
 import {createBrowserRouter, RouteObject} from "react-router-dom";
 import App from "../App";
 import React from "react";
-import HomePage from "../features/home/HomePage";
 import ActivityDashboard from "../features/activity/ActivityDashboard";
 import ActivityForm from "../features/activity/form/ActivityForm";
 import ActivityDetails from "../features/activity/ActivityDetails";
@@ -11,7 +10,6 @@ export const routes: RouteObject[] = [
 			path: "/",
 			element: <App />,
 			children: [
-				  {path: "", element: <HomePage />},
 				  {path: "activities", element: <ActivityDashboard />},
 				  {path: "activities/:id", element: <ActivityDetails />},
 				  //! Since both create and manage are using the same component, we HAVE TO set key property to them, otherwise, react cannot
