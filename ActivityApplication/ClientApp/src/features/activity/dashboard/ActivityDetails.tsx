@@ -1,7 +1,7 @@
 import {Button, Card, Image} from "semantic-ui-react";
 import React, {useEffect} from "react";
-import {useStore} from "../../stores/store";
-import LoadingComponent from "../../components/LoadingComponent";
+import {useStore} from "../../../stores/store";
+import LoadingComponent from "../../../components/LoadingComponent";
 import {observer} from "mobx-react-lite";
 import {Link, useParams} from "react-router-dom";
 

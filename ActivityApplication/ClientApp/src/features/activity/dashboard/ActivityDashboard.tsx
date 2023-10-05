@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import {Grid, List} from "semantic-ui-react";
 import ActivityList from "./ActivityList";
-import {useStore} from "../../stores/store";
+import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
-import LoadingComponent from "../../components/LoadingComponent";
+import LoadingComponent from "../../../components/LoadingComponent";
 
 export default observer(function ActivityDashboard() {
 
