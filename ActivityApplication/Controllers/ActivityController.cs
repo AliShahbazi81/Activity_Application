@@ -20,18 +20,16 @@ public class ActivityController : BaseApiController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ActivityDto>> GetActivity(Guid activityId)
+    public async Task<IActionResult> GetActivity(Guid activityId)
     {
         try
         {
-            var getActivity = await _service.GetActivityAsync(activityId);
-            // ReSharper disable once HeapView.BoxingAllocation
-            return Ok(getActivity);
+            return HandleResult(await _service.GetActivityAsync(activityId));
         }
         catch (IdNotFoundException e)
         {
             _logger.LogError("Error getting the activity! ", e.Message);
-            throw;
+            return NotFound();
         }
         catch (Exception e)
         {
@@ -42,19 +40,18 @@ public class ActivityController : BaseApiController
 
     [HttpGet("Get")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IEnumerable<ActivityDto>?> GetActivities()
+    public async Task<IActionResult> GetActivities()
     {
         try
         {
-            var getActivities = await _service.GetActivitiesAsync();
-
-            return getActivities;
+            return HandleResult(await _service.GetActivitiesAsync());
         }
         catch (Exception e)
         {
             _logger.LogError("Error on getting the activities: ", e.Message);
-            throw;
+            return BadRequest();
         }
     }
 
@@ -65,23 +62,22 @@ public class ActivityController : BaseApiController
     {
         try
         {
-            var activity = await _service.CreateActivityAsync(activityDto);
-            return Ok(activity);
+            return HandleResult(await _service.CreateActivityAsync(activityDto));
         }
         catch (DateTimeValidationException e)
         {
             _logger.LogError("Date input validation error! ", e.Message);
-            throw;
+            return BadRequest("Date input validation error!");
         }
         catch (StringLengthException e)
         {
             _logger.LogError("Error on string length!", e.Message);
-            throw;
+            return BadRequest("The length of the input is less than minimum");
         }
         catch (Exception e)
         {
             _logger.LogError("Error on creating the activity: ", e.Message);
-            throw;
+            return BadRequest();
         }
     }
 
@@ -89,33 +85,31 @@ public class ActivityController : BaseApiController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> UpdateActivity(Guid activityId, ActivityDto activityDto)
+    public async Task<IActionResult> UpdateActivity(Guid activityId, ActivityDto activityDto)
     {
         try
         {
-            _ = await _service.UpdateActivityAsync(activityId, activityDto);
-
-            return Ok("The activity has been saved successfully!");
+            return HandleResult(await _service.UpdateActivityAsync(activityId, activityDto));
         }
         catch (IdNotFoundException e)
         {
             _logger.LogError("Id not found! ", e.Message);
-            throw;
+            return NotFound();
         }
         catch (DateTimeValidationException e)
         {
             _logger.LogError("Date input validation error! ", e.Message);
-            throw;
+            return BadRequest("Date input validation error!");
         }
         catch (StringLengthException e)
         {
             _logger.LogError("Error on string length!", e.Message);
-            throw;
+            return BadRequest("The length of the input is less than minimum");
         }
         catch (Exception e)
         {
             _logger.LogError("Error on creating the activity: ", e.Message);
-            throw;
+            return BadRequest();
         }
     }
 
@@ -127,19 +121,17 @@ public class ActivityController : BaseApiController
     {
         try
         {
-            _ = await _service.DeleteActivityAsync(activityId);
-
-            return Ok("The activity has been deleted successfully!");
+            return HandleResult(await _service.DeleteActivityAsync(activityId));
         }
         catch (IdNotFoundException e)
         {
             _logger.LogError("Id cannot be found! ", e.Message);
-            throw;
+            return NotFound();
         }
         catch (Exception e)
         {
             _logger.LogError("Error on deleting the activity!", e.Message);
-            throw;
+            return BadRequest();
         }
     }
 }

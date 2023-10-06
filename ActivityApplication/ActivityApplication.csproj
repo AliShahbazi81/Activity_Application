@@ -35,6 +35,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\ActivityApplication.DataAccess\ActivityApplication.DataAccess.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Domain\ActivityApplication.Domain.csproj"/>
         <ProjectReference Include="..\ActivityApplication.Services.Activity\ActivityApplication.Services.Activity.csproj"/>
     </ItemGroup>
 

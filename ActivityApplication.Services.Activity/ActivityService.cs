@@ -1,5 +1,6 @@
 using System.Data;
 using ActivityApplication.DataAccess.DbContext;
+using ActivityApplication.Domain.Results;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ActivityApplication.Services.Activity;
 
-public class ActivityService : IActivityService     
+public class ActivityService : IActivityService
 {
     private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
     private readonly ILogger<ActivityService> _logger;
@@ -16,7 +17,7 @@ public class ActivityService : IActivityService
     private const int CategoryLength = 5;
     private const int VenueLength = 5;
     private const int DescriptionLength = 10;
-    
+
     // Comment
     public ActivityService(IDbContextFactory<ApplicationDbContext> context, ILogger<ActivityService> logger)
     {
@@ -24,8 +25,9 @@ public class ActivityService : IActivityService
         _logger = logger;
     }
 
-    public async Task<ActivityDto?> CreateActivityAsync(ActivityDto activityDto)
+    public async Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto)
     {
+        // Validate the input
         InputValidation(activityDto.Date,
             activityDto.Title,
             activityDto.Category,
@@ -33,34 +35,41 @@ public class ActivityService : IActivityService
             activityDto.Venue,
             activityDto.Description);
 
-        return await ExecuteInTransactionAsync<ActivityDto?>(async dbContext =>
-        {
-            var activity = MapToEntity(activityDto);
-            dbContext.Add(activity);
-            return await dbContext.SaveChangesAsync() > 0 ? activityDto : null;
-        }, "An error has occurred during creating an Activity");
+        // Convert the DTO to an entity
+        var activity = MapToEntity(activityDto);
+
+        // Using a new DB context
+        await using var dbContext = await _contextFactory.CreateDbContextAsync();
+        dbContext.Add(activity);
+
+        // Save and check if successful
+        await dbContext.SaveChangesAsync();
+
+        var returnedActivityDto = MapToDto(activity);
+        return Result<ActivityDto>.Success(returnedActivityDto);
     }
 
-    public async Task<ActivityDto> GetActivityAsync(Guid activityId)
+    public async Task<Result<ActivityDto>> GetActivityAsync(Guid activityId)
     {
-        await using var dbContext = await _contextFactory.CreateDbContextAsync();
 
         var activity = await CheckActivityId(activityId);
 
-        return MapToDto(activity);
+        return Result<ActivityDto>.Success(MapToDto(activity));
     }
 
-    public async Task<IEnumerable<ActivityDto>> GetActivitiesAsync()
+    public async Task<Result<IEnumerable<ActivityDto>>> GetActivitiesAsync()
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
         var activities = await dbContext.Activities
             .AsNoTracking()
             .ToListAsync();
-        return activities.Select(MapToDto);
+
+        return Result<IEnumerable<ActivityDto>>.Success(activities.Select(MapToDto));
     }
 
-    public async Task<bool> UpdateActivityAsync(Guid activityId, ActivityDto activityDto)
+    public async Task<Result<bool>> UpdateActivityAsync(Guid activityId, ActivityDto activityDto)
     {
+        // Validate the input
         InputValidation(activityDto.Date,
             activityDto.Title,
             activityDto.Category,
@@ -68,26 +77,33 @@ public class ActivityService : IActivityService
             activityDto.Venue,
             activityDto.Description);
 
-        return await ExecuteInTransactionAsync(async dbContext =>
-        {
-            var activity = await CheckActivityId(activityId);
+        // Using a new DB context
+        await using var dbContext = await _contextFactory.CreateDbContextAsync();
 
-            UpdateEntity(activity, activityDto);
+        // Check and get the activity
+        var activity = await CheckActivityId(activityId);
 
-            return await dbContext.SaveChangesAsync() > 0;
-        }, "An error occurred during updating the activity");
+        // Update the entity with the provided DTO
+        UpdateEntity(activity, activityDto);
+
+        // Save changes and return success status
+        return await dbContext.SaveChangesAsync() > 0 ? Result<bool>.Success(true) : Result<bool>.Failure("Failed to update the activity.");
     }
 
-    public async Task<bool> DeleteActivityAsync(Guid activityId)
+
+    public async Task<Result<bool>> DeleteActivityAsync(Guid activityId)
     {
-        return await ExecuteInTransactionAsync(async dbContext =>
-        {
-            var activity = await CheckActivityId(activityId);
+        // Using a new DB context
+        await using var dbContext = await _contextFactory.CreateDbContextAsync();
 
-            dbContext.Activities.Remove(activity);
+        // Check and get the activity
+        var activity = await CheckActivityId(activityId);
 
-            return await dbContext.SaveChangesAsync() > 0;
-        }, "An error occurred when deleting the activity");
+        // Remove the activity
+        dbContext.Activities.Remove(activity);
+
+        // Save changes and return success status
+        return await dbContext.SaveChangesAsync() > 0 ? Result<bool>.Success(true) : Result<bool>.Failure("Failed to delete the activity.");
     }
 
     private async Task<TResult?> ExecuteInTransactionAsync<TResult>(
