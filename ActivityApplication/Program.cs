@@ -1,6 +1,7 @@
 using ActivityApplication.DataAccess;
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Users;
+using ActivityApplication.Domain.ExceptionsHandling;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
 using Microsoft.AspNetCore.Identity;
@@ -55,6 +56,9 @@ catch (Exception e)
     Console.WriteLine(e);
     throw;
 }
+
+// Add our customized Exception middleware
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
