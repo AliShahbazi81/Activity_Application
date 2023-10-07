@@ -1,10 +1,12 @@
-import {createBrowserRouter, RouteObject} from "react-router-dom";
+import {createBrowserRouter, Navigate, RouteObject} from "react-router-dom";
 import App from "../App";
 import React from "react";
 import ActivityDashboard from "../features/activity/dashboard/ActivityDashboard";
 import ActivityForm from "../features/activity/form/ActivityForm";
 import ActivityDetails from "../features/activity/details/ActivityDetails";
 import TestErrors from "../features/errors/TestError";
+import NotFound from "../features/errors/NotFound";
+import ServerError from "../features/errors/ServerError";
 
 export const routes: RouteObject[] = [
 	  {
@@ -19,6 +21,11 @@ export const routes: RouteObject[] = [
 				  /* Editing an activity will be done in the ActivityForm as well*/
 				  {path: "manage/:id", element: <ActivityForm key={"manage"}/>},
 				  {path: "errors", element: <TestErrors />},
+				  {path: "not-found", element: <NotFound />},
+				  {path: "server-error", element: <ServerError />},
+				  
+				  // The route down below indicates that when user heads to whatever pages that do not exist in the application
+				  {path: "*", element: <Navigate replace to={"/not-found"}/>},
 			]
 	  }
 ]

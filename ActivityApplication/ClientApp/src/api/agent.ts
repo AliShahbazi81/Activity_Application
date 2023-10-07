@@ -1,6 +1,8 @@
 import axios, {AxiosError, AxiosResponse} from "axios";
 import {Activity} from "../types/activity";
 import {toast} from "react-toastify";
+import {router} from "../router/Routes";
+import {store} from "../stores/store";
 
 // Set some delay
 const sleep = (delay: number) => {
@@ -21,10 +23,32 @@ axios.interceptors.response.use(async response => {
 	  return response
 	  // In order to catch the errors, we have to specify our errors status and data when it comes back from the server
 }, (error: AxiosError) => {
-	  const {data, status} = error.response!;
+	  const {data, status, config} = error.response as AxiosResponse;
 	  switch (status) {
+			// In case of Bad request, it can be validation error, hence, we will first check if the error is validation error or just
+				  // simple 400
 			case 400:
-				  toast.error("Bad Request")
+				  // If user tried to access an id which does not exist in the context
+				  if(config.method === "get" && data.errors.hasOwnProperty("id"))
+						router.navigate("/not-found")
+				  
+				  // If the error is validation error
+				  if (data.errors)
+				  {
+						// Get the validation errors one by one
+						const modalStateErrors = [];
+						for (const key in data.errors)
+						{
+							  if (data.errors[key])
+									modalStateErrors.push(data.errors[key])
+						}
+						throw modalStateErrors.flat();
+				  }
+				  // If it is just a simple 400
+				  else
+				  {
+						toast.error(data)
+				  }
 				  break;
 
 			case 401:
@@ -36,11 +60,13 @@ axios.interceptors.response.use(async response => {
 				  break;
 
 			case 404:
-				  toast.error("Not found")
+				  // When NotFound -> Navigate to NotFound page
+				  router.navigate("/not-found")
 				  break;
 
 			case 500:
-				  toast.error("Server error")
+				  store.commonStore.setServerError(data);
+				  router.navigate("/server-error");
 				  break;
 	  }
 	  return Promise.reject(error);
