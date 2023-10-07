@@ -4,6 +4,7 @@ import React from "react";
 import ActivityDashboard from "../features/activity/dashboard/ActivityDashboard";
 import ActivityForm from "../features/activity/form/ActivityForm";
 import ActivityDetails from "../features/activity/details/ActivityDetails";
+import TestErrors from "../features/errors/TestError";
 
 export const routes: RouteObject[] = [
 	  {
@@ -17,6 +18,7 @@ export const routes: RouteObject[] = [
 				  {path: "createActivity", element: <ActivityForm key={"create"}/>},
 				  /* Editing an activity will be done in the ActivityForm as well*/
 				  {path: "manage/:id", element: <ActivityForm key={"manage"}/>},
+				  {path: "errors", element: <TestErrors />},
 			]
 	  }
 ]

@@ -11,14 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Domain/Results/Result.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/errors/TestError.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/BuggyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/BaseApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/BaseApiController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/router/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/router/Routes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +176,8 @@
       <workItem from="1696386804193" duration="1617000" />
       <workItem from="1696534802272" duration="4968000" />
       <workItem from="1696555847795" duration="66000" />
-      <workItem from="1696563345549" duration="1873000" />
+      <workItem from="1696563345549" duration="3853000" />
+      <workItem from="1696701954982" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -309,7 +307,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695860770798</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Error handling from Server side">
+      <option name="closed" value="true" />
+      <created>1696565381860</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1696565381860</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Exception middleware">
+      <option name="closed" value="true" />
+      <created>1696567210708</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1696567210708</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +348,9 @@
     <MESSAGE value="Bring back the previous service to controller" />
     <MESSAGE value="Adjust namespaces in Activity Controller" />
     <MESSAGE value="Adding comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding comment" />
+    <MESSAGE value="Error handling from Server side" />
+    <MESSAGE value="Exception middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exception middleware" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
