@@ -1,8 +1,7 @@
-import React, {SyntheticEvent, useState} from "react";
+import React from "react";
 import {Button, Icon, Item, Segment} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import {Activity} from "../../../types/activity";
-import {useStore} from "../../../stores/store";
 import {format} from "date-fns";
 
 interface Props {
@@ -11,9 +10,9 @@ interface Props {
 
 export default function ActivityListItem({activity}: Props)
 {
-	  const [target, setTarget] = useState("")
-	  const {activityStore} = useStore()
-	  const {deleteActivity, loading} = activityStore
+	  /*const [target, setTarget] = useState("")*/
+	  /*const {activityStore} = useStore()*/
+	  /*const {deleteActivity, loading} = activityStore*/
 
 	  // In order to prevent the app from activating all Delete buttons
 	  // 1. Create a function with e as event and id of the data as the second parameter
@@ -24,15 +23,14 @@ export default function ActivityListItem({activity}: Props)
 	  // 6. In "loading" attribute also, we have to add "target" attribute and set it to the id of the data
 	  //! Almost all the mouse events are driven from SyntheticEvent. Hence, the e which has been inherited from SyntheticEvent<HTMLButtonElement>
 	  //! It would be almost the same for most of the situations in which we want to trigger the mouse events
-	  function handleDeleteButton(e: SyntheticEvent<HTMLButtonElement>, id: string)
+/*	  function handleDeleteButton(e: SyntheticEvent<HTMLButtonElement>, id: string)
 	  {
 			setTarget(e.currentTarget.name)
 			deleteActivity(id)
-	  }
+	  }*/
 	  
 	  return(
 			<Segment.Group>
-				  
 				  <Segment>
 						<Item.Group>
 							  <Item>
@@ -77,7 +75,6 @@ export default function ActivityListItem({activity}: Props)
 							content={"View"}
 						/>
 				  </Segment>
-				  
 			</Segment.Group>
 	  )
 }

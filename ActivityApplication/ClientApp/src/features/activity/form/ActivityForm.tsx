@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Button, Segment} from "semantic-ui-react";
+import {Button, Header, Segment} from "semantic-ui-react";
 import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
 import {Link, useNavigate, useParams} from "react-router-dom";
@@ -42,7 +42,7 @@ export default observer(function ActivityForm()
         title: Yup.string().required("The activity title is required!"),
         description: Yup.string().required("The activity description is required!"),
         category: Yup.string().required(),
-        date: Yup.string().required(),
+        date: Yup.string().required("The date is required!"),
         venue: Yup.string().required(),
         city: Yup.string().required(),
     })
@@ -54,7 +54,7 @@ export default observer(function ActivityForm()
     }, [id, loadActivity]);
 
     
-    /*function handleSubmit()
+    function handleFormSubmit(activity: Activity)
     {
         // If we do have an id, then we are updating the activity, otherwise, we are creating a new one
         if (!activity.id)
@@ -68,8 +68,8 @@ export default observer(function ActivityForm()
                   .then(() => navigate(`/activities/${activity.id}`))
         }
     }
-    
-    function handleOnChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
+
+    /*function handleOnChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
     {
         const{name, value} = event.target
         setActivity({...activity, [name]: value})
@@ -78,13 +78,14 @@ export default observer(function ActivityForm()
     
     return (
         <Segment clearing>
+            <Header content={"Activity Details"} sub color={"teal"}/>
             {/*When we use a form for 2 different approaches, for instance create and edit, we have to set the Formik as enableReinitialize*/}
             <Formik 
                   validationSchema={validationSchema} 
                   enableReinitialize 
                   initialValues={activity} 
-                  onSubmit={values => console.log(values)}>
-                {({values: activity, handleChange, handleSubmit}) => (
+                  onSubmit={values => handleFormSubmit(values)}>
+                {({values: activity, handleSubmit, isValid, isSubmitting, dirty}) => (
                       /*In order to get Semantic UI css, we specify the className for the Form, although we are using from Formik*/
                       <Form className={"ui form"} onSubmit={handleSubmit} autoComplete={"off"}>
                           <MyTextInput placeholder={"Title"} name={"title"} />
@@ -103,6 +104,9 @@ export default observer(function ActivityForm()
                                 showTimeSelect
                                 timeCaption={"time"}
                                 dateFormat={"MMMM d, yyyy h:mm aa"}/>
+                          
+                          <Header content={"Location Details"} sub color={"teal"}/>
+                          
                           <MyTextInput
                                 placeholder={"City"}
                                 name={"city"}/>
@@ -111,6 +115,7 @@ export default observer(function ActivityForm()
                                 name={"venue"}/>
 
                           {/*! BUTTONS */}
+                          {/* If the form is being submitted, or it is not dirty, or it is not valid, the Submit button will be disabled*/}
                           <Button
                                 floated={"right"}
                                 positive
@@ -118,6 +123,7 @@ export default observer(function ActivityForm()
                                 content={"Submit"}
                                 loading={loading}
                                 onSubmit={handleSubmit}
+                                disabled={isSubmitting || !dirty || !isValid}
                           />
                           <Button
                                 floated={"right"}
