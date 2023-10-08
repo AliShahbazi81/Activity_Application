@@ -24,7 +24,7 @@ export default observer(function ActivityForm()
         title: "",
         description: "",
         category: "",
-        date: "",
+        date: null,
         city: "",
         venue: ""
     })

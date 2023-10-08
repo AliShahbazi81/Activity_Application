@@ -1,42 +1,43 @@
 import {makeAutoObservable, runInAction} from "mobx";
 import {Activity} from "../types/activity";
 import agent from "../api/agent";
-import { v4 as uuid } from 'uuid';
+import {v4 as uuid} from 'uuid';
+import {format} from "date-fns";
 
-export default class ActivityStore
-{
+export default class ActivityStore {
 	  activityRegistry = new Map<string, Activity>();
+
 	  selectedActivity: Activity | undefined = undefined
+
 	  editMode = false
+
 	  loading = false
+
 	  loadingInitial = false
-	  constructor()
-	  {
+
+	  constructor() {
 			makeAutoObservable(this)
 	  }
-	  
-	  setLoadingInitial = (state: boolean) =>
-	  {
+
+	  setLoadingInitial = (state: boolean) => {
 			this.loadingInitial = state;
 	  }
-	  
+
 	  // Sort the activities list by Date
-	  get activitiesByDate()
-	  {
+	  get activitiesByDate() {
 			return Array.from(this.activityRegistry.values())
-				  .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
+				  .sort((a, b) => a.date!.getTime() - b.date!.getTime())
 	  }
-	  
+
 	  // Group the activities based on their date
-	  get groupedActivities()
-	  {
+	  get groupedActivities() {
 			return Object.entries(
 				  this.activitiesByDate.reduce((activities, activity) => {
-						const date = activity.date;
+						const date = format(activity.date!, "dd MMM yyyy")
 						// If the activity is in a same date, then add to the others, otherwise, create a new array
 						activities[date] = activities[date] ? [...activities[date], activity] : [activity];
 						return activities
-				  }, {} as {[key: string]: Activity[]})
+				  }, {} as { [key: string]: Activity[] })
 			)
 	  }
 
@@ -44,13 +45,10 @@ export default class ActivityStore
 			this.setLoadingInitial(true)
 			try {
 				  const activities = await agent.Activities.list();
-				  runInAction(() => {  // Wrap state changes in runInAction
-						activities.forEach(activity => {
-							  activity.date = activity.date.split('T')[0];
-							  this.activityRegistry.set(activity.id, activity)
-						});
-						this.loadingInitial = false;
+				  activities.forEach(activity => {
+						this.setActivityDate(activity);
 				  });
+				  this.loadingInitial = false;
 			} catch (error) {
 				  runInAction(() => {  // Wrap state changes in runInAction
 						this.loadingInitial = false;
@@ -58,7 +56,7 @@ export default class ActivityStore
 				  console.log(error);
 			}
 	  };
-	  
+
 	  loadActivity = async (id: string) => {
 			/*! First, we will check if we do have the activity in the list in which we got from the beginning. 
 			* If the activity is found, then we will simply return the activity
@@ -68,12 +66,9 @@ export default class ActivityStore
 			if (activity) {
 				  this.selectedActivity = activity;
 				  return activity;
-			}
-			else
-			{
+			} else {
 				  this.setLoadingInitial(true)
-				  try 
-				  {
+				  try {
 						activity = await agent.Activities.details(id);
 						runInAction(() => {
 							  this.selectedActivity = activity;
@@ -81,29 +76,27 @@ export default class ActivityStore
 						this.setActivityDate(activity)
 						this.setLoadingInitial(false);
 						return activity;
-				  }
-				  catch (error)
-				  {
+				  } catch (error) {
 						console.log(error)
 						this.setLoadingInitial(false)
 				  }
 			}
-			
-			
+
+
 	  }
-	  
+
 	  private getActivity = (id: string) => {
 			// The method down below, returns either An Activity OR Undefined. We have to check the returned value
 			return this.activityRegistry.get(id)
 	  }
-	  
+
 	  private setActivityDate = (activity: Activity) => {
-			 activity.date = activity.date.split("T")[0]
+			activity.date = new Date(activity.date!)
 			this.activityRegistry.set(activity.id, activity)
 	  }
-	  
+
 	  createActivity = async (activity: Activity) => {
-			activity.id	= uuid();
+			activity.id = uuid();
 			try {
 				  await agent.Activities.create(activity)
 				  // If successfully created, then we have to update our activities
@@ -114,16 +107,14 @@ export default class ActivityStore
 						this.editMode = false
 						this.loading = false
 				  })
-			}
-			catch (error)
-			{
+			} catch (error) {
 				  console.log(error)
 				  runInAction(() => {
 						this.loading = false
 				  })
 			}
 	  }
-	  
+
 	  updateActivity = async (activity: Activity) => {
 			try {
 				  await agent.Activities.update(activity)
@@ -134,16 +125,14 @@ export default class ActivityStore
 						this.editMode = false
 						this.loading = false
 				  })
-			}
-			catch (error)
-			{
+			} catch (error) {
 				  console.log(error)
 				  runInAction(() => {
 						this.loading = false
 				  })
 			}
 	  }
-	  
+
 	  deleteActivity = async (id: string) => {
 			try {
 				  await agent.Activities.delete(id)
@@ -152,14 +141,12 @@ export default class ActivityStore
 						this.activityRegistry.delete(id)
 						this.loading = false
 				  })
-			}
-			catch (error)
-			{
+			} catch (error) {
 				  console.log(error)
 				  runInAction(() => {
 						this.loading = false
 				  })
 			}
 	  }
-	  
+
 }
