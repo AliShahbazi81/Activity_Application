@@ -11,16 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Error handling in Client-Side">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/errors/NotFound.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/errors/ServerError.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/errors/ValidationError.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/CommonStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/serverError.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/errors/TestError.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/errors/TestError.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/router/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/router/Routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +177,7 @@
       <workItem from="1696534802272" duration="4968000" />
       <workItem from="1696555847795" duration="66000" />
       <workItem from="1696563345549" duration="3853000" />
-      <workItem from="1696701954982" duration="2901000" />
+      <workItem from="1696701954982" duration="4210000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
