@@ -85,7 +85,7 @@ export default observer(function ActivityForm()
                   enableReinitialize 
                   initialValues={activity} 
                   onSubmit={values => handleFormSubmit(values)}>
-                {({values: activity, handleSubmit, isValid, isSubmitting, dirty}) => (
+                {({handleSubmit, isValid, isSubmitting, dirty}) => (
                       /*In order to get Semantic UI css, we specify the className for the Form, although we are using from Formik*/
                       <Form className={"ui form"} onSubmit={handleSubmit} autoComplete={"off"}>
                           <MyTextInput placeholder={"Title"} name={"title"} />

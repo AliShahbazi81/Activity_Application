@@ -17,6 +17,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContextFactory<ApplicationDbContext>(opt => { opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")); });
 
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Activity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddIdentity<User, Role>(opt =>
     {
         opt.Password.RequireDigit = false;
@@ -27,7 +28,9 @@ builder.Services.AddIdentity<User, Role>(opt =>
         opt.User.RequireUniqueEmail = true;
     })
     .AddRoles<Role>()
+    // It allows us to query our User entity
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddAuthentication();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Activity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<IActivityService, ActivityService>();

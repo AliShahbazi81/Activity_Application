@@ -3,7 +3,7 @@ using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ActivityApplication.Controllers;
+namespace ActivityApplication.Controllers.ActivityControllers;
 
 public class ActivityController : BaseApiController
 {

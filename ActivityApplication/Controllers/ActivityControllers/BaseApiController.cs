@@ -2,7 +2,7 @@ using ActivityApplication.Domain.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ActivityApplication.Controllers;
+namespace ActivityApplication.Controllers.ActivityControllers;
 
 [ApiController]
 [Route("api/[controller]")]

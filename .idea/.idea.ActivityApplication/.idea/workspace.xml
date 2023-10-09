@@ -10,15 +10,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Error handling in Client-Side">
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityListItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedInfo.tsx" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/ActivityApplication.Services.Membership.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/LoginDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/RegisterDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Users/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/activity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/activity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/BaseApiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/BaseApiController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/BuggyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/BuggyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +38,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ali/RiderProjects/ActivityApplication/ActivityApplication.Services.Activity/ActivityService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,40 +59,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.73478264",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "16.17.0",
-    "javascript.nodejs.core.library.typings.version": "16.18.55",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "rider.code.cleanup.on.save": "true",
-    "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
-    "settings.editor.selected.configurable": "settings.sync",
-    "ts.external.directory.path": "C:\\Users\\alish\\WebstormProjects\\Activity_Application\\ActivityApplication\\ClientApp\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.7352025&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.17.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.55&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat &amp; Apply Syntax Style&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alish\\WebstormProjects\\Activity_Application\\ActivityApplication\\ClientApp\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\alish\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\alish\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -180,7 +188,8 @@
       <workItem from="1696534802272" duration="4968000" />
       <workItem from="1696555847795" duration="66000" />
       <workItem from="1696563345549" duration="3853000" />
-      <workItem from="1696701954982" duration="4796000" />
+      <workItem from="1696701954982" duration="5390000" />
+      <workItem from="1696786627916" duration="8099000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />

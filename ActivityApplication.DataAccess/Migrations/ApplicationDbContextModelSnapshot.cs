@@ -80,31 +80,31 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7ff6586b-c0b2-48c5-927e-1b4d94b0f6d1"),
+                            Id = new Guid("defe094e-41ed-422e-a89b-6e628cc11126"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("b92bbdbb-1cf3-4f74-b2fb-c0a77955f1c4"),
+                            Id = new Guid("c6437079-8062-444d-b36b-1e8ed64a7595"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("391cf023-cceb-4a3b-84f3-812eb7a5cb16"),
+                            Id = new Guid("2f802987-9a4c-4866-9ff7-961806a681df"),
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = new Guid("ac3ee2bb-6d54-45a3-b268-edbc9b682078"),
+                            Id = new Guid("668ed48a-934d-4be2-bf0f-36dd0a499b58"),
                             Name = "BannedUser",
                             NormalizedName = "BANNED_USER"
                         },
                         new
                         {
-                            Id = new Guid("6fd46975-b5bb-4213-9e07-147e65112f10"),
+                            Id = new Guid("10e7aa15-4fc8-4445-bcbb-d4949f1b3862"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -119,6 +119,10 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
@@ -132,6 +136,10 @@ namespace ActivityApplication.DataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
