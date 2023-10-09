@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ActivityApplication.Controllers.ActivityControllers;
 
-[Authorize]
+[AllowAnonymous]
 public class ActivityController : BaseApiController
 {
     private readonly ILogger<ActivityController> _logger;

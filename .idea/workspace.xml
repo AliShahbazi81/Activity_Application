@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Remove unused import, bring handleFormatSubmit back and used in Formik">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/Users/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/Form/MyTextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/Form/MyTextInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/router/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/router/Routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +99,9 @@
       <workItem from="1696555945480" duration="2000" />
       <workItem from="1696563330526" duration="609000" />
       <workItem from="1696701947622" duration="12866000" />
-      <workItem from="1696786610199" duration="1934000" />
+      <workItem from="1696786610199" duration="2527000" />
+      <workItem from="1696822437187" duration="594000" />
+      <workItem from="1696875694826" duration="1055000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
