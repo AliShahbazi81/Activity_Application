@@ -10,14 +10,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Register and Login process">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/Exceptions/UserNotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/Services/Token/TokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Membership/ActivityApplication.Services.Membership.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/ActivityApplication.Services.Membership.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Add JWT for authentication">
       <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +23,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication/Controllers/AccountControllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -179,7 +174,7 @@
       <workItem from="1696555847795" duration="66000" />
       <workItem from="1696563345549" duration="3853000" />
       <workItem from="1696701954982" duration="5390000" />
-      <workItem from="1696786627916" duration="10352000" />
+      <workItem from="1696786627916" duration="11433000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -341,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696814131927</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add JWT for authentication">
+      <option name="closed" value="true" />
+      <created>1696816396595</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1696816396595</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +373,8 @@
     <MESSAGE value="Exception middleware" />
     <MESSAGE value="Error handling in Client-Side" />
     <MESSAGE value="Register and Login process" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register and Login process" />
+    <MESSAGE value="Add JWT for authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add JWT for authentication" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,11 +1,13 @@
 using ActivityApplication.DataAccess.Users;
 using ActivityApplication.Services.User.DTOs;
 using ActivityApplication.Services.User.Services.Token;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActivityApplication.Controllers.AccountControllers;
 
+[AllowAnonymous]
 [ApiController]
 [Route("api/[controller]")]
 public class AccountController : ControllerBase

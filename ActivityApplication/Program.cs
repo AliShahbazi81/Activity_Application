@@ -9,7 +9,9 @@ using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
 using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -18,7 +20,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+//! This means that all of the controllers do need Authorization
+builder.Services.AddControllersWithViews(opt =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    opt.Filters.Add(new AuthorizeFilter(policy));
+});
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Swagger Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddSwaggerGen(opt =>
 {
@@ -63,6 +70,7 @@ builder.Services.AddAuthentication(options =>
     {
         opt.RequireHttpsMetadata = false;
         opt.SaveToken = true;
+        // It shows how we want to validate the token
         opt.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -75,9 +83,9 @@ builder.Services.AddAuthentication(options =>
             // ValidateIssuerSigningKey = true,
             //! builder.Configuration must be equal with the one that we created in the TokenService
             IssuerSigningKey =
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTSettings:TokenKey"])),
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTSettings:TokenKey"]!)),
             TokenDecryptionKey =
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTSettings:EncryptKey"]))
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTSettings:EncryptKey"]!))
         };
         opt.Events = new JwtBearerEvents
         {
@@ -118,7 +126,6 @@ builder.Services.AddIdentity<User, Role>(opt =>
     .AddRoles<Role>()
     // It allows us to query our User entity
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddAuthentication();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Activity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<IActivityService, ActivityService>();
