@@ -10,9 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Add Authorization Requirement to the controllers">
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/RegisterDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/RegisterDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Get CurrentUser in AccountController">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication/Controllers/AccountControllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication/Controllers/AccountControllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication/Controllers/AccountControllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -176,7 +177,7 @@
       <workItem from="1696555847795" duration="66000" />
       <workItem from="1696563345549" duration="3853000" />
       <workItem from="1696701954982" duration="5390000" />
-      <workItem from="1696786627916" duration="12599000" />
+      <workItem from="1696786627916" duration="13315000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -354,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696817656441</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Get CurrentUser in AccountController">
+      <option name="closed" value="true" />
+      <created>1696818949262</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1696818949262</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +394,8 @@
     <MESSAGE value="Register and Login process" />
     <MESSAGE value="Add JWT for authentication" />
     <MESSAGE value="Add Authorization Requirement to the controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Authorization Requirement to the controllers" />
+    <MESSAGE value="Get CurrentUser in AccountController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get CurrentUser in AccountController" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

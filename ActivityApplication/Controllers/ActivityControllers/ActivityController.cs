@@ -1,10 +1,12 @@
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActivityApplication.Controllers.ActivityControllers;
 
+[Authorize]
 public class ActivityController : BaseApiController
 {
     private readonly ILogger<ActivityController> _logger;
