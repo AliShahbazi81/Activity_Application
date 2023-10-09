@@ -1,5 +1,6 @@
 using ActivityApplication.DataAccess.Users;
 using ActivityApplication.Services.User.DTOs;
+using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +11,12 @@ namespace ActivityApplication.Controllers.AccountControllers;
 public class AccountController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
+    private readonly TokenService _tokenService;
 
-    public AccountController(UserManager<User> userManager)
+    public AccountController(UserManager<User> userManager, TokenService tokenService)
     {
         _userManager = userManager;
+        _tokenService = tokenService;
     }
 
     [HttpPost("Login")]
@@ -30,7 +33,7 @@ public class AccountController : ControllerBase
             {
                 Username = user.UserName,
                 Image = null,
-                Token = "This will be replaced by JWT",
+                Token = await _tokenService.GenerateToken(user.Id),
                 DisplayName = user.DisplayName
             };
 
