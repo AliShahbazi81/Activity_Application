@@ -3,6 +3,7 @@ import {Activity} from "../types/activity";
 import {toast} from "react-toastify";
 import {router} from "../router/Routes";
 import {store} from "../stores/store";
+import {User, UserFormValues} from "../types/user";
 
 // Set some delay
 const sleep = (delay: number) => {
@@ -12,7 +13,7 @@ const sleep = (delay: number) => {
 }
 
 // Configure default URL for APIs
-axios.defaults.baseURL = "https://localhost:7290/api/Activity";
+axios.defaults.baseURL = "https://localhost:7290/api/";
 
 // Add delay for getting response from our API
 // Axios interceptor is smart enough to understand what is a good or bad request
@@ -85,16 +86,26 @@ const requests = {
 
 // Implementing the requests for each service/ section
 const Activities = {
-	  list: () => requests.get<Activity[]>("/Get"),
-	  details: (id: string) => requests.get<Activity>(`/Get/${id}`),
-	  create: (activity: Activity) => requests.post<void>("/Create", activity),
-	  update: (activity: Activity) => requests.put<void>(`/Update/${activity.id}`, activity),
-	  delete: (id: string) => requests.del<void>(`/Delete/${id}`)
+	  list: () => requests.get<Activity[]>("Activity/Get"),
+	  details: (id: string) => requests.get<Activity>(`Activity/Get/${id}`),
+	  create: (activity: Activity) => requests.post<void>("Activity/Create", activity),
+	  update: (activity: Activity) => requests.put<void>(`Activity/Update/${activity.id}`, activity),
+	  delete: (id: string) => requests.del<void>(`Activity/Delete/${id}`)
+}
+
+
+const Account = {
+	  // Get current user using the API in the back, returning a promise of type User
+	  // After Get,Post,Put, etc., the type we mention, is the type that we expect to be returned from our server
+	  current: () => requests.get<User>("account"),
+	  login: (user: UserFormValues) => requests.post<User>("account/login", user),
+	  register: (user: UserFormValues) => requests.post<User>("account/register", user)
 }
 
 // Configuring which requests can be accessed in the application
 const agent = {
-	  Activities
+	  Activities,
+	  Account
 }
 
 // Export the agents in which we wish to use in the application

@@ -1,25 +1,40 @@
 import {Form, Formik} from "formik";
+import { observer } from "mobx-react-lite";
 import React from "react";
 import { Button } from "semantic-ui-react";
 import MyTextInput from "../../../components/Form/MyTextInput";
+import {useStore} from "../../../stores/store";
 
-export default function LoginForm()
+export default observer(function LoginForm()
 {
+	  const {userStore} = useStore();
 	  return(
 			<Formik 
 				  initialValues={{email: "", password: ""}} 
-				  onSubmit={values => console.log(values)}
+				  onSubmit={values => userStore.login(values)}
 			>
-				  {({handleSubmit}) => (
+				  {/* Formik will automatically realize when it has to turn on and off the loading. Hence, we do not have to create isSubmitting functions*/}
+				  {({handleSubmit, isSubmitting}) => (
 						<Form 
 							  className={"ui form"} 
 							  onSubmit={handleSubmit} 
 							  autoComplete={"off"}>
-							  <MyTextInput placeholder={"Email"} name={"email"} />
-							  <MyTextInput placeholder={"Password"} name={"password"} type={"password"}/>
-							  <Button positive content={"Login"} type={"submit"} fluid/>
+							  <MyTextInput 
+									placeholder={"Email"} 
+									name={"email"} />
+							  <MyTextInput 
+									placeholder={"Password"} 
+									name={"password"} 
+									type={"password"}/>
+							  <Button
+									positive
+									fluid
+									loading={isSubmitting}
+									content={"Login"} 
+									type={"submit"} 
+									/>
 						</Form>
 				  )}
 			</Formik>
 	  )
-}
+})
