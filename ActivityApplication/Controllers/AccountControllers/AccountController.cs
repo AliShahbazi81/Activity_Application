@@ -1,7 +1,9 @@
+using System.Net.Mime;
 using System.Security.Claims;
 using ActivityApplication.DataAccess.Users;
 using ActivityApplication.Services.User.DTOs;
 using ActivityApplication.Services.User.Services.Token;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +13,7 @@ namespace ActivityApplication.Controllers.AccountControllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Produces(MediaTypeNames.Application.Json)]
 public class AccountController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
@@ -38,8 +41,7 @@ public class AccountController : ControllerBase
                 Username = user.UserName,
                 Image = null,
                 Token = await _tokenService.GenerateToken(user.Id),
-                DisplayName = user.DisplayName,
-                Email = user.Email
+                DisplayName = user.DisplayName
             };
 
         return Unauthorized();
@@ -73,7 +75,7 @@ public class AccountController : ControllerBase
     [HttpGet("GetCurrentUser")]
     public async Task<ActionResult<UserDto>> GetCurrentUser()
     {
-        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 
         return await CreateUserObject(user!);
     }
@@ -81,12 +83,12 @@ public class AccountController : ControllerBase
 
     private async Task<ActionResult<UserDto>> CreateUserObject(User user)
     {
-        return new UserDto
+        return new JsonResult(new UserDto
         {
             DisplayName = user.DisplayName,
             Image = null,
             Token = await _tokenService.GenerateToken(user.Id),
             Username = user.UserName
-        };
+        });
     }
 }

@@ -9,9 +9,7 @@ using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
 using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -56,7 +54,28 @@ builder.Services.AddSwaggerGen(opt =>
 builder.Services.AddDbContextFactory<ApplicationDbContext>(opt => { opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")); });
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Authentication Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-builder.Services.AddCors();
+builder.Services.AddCors(options => options.AddPolicy("cors", policy => policy
+    .SetIsOriginAllowed(origin =>
+        new Uri(origin).Host.Contains("localhost")
+    )
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials()));
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Identity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddIdentity<User, Role>(opt =>
+    {
+        opt.Password.RequireDigit = false;
+        opt.Password.RequireLowercase = false;
+        opt.Password.RequireUppercase = false;
+        opt.Password.RequireNonAlphanumeric = false;
+        opt.Password.RequiredLength = 4;
+        opt.User.RequireUniqueEmail = true;
+    })
+    .AddRoles<Role>()
+    // It allows us to query our User entity
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -85,44 +104,44 @@ builder.Services.AddAuthentication(options =>
         };
         opt.Events = new JwtBearerEvents
         {
-            OnAuthenticationFailed = context => throw new AuthenticationException("Authentication failed."),
+            OnAuthenticationFailed = context =>
+            {
+                var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+                logger.LogError(context.Exception, "Authentication failed.");
+                return Task.CompletedTask;
+            },
             OnTokenValidated = async context =>
             {
                 var signInManager = context.HttpContext.RequestServices
                     .GetRequiredService<SignInManager<User>>();
+                var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
 
                 var claimsIdentity = context.Principal.Identity as ClaimsIdentity;
                 if (claimsIdentity.Claims?.Any() != true)
+                {
+                    logger.LogWarning("Token has no claims.");
                     context.Fail("This token has no claims.");
+                }
 
                 var securityStamp = claimsIdentity.FindFirst(new ClaimsIdentityOptions().SecurityStampClaimType);
                 if (securityStamp == null)
+                {
+                    logger.LogWarning("Token has no security stamp.");
                     context.Fail("This token has no security stamp");
+                }
 
                 var validatedUser = await signInManager.ValidateSecurityStampAsync(context.Principal);
                 if (validatedUser == null)
+                {
+                    logger.LogWarning("Token security stamp is not valid.");
                     context.Fail("Token security stamp is not valid.");
+                }
             }
         };
     });
 
 
 builder.Services.AddAuthorization();
-
-
-//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Identity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-builder.Services.AddIdentity<User, Role>(opt =>
-    {
-        opt.Password.RequireDigit = false;
-        opt.Password.RequireLowercase = false;
-        opt.Password.RequireUppercase = false;
-        opt.Password.RequireNonAlphanumeric = false;
-        opt.Password.RequiredLength = 4;
-        opt.User.RequireUniqueEmail = true;
-    })
-    .AddRoles<Role>()
-    // It allows us to query our User entity
-    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Activity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<IActivityService, ActivityService>();
@@ -155,8 +174,7 @@ catch (Exception e)
     throw;
 }
 
-// Add our customized Exception middleware
-app.UseMiddleware<ExceptionMiddleware>();
+app.UseStaticFiles();
 
 if (app.Environment.IsDevelopment())
 {
@@ -170,19 +188,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
 
-app.UseCors(opt =>
-{
-    opt.AllowAnyHeader()
-        .AllowAnyMethod()
-        .AllowCredentials()
-        .WithOrigins("");
-});
+app.UseCors("cors");
+
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Add our customized Exception middleware
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.MapControllerRoute(
     "default",

@@ -108,7 +108,7 @@ const Activities = {
 const Account = {
 	  // Get current user using the API in the back, returning a promise of type User
 	  // After Get,Post,Put, etc., the type we mention, is the type that we expect to be returned from our server
-	  current: () => requests.get<User>("Account"),
+	  current: () => requests.get<User>("Account/GetCurrentUser"),
 	  login: (user: UserFormValues) => requests.post<User>("Account/Login", user),
 	  register: (user: UserFormValues) => requests.post<User>("Account/Register", user)
 }
