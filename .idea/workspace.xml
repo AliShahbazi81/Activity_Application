@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Saving token, login, and logout functionality">
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Add profile section to navbar, login to the homepage if not logged in">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/CommonStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/CommonStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/userStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/userStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +97,7 @@
       <workItem from="1696701947622" duration="12866000" />
       <workItem from="1696786610199" duration="2527000" />
       <workItem from="1696822437187" duration="594000" />
-      <workItem from="1696875694826" duration="7439000" />
+      <workItem from="1696875694826" duration="8632000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -274,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696908576774</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add profile section to navbar, login to the homepage if not logged in">
+      <option name="closed" value="true" />
+      <created>1696909970316</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1696909970316</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +312,7 @@
     <MESSAGE value="LoginForm client-side code, checked" />
     <MESSAGE value="Display error message for LoginForm inside the form instead of Toast" />
     <MESSAGE value="Saving token, login, and logout functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Saving token, login, and logout functionality" />
+    <MESSAGE value="Add profile section to navbar, login to the homepage if not logged in" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add profile section to navbar, login to the homepage if not logged in" />
   </component>
 </project>
