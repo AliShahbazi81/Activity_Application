@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="LoginForm UI">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/userStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="LoginForm client-side code, checked">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/Users/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/Users/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +95,7 @@
       <workItem from="1696701947622" duration="12866000" />
       <workItem from="1696786610199" duration="2527000" />
       <workItem from="1696822437187" duration="594000" />
-      <workItem from="1696875694826" duration="4353000" />
+      <workItem from="1696875694826" duration="5351000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -254,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696882593656</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="LoginForm client-side code, checked">
+      <option name="closed" value="true" />
+      <created>1696906849252</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1696906849252</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +283,7 @@
     <MESSAGE value="Fix Date formatting bug using date-fns" />
     <MESSAGE value="Remove unused import, bring handleFormatSubmit back and used in Formik" />
     <MESSAGE value="LoginForm UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="LoginForm UI" />
+    <MESSAGE value="LoginForm client-side code, checked" />
+    <option name="LAST_COMMIT_MESSAGE" value="LoginForm client-side code, checked" />
   </component>
 </project>
