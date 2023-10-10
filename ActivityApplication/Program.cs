@@ -21,11 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 //! This means that all of the controllers do need Authorization
-builder.Services.AddControllersWithViews(opt =>
-{
-    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-    opt.Filters.Add(new AuthorizeFilter(policy));
-});
+builder.Services.AddControllers();
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Swagger Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddSwaggerGen(opt =>
 {
@@ -113,7 +109,8 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Activity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Identity Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddIdentity<User, Role>(opt =>
     {
         opt.Password.RequireDigit = false;
@@ -181,12 +178,11 @@ app.UseCors(opt =>
     opt.AllowAnyHeader()
         .AllowAnyMethod()
         .AllowCredentials()
-        .WithOrigins(
-            "https://localhost:3000",
-            "http://localhost:5162",
-            "https://localhost:7290");
+        .WithOrigins("");
 });
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     "default",

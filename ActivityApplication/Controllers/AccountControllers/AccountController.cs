@@ -38,7 +38,8 @@ public class AccountController : ControllerBase
                 Username = user.UserName,
                 Image = null,
                 Token = await _tokenService.GenerateToken(user.Id),
-                DisplayName = user.DisplayName
+                DisplayName = user.DisplayName,
+                Email = user.Email
             };
 
         return Unauthorized();
@@ -68,12 +69,11 @@ public class AccountController : ControllerBase
         return BadRequest(result.Errors);
     }
 
-
     [Authorize]
-    [HttpGet]
+    [HttpGet("GetCurrentUser")]
     public async Task<ActionResult<UserDto>> GetCurrentUser()
     {
-        var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email)!);
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
         return await CreateUserObject(user!);
     }

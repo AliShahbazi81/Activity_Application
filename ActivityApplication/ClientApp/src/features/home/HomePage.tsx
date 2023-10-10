@@ -3,10 +3,11 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {useStore} from "../../stores/store";
 import {observer} from "mobx-react-lite";
+import LoginForm from "../activity/Users/LoginForm";
 
 export default observer(function HomePage()
 {
-	  const {userStore} = useStore();
+	  const {userStore, modalStore} = useStore();
 	  
 	  return(
 			<Segment inverted textAlign={"center"} vertical className={"masthead"}>
@@ -15,7 +16,7 @@ export default observer(function HomePage()
 							<Image size={"massive"} src={"/assets/logo.png"} alt={"Logo"} style={{marginBottom: 12}} />
 							  Reactivities
 						</Header>
-						{userStore.getIsLoggedIn() ? (
+						{userStore.isLoggedIn ? (
 							 <>
 								   <Header as={"h2"} inverted content={"Welcome to Reactivities"}/>
 								   <Button as={Link} to={"/activities"} size={"huge"} inverted>
@@ -23,9 +24,15 @@ export default observer(function HomePage()
 								   </Button>
 							 </> 
 						) : (
-							  <Button as={Link} to={"/login"} size={"huge"} inverted>
-									Login!
-							  </Button>
+							  <>
+									<Button onClick={() => modalStore.openModal(<LoginForm />)} size={"huge"} inverted>
+										  Login!
+									</Button>
+									<Button onClick={() => modalStore.openModal(<h1>Register</h1>)} size={"huge"} inverted>
+										  Register !
+									</Button>
+							  </>
+							  
 						)}
 				  </Container>
 			</Segment>

@@ -7,6 +7,7 @@ import HomePage from "./features/home/HomePage";
 import {ToastContainer} from "react-toastify";
 import {useStore} from "./stores/store";
 import LoadingComponent from './components/LoadingComponent';
+import ModalContainer from './components/modals/ModalContainer';
 
 const App: React.FC = () => {
 	  const location = useLocation();
@@ -24,6 +25,7 @@ const App: React.FC = () => {
 
 	  return (
 			<>
+				  <ModalContainer />
 				  {/*In order to show the Toastify error all around our app, we have to implement it here*/}
 				  <ToastContainer position={"bottom-right"} hideProgressBar theme={"colored"}/>
 				  {location.pathname === "/" ? <HomePage/> : (

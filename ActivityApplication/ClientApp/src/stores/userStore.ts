@@ -12,19 +12,26 @@ export default class userStore {
 			makeAutoObservable(this);
 	  }
 
-	  getIsLoggedIn() {
+	  get isLoggedIn() {
 			return !!this.user;
 	  }
 
 	  //! Since we have added "reaction" method to our userStore for setToken, whatever happens to the token that reaction will be called.
 	  // Hence, setItem and removeItem for the localStorage would be useless, that is why they have been commented out
 	  login = async (creds: UserFormValues) => {
-			const user = await agent.Account.login(creds);
-			// After receiving user's cred, send the returned token to the store in order to be saved in the local storage
-			store.commonStore.setToken(user.token)
-			runInAction(() => this.user = user)
-			// Navigate user to activities after successful login
-			await router.navigate("/activities")
+			try {
+				  const user = await agent.Account.login(creds);
+				  // After receiving user's cred, send the returned token to the store in order to be saved in the local storage
+				  store.commonStore.setToken(user.token)
+				  runInAction(() => this.user = user)
+				  // Navigate user to activities after successful login
+				  await router.navigate("/activities")
+				  store.modalStore.closeModal() 
+			}
+			catch (error)
+			{
+				  throw error;
+			}
 	  }
 
 	  logout = async () => {
