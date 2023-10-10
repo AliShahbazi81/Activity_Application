@@ -15,6 +15,17 @@ const sleep = (delay: number) => {
 // Configure default URL for APIs
 axios.defaults.baseURL = "https://localhost:7290/api/";
 
+
+//! The setting down below will be used for each request that we send we axios
+axios.interceptors.request.use(config => {
+	  
+	  // Send the saved token with each request
+	  const token = store.commonStore.token;
+	  if (token && config.headers)
+			config.headers.Authorization = `Bearer ${token}`;
+	  return config;
+})
+
 // Add delay for getting response from our API
 // Axios interceptor is smart enough to understand what is a good or bad request
 //! Axios interceptor => All the errors except 200, are bad requests

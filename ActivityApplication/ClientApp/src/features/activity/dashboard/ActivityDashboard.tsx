@@ -16,7 +16,7 @@ export default observer(function ActivityDashboard() {
 	  }, [loadActivities, activityRegistry.size]);
 
 	  // Display loading component if the data is not retrieved yet
-	  if (activityStore.loadingInitial) return <LoadingComponent content={"Loading App..."} />
+	  if (activityStore.loadingInitial) return <LoadingComponent content={"Loading Activities..."} />
 	  
 	  return (
 			 <Grid >
