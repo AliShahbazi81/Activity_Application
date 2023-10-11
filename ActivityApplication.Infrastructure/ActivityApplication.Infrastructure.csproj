@@ -6,4 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\ActivityApplication.Domain\ActivityApplication.Domain.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Services.Activity\ActivityApplication.Services.Activity.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Services.Membership\ActivityApplication.Services.Membership.csproj"/>
+    </ItemGroup>
+
 </Project>

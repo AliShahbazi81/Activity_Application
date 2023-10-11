@@ -1,5 +1,6 @@
 using System.Data;
 using ActivityApplication.DataAccess.DbContext;
+using ActivityApplication.DataAccess.JoinTables;
 using ActivityApplication.Domain.Results;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
@@ -25,7 +26,7 @@ public class ActivityService : IActivityService
         _logger = logger;
     }
 
-    public async Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto)
+    public async Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto, Guid userId)
     {
         // Validate the input
         InputValidation(activityDto.Date,
@@ -42,19 +43,30 @@ public class ActivityService : IActivityService
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
         dbContext.Add(activity);
 
+        // Add the created activity to the relational DbSet with Attendees
+        var attendee = new ActivityAttendee
+        {
+            UserId = userId,
+            Activity = activity,
+            IsHost = true
+        };
+
+        dbContext.Add(attendee);
+
         // Save and check if successful
         await dbContext.SaveChangesAsync();
 
-        var returnedActivityDto = MapToDto(activity);
+        var returnedActivityDto = await MapToDto(activity);
         return Result<ActivityDto>.Success(returnedActivityDto);
     }
 
     public async Task<Result<ActivityDto>> GetActivityAsync(Guid activityId)
     {
-
         var activity = await CheckActivityId(activityId);
 
-        return Result<ActivityDto>.Success(MapToDto(activity));
+        var getDto = await MapToDto(activity);
+
+        return Result<ActivityDto>.Success(getDto);
     }
 
     public async Task<Result<IEnumerable<ActivityDto>>> GetActivitiesAsync()
@@ -64,7 +76,9 @@ public class ActivityService : IActivityService
             .AsNoTracking()
             .ToListAsync();
 
-        return Result<IEnumerable<ActivityDto>>.Success(activities.Select(MapToDto));
+        var activityDtos = await Task.WhenAll(activities.Select(MapToDto));
+
+        return Result<IEnumerable<ActivityDto>>.Success(activityDtos);
     }
 
     public async Task<Result<bool>> UpdateActivityAsync(Guid activityId, ActivityDto activityDto)
@@ -127,8 +141,9 @@ public class ActivityService : IActivityService
         }
     }
 
-    private static ActivityDto MapToDto(DataAccess.Activities.Activity? activity)
+    private async Task<ActivityDto> MapToDto(DataAccess.Activities.Activity? activity)
     {
+        var getAttendees = await AttendeesListAsync(activity.Id);
         return new ActivityDto
         {
             Id = activity.Id,
@@ -137,7 +152,8 @@ public class ActivityService : IActivityService
             Description = activity.Description,
             Category = activity.Category,
             City = activity.City,
-            Venue = activity.Venue
+            Venue = activity.Venue,
+            Attendees = getAttendees.ToList()
         };
     }
 
@@ -193,5 +209,16 @@ public class ActivityService : IActivityService
             throw new IdNotFoundException();
 
         return await getActivity.SingleAsync();
+    }
+
+    private async Task<IEnumerable<ActivityAttendee>> AttendeesListAsync(Guid activityId)
+    {
+        await using var dbContext = await _contextFactory.CreateDbContextAsync();
+        var getList = await dbContext.ActivityAttendees
+            .AsNoTracking()
+            .Where(x => x.ActivityId == activityId)
+            .ToListAsync();
+
+        return getList;
     }
 }

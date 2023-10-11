@@ -1,3 +1,4 @@
+using ActivityApplication.Infrastructure.Extensions;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
@@ -64,7 +65,7 @@ public class ActivityController : BaseApiController
     {
         try
         {
-            return HandleResult(await _service.CreateActivityAsync(activityDto));
+            return HandleResult(await _service.CreateActivityAsync(activityDto, User.GetUserId()));
         }
         catch (DateTimeValidationException e)
         {
