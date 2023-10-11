@@ -1,5 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ActivityApplication.DataAccess.JoinTables;
 
 namespace ActivityApplication.DataAccess.Activities;
 
@@ -12,11 +11,6 @@ public class Activity
     public string Category { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
     public string Venue { get; set; } = string.Empty;
-}
 
-public class ActivityBuilder : IEntityTypeConfiguration<Activity>
-{
-    public void Configure(EntityTypeBuilder<Activity> builder)
-    {
-    }
+    public virtual ICollection<ActivityAttendee> Attendees { get; set; }
 }

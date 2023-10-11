@@ -51,6 +51,24 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.ToTable("Activities");
                 });
 
+            modelBuilder.Entity("ActivityApplication.DataAccess.JoinTables.ActivityAttendee", b =>
+                {
+                    b.Property<Guid>("ActivityId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsHost")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ActivityId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ActivityAttendees");
+                });
+
             modelBuilder.Entity("ActivityApplication.DataAccess.Users.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -80,31 +98,31 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("defe094e-41ed-422e-a89b-6e628cc11126"),
+                            Id = new Guid("de5e4388-2cb4-4380-b819-024f0248db80"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("c6437079-8062-444d-b36b-1e8ed64a7595"),
+                            Id = new Guid("7aa59a1a-47bd-4238-a4f3-f652c3122366"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("2f802987-9a4c-4866-9ff7-961806a681df"),
+                            Id = new Guid("078aab91-9970-405c-8783-873bc56103c1"),
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = new Guid("668ed48a-934d-4be2-bf0f-36dd0a499b58"),
+                            Id = new Guid("40cbaf05-8cf2-4644-a20a-0c92449e064c"),
                             Name = "BannedUser",
                             NormalizedName = "BANNED_USER"
                         },
                         new
                         {
-                            Id = new Guid("10e7aa15-4fc8-4445-bcbb-d4949f1b3862"),
+                            Id = new Guid("ecc94fba-45f3-4708-b37b-2fa9c855b202"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -304,6 +322,25 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ActivityApplication.DataAccess.JoinTables.ActivityAttendee", b =>
+                {
+                    b.HasOne("ActivityApplication.DataAccess.Activities.Activity", "Activity")
+                        .WithMany("Attendees")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ActivityApplication.DataAccess.Users.User", "User")
+                        .WithMany("Activities")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("ActivityApplication.DataAccess.Users.Role", null)
@@ -353,6 +390,16 @@ namespace ActivityApplication.DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ActivityApplication.DataAccess.Activities.Activity", b =>
+                {
+                    b.Navigation("Attendees");
+                });
+
+            modelBuilder.Entity("ActivityApplication.DataAccess.Users.User", b =>
+                {
+                    b.Navigation("Activities");
                 });
 #pragma warning restore 612, 618
         }

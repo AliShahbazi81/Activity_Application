@@ -10,7 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Fix bug redirecting user to fallback function for GetCurrentUser" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Change BadRequests to ValidationProblem in Controllers">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +27,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba42fa83f66411607f71ed975b8e32754845f82070f9872d3b77d0a9c25de28/ClaimsPrincipal.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication/Controllers/AccountControllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -178,7 +181,7 @@
       <workItem from="1696786627916" duration="13473000" />
       <workItem from="1696822472287" duration="593000" />
       <workItem from="1696875698531" duration="13449000" />
-      <workItem from="1696956935667" duration="5944000" />
+      <workItem from="1696956935667" duration="7892000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -388,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696975171511</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Change BadRequests to ValidationProblem in Controllers">
+      <option name="closed" value="true" />
+      <created>1696990797878</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1696990797878</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +408,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Init basic files for DataBase and DataSets" />
     <MESSAGE value="Seeding DataBase" />
     <MESSAGE value="First coding for Activity Service" />
     <MESSAGE value="Refactoring Activity Service" />
@@ -422,7 +432,8 @@
     <MESSAGE value="Add Authorization to ActivityController" />
     <MESSAGE value="Error on GetCurrentUser in AccountController" />
     <MESSAGE value="Fix bug redirecting user to fallback function for GetCurrentUser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug redirecting user to fallback function for GetCurrentUser" />
+    <MESSAGE value="Change BadRequests to ValidationProblem in Controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change BadRequests to ValidationProblem in Controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

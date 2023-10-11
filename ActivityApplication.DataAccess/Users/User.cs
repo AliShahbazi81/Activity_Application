@@ -1,6 +1,5 @@
+using ActivityApplication.DataAccess.JoinTables;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ActivityApplication.DataAccess.Users;
 
@@ -14,11 +13,6 @@ public class User : IdentityUser<Guid>
     public string DeletionReason { get; set; } = string.Empty;
     public DateTime? DeletionTime { get; set; } = null;
     public string DeletedBy { get; set; } = string.Empty;
-}
 
-public class UserBuilder : IEntityTypeConfiguration<User>
-{
-    public void Configure(EntityTypeBuilder<User> builder)
-    {
-    }
+    public virtual ICollection<ActivityAttendee> Activities { get; set; }
 }
