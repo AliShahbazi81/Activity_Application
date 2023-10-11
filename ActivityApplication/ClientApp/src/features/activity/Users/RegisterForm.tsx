@@ -4,7 +4,8 @@ import React from "react";
 import {Button, Header, Label} from "semantic-ui-react";
 import MyTextInput from "../../../components/Form/MyTextInput";
 import {useStore} from "../../../stores/store";
-import * as Yup from "yup"; 
+import * as Yup from "yup";
+import ValidationError from "../../errors/ValidationError"; 
 
 export default observer(function RegisterForm()
 {
@@ -16,7 +17,7 @@ export default observer(function RegisterForm()
 				  initialValues={{displayName:"", username:"", email: "", password: "", error: null}}
 				  onSubmit={(values, {setErrors}) =>
 						userStore.login(values)
-							  .catch(error => setErrors({error: "Invalid email or password"}))}
+							  .catch(error => setErrors({error}))}
 				  validationSchema={Yup.object({
 						displayName: Yup.string().required(),
 						username: Yup.string().required(),
@@ -27,7 +28,7 @@ export default observer(function RegisterForm()
 				  {/* Formik will automatically realize when it has to turn on and off the loading. Hence, we do not have to create isSubmitting functions*/}
 				  {({handleSubmit, isSubmitting, errors, isValid, dirty}) => (
 						<Form
-							  className={"ui form"}
+							  className={"ui form error"}
 							  onSubmit={handleSubmit}
 							  autoComplete={"off"}>
 							  <Header
@@ -50,7 +51,7 @@ export default observer(function RegisterForm()
 							  <ErrorMessage
 									name={"error"}
 									render={() =>
-										  <Label style={{marginBottom: 10}} basic color={"red"} content={errors.error} />
+										  <ValidationError errors={errors.error as unknown as string[]}/>
 									}/>
 							  <Button
 									positive

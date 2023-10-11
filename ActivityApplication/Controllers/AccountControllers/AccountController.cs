@@ -52,10 +52,18 @@ public class AccountController : ControllerBase
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
         if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
-            return BadRequest("Username is already taken.");
+        {
+            ModelState.AddModelError("username", "Username is taken");
+            return ValidationProblem();
+        }
 
+        // Using ValidationProblem so that we can show the proper error in our client-side components
         if (await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email))
-            return BadRequest("Email is already taken.");
+        {
+            ModelState.AddModelError("email", "Email is already taken");
+            return ValidationProblem();
+        }
+
 
         var user = new User
         {
