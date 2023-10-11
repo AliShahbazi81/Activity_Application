@@ -10,15 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Fix bug redirecting user to fallback function for GetCurrentUser" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,7 +178,7 @@
       <workItem from="1696786627916" duration="13473000" />
       <workItem from="1696822472287" duration="593000" />
       <workItem from="1696875698531" duration="13449000" />
-      <workItem from="1696956935667" duration="5116000" />
+      <workItem from="1696956935667" duration="5944000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -388,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696921142456</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fix bug redirecting user to fallback function for GetCurrentUser">
+      <option name="closed" value="true" />
+      <created>1696975171510</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1696975171511</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +397,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Init files" />
     <MESSAGE value="Init basic files for DataBase and DataSets" />
     <MESSAGE value="Seeding DataBase" />
     <MESSAGE value="First coding for Activity Service" />
@@ -422,37 +421,12 @@
     <MESSAGE value="Get CurrentUser in AccountController" />
     <MESSAGE value="Add Authorization to ActivityController" />
     <MESSAGE value="Error on GetCurrentUser in AccountController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error on GetCurrentUser in AccountController" />
+    <MESSAGE value="Fix bug redirecting user to fallback function for GetCurrentUser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug redirecting user to fallback function for GetCurrentUser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs</url>
-          <line>78</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication\Controllers\AccountControllers\AccountController.cs" initialLine="75" containingFunctionPresentation="Method 'GetCurrentUser'">
-            <startOffsets>
-              <option value="2482" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2548" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs</url>
-          <line>77</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication\Controllers\AccountControllers\AccountController.cs" initialLine="74" containingFunctionPresentation="Method 'GetCurrentUser'">
-            <startOffsets>
-              <option value="2472" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2473" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication/Program.cs</url>
           <line>110</line>

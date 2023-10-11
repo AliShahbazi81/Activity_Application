@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useStore} from "../../stores/store";
 import {observer} from "mobx-react-lite";
 import LoginForm from "../activity/Users/LoginForm";
+import RegisterForm from "../activity/Users/RegisterForm";
 
 export default observer(function HomePage()
 {
@@ -28,7 +29,7 @@ export default observer(function HomePage()
 									<Button onClick={() => modalStore.openModal(<LoginForm />)} size={"huge"} inverted>
 										  Login!
 									</Button>
-									<Button onClick={() => modalStore.openModal(<h1>Register</h1>)} size={"huge"} inverted>
+									<Button onClick={() => modalStore.openModal(<RegisterForm />)} size={"huge"} inverted>
 										  Register !
 									</Button>
 							  </>

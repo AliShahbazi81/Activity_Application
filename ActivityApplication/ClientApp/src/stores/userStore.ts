@@ -34,6 +34,23 @@ export default class userStore {
 			}
 	  }
 
+	  // The use case of the app is, when a user signs up, it automatically logs in, hence we will set a token
+	  register = async (creds: UserFormValues) => {
+			try {
+				  const user = await agent.Account.register(creds);
+				  // After receiving user's cred, send the returned token to the store in order to be saved in the local storage
+				  store.commonStore.setToken(user.token)
+				  runInAction(() => this.user = user)
+				  // Navigate user to activities after successful login
+				  await router.navigate("/activities")
+				  store.modalStore.closeModal()
+			}
+			catch (error)
+			{
+				  throw error;
+			}
+	  }
+
 	  logout = async () => {
 			store.commonStore.setToken(null);
 			/*? localStorage.removeItem("jwt"); */
