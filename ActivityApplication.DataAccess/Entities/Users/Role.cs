@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace ActivityApplication.DataAccess.Users;
+namespace ActivityApplication.DataAccess.Entities.Users;
 
 public class Role : IdentityRole<Guid>
 {

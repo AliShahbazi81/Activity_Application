@@ -1,7 +1,7 @@
-﻿using ActivityApplication.DataAccess.Activities;
-using ActivityApplication.DataAccess.Users;
+﻿using ActivityApplication.DataAccess.Entities.Activities;
+using ActivityApplication.DataAccess.Entities.Users;
 
-namespace ActivityApplication.DataAccess.JoinTables;
+namespace ActivityApplication.DataAccess.Entities.JoinTables;
 
 public class ActivityAttendee
 {

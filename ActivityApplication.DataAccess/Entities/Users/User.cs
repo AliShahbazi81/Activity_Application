@@ -1,7 +1,7 @@
-using ActivityApplication.DataAccess.JoinTables;
+using ActivityApplication.DataAccess.Entities.JoinTables;
 using Microsoft.AspNetCore.Identity;
 
-namespace ActivityApplication.DataAccess.Users;
+namespace ActivityApplication.DataAccess.Entities.Users;
 
 public class User : IdentityUser<Guid>
 {

@@ -1,6 +1,6 @@
-using ActivityApplication.DataAccess.JoinTables;
+using ActivityApplication.DataAccess.Entities.JoinTables;
 
-namespace ActivityApplication.DataAccess.Activities;
+namespace ActivityApplication.DataAccess.Entities.Activities;
 
 public class Activity
 {

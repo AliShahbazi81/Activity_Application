@@ -11,17 +11,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Extensions/UserExtension.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_3_2023_9_46_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_3_2023_9_46_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Activities/Activity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Seed/DbInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/JoinTables/ActivityAttendee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/JoinTables/ActivityAttendee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Users/Role.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Users/Role.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Users/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mapper/Mapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mapper/Mapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/CreateActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/CreateActivity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/GetActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/GetActivity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/GetActivityList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/Services/Mediator/GetActivityList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Membership/Services/Token/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Membership/Services/Token/TokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Pages/Error.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Pages/Error.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Pages/_ViewImports.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +208,9 @@
       <workItem from="1696822472287" duration="593000" />
       <workItem from="1696875698531" duration="13449000" />
       <workItem from="1696956935667" duration="10177000" />
-      <workItem from="1696994569209" duration="2835000" />
+      <workItem from="1696994569209" duration="4118000" />
+      <workItem from="1697051805957" duration="2574000" />
+      <workItem from="1697139192402" duration="2922000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -419,7 +436,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696992815524</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Add AttendeeActivity as Dto when getting an activity">
+      <option name="closed" value="true" />
+      <created>1696999031556</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1696999031556</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +453,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="First coding for Activity Service" />
     <MESSAGE value="Refactoring Activity Service" />
     <MESSAGE value="Use service in Controller, add Swagger" />
     <MESSAGE value="Implemented all of the services in Controller" />
@@ -453,59 +477,60 @@
     <MESSAGE value="Fix bug redirecting user to fallback function for GetCurrentUser" />
     <MESSAGE value="Change BadRequests to ValidationProblem in Controllers" />
     <MESSAGE value="Add relations between Attendees and Activities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add relations between Attendees and Activities" />
+    <MESSAGE value="Add AttendeeActivity as Dto when getting an activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add AttendeeActivity as Dto when getting an activity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication/Program.cs</url>
-          <line>110</line>
+          <line>111</line>
           <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication\Program.cs" initialLine="89" containingFunctionPresentation="">
             <startOffsets>
-              <option value="4461" />
+              <option value="4513" />
             </startOffsets>
             <endOffsets>
-              <option value="4487" />
+              <option value="4539" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication/Program.cs</url>
-          <line>122</line>
+          <line>123</line>
           <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication\Program.cs" initialLine="101" containingFunctionPresentation="">
             <startOffsets>
-              <option value="5049" />
+              <option value="5101" />
             </startOffsets>
             <endOffsets>
-              <option value="5091" />
+              <option value="5143" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication/Program.cs</url>
-          <line>129</line>
+          <line>130</line>
           <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication\Program.cs" initialLine="108" containingFunctionPresentation="">
             <startOffsets>
-              <option value="5377" />
+              <option value="5429" />
             </startOffsets>
             <endOffsets>
-              <option value="5426" />
+              <option value="5478" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication/Program.cs</url>
-          <line>136</line>
+          <line>137</line>
           <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication\Program.cs" initialLine="115" containingFunctionPresentation="">
             <startOffsets>
-              <option value="5707" />
+              <option value="5759" />
             </startOffsets>
             <endOffsets>
-              <option value="5758" />
+              <option value="5810" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />

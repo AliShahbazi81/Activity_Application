@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Send JWT with each Axios request to the server">
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="RegisterForm basic logics">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_3_2023_9_46_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_3_2023_9_46_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +100,10 @@
       <workItem from="1696786610199" duration="2527000" />
       <workItem from="1696822437187" duration="594000" />
       <workItem from="1696875694826" duration="14691000" />
+      <workItem from="1696956993716" duration="4986000" />
+      <workItem from="1697051788327" duration="53000" />
+      <workItem from="1697051860039" duration="669000" />
+      <workItem from="1697139219123" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -297,14 +305,21 @@
       <option name="project" value="LOCAL" />
       <updated>1696911307551</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="RegisterForm basic logics">
+      <option name="closed" value="true" />
+      <created>1696990119706</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1696990119706</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test if the commit is considered as contribution in GitHub using Computer" />
     <MESSAGE value="Separate ActivityForm and ActivityDetails into separated components" />
     <MESSAGE value="Fix error where the ActivityForm used to not open when it is needed" />
     <MESSAGE value="Fix error where react could not distinguish between Create an Activity and Manage an activity" />
@@ -329,6 +344,7 @@
     <MESSAGE value="Add profile section to navbar, login to the homepage if not logged in" />
     <MESSAGE value="Bug fix app loading spinner after refreshing the page" />
     <MESSAGE value="Send JWT with each Axios request to the server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Send JWT with each Axios request to the server" />
+    <MESSAGE value="RegisterForm basic logics" />
+    <option name="LAST_COMMIT_MESSAGE" value="RegisterForm basic logics" />
   </component>
 </project>

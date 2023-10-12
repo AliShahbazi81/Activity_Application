@@ -10,11 +10,11 @@ namespace ActivityApplication.Services.User.Services.Token;
 
 public class TokenService
 {
-    private readonly UserManager<DataAccess.Users.User> _userManager;
-    private readonly SignInManager<DataAccess.Users.User> _signInManager;
+    private readonly UserManager<DataAccess.Entities.Users.User> _userManager;
+    private readonly SignInManager<DataAccess.Entities.Users.User> _signInManager;
     private readonly IConfiguration _configuration;
 
-    public TokenService(UserManager<DataAccess.Users.User> userManager, SignInManager<DataAccess.Users.User> signInManager, IConfiguration configuration)
+    public TokenService(UserManager<DataAccess.Entities.Users.User> userManager, SignInManager<DataAccess.Entities.Users.User> signInManager, IConfiguration configuration)
     {
         _userManager = userManager;
         _configuration = configuration;

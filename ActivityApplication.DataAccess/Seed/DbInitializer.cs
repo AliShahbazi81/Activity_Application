@@ -1,9 +1,9 @@
-using ActivityApplication.DataAccess.Activities;
 using ActivityApplication.DataAccess.DbContext;
-using ActivityApplication.DataAccess.Users;
+using ActivityApplication.DataAccess.Entities.Activities;
+using ActivityApplication.DataAccess.Entities.Users;
 using Microsoft.AspNetCore.Identity;
 
-namespace ActivityApplication.DataAccess;
+namespace ActivityApplication.DataAccess.Seed;
 
 public static class DbInitializer
 {

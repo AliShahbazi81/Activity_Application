@@ -1,6 +1,6 @@
-using ActivityApplication.DataAccess.Activities;
-using ActivityApplication.DataAccess.JoinTables;
-using ActivityApplication.DataAccess.Users;
+using ActivityApplication.DataAccess.Entities.Activities;
+using ActivityApplication.DataAccess.Entities.JoinTables;
+using ActivityApplication.DataAccess.Entities.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

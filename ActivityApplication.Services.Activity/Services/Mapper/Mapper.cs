@@ -4,7 +4,7 @@ namespace ActivityApplication.Services.Activity.Services.Mapper;
 
 public static class Mapper
 {
-    public static ActivityDto ToDto(DataAccess.Activities.Activity activityEntity)
+    public static ActivityDto ToDto(DataAccess.Entities.Activities.Activity activityEntity)
     {
         return new ActivityDto
         {
@@ -17,14 +17,14 @@ public static class Mapper
         };
     }
 
-    public static IEnumerable<ActivityDto>? ToDtos(IEnumerable<DataAccess.Activities.Activity>? activityEntities)
+    public static IEnumerable<ActivityDto>? ToDtos(IEnumerable<DataAccess.Entities.Activities.Activity>? activityEntities)
     {
         return activityEntities?.Select(dto => ToDto(dto));
     }
 
-    public static DataAccess.Activities.Activity ToEntity(ActivityDto activityDto)
+    public static DataAccess.Entities.Activities.Activity ToEntity(ActivityDto activityDto)
     {
-        return new DataAccess.Activities.Activity
+        return new DataAccess.Entities.Activities.Activity
         {
             Title = activityDto.Title,
             Category = activityDto.Category,
@@ -35,7 +35,7 @@ public static class Mapper
         };
     }
 
-    public static IEnumerable<DataAccess.Activities.Activity> ToEntities(IEnumerable<ActivityDto>? activityDtos)
+    public static IEnumerable<DataAccess.Entities.Activities.Activity> ToEntities(IEnumerable<ActivityDto>? activityDtos)
     {
         return activityDtos?.Select(dto => ToEntity(dto))!;
     }

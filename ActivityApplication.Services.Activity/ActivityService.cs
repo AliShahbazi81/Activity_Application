@@ -1,6 +1,6 @@
 using System.Data;
 using ActivityApplication.DataAccess.DbContext;
-using ActivityApplication.DataAccess.JoinTables;
+using ActivityApplication.DataAccess.Entities.JoinTables;
 using ActivityApplication.Domain.Results;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
@@ -141,7 +141,7 @@ public class ActivityService : IActivityService
         }
     }
 
-    private async Task<ActivityDto> MapToDto(DataAccess.Activities.Activity? activity)
+    private async Task<ActivityDto> MapToDto(DataAccess.Entities.Activities.Activity? activity)
     {
         var getAttendees = await AttendeesListAsync(activity.Id);
         return new ActivityDto
@@ -157,9 +157,9 @@ public class ActivityService : IActivityService
         };
     }
 
-    private static DataAccess.Activities.Activity MapToEntity(ActivityDto activityDto)
+    private static DataAccess.Entities.Activities.Activity MapToEntity(ActivityDto activityDto)
     {
-        return new DataAccess.Activities.Activity
+        return new DataAccess.Entities.Activities.Activity
         {
             Title = activityDto.Title,
             Date = Convert.ToDateTime(activityDto.Date.ToUniversalTime().ToString("g")),
@@ -171,7 +171,7 @@ public class ActivityService : IActivityService
     }
 
     private static void UpdateEntity(
-        DataAccess.Activities.Activity? activity,
+        DataAccess.Entities.Activities.Activity? activity,
         ActivityDto activityDto)
     {
         activity.Title = activityDto.Title;
@@ -198,7 +198,7 @@ public class ActivityService : IActivityService
         Guards.ActivityGuard.CheckLength(description, DescriptionLength);
     }
 
-    private async Task<DataAccess.Activities.Activity?> CheckActivityId(Guid activityId)
+    private async Task<DataAccess.Entities.Activities.Activity?> CheckActivityId(Guid activityId)
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
 

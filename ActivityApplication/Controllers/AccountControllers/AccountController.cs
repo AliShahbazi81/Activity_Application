@@ -1,6 +1,6 @@
 using System.Net.Mime;
 using System.Security.Claims;
-using ActivityApplication.DataAccess.Users;
+using ActivityApplication.DataAccess.Entities.Users;
 using ActivityApplication.Services.User.DTOs;
 using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

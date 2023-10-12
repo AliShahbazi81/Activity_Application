@@ -1,4 +1,4 @@
-using ActivityApplication.DataAccess.JoinTables;
+using ActivityApplication.DataAccess.Entities.JoinTables;
 
 namespace ActivityApplication.Services.Activity.DTO;
 
