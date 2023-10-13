@@ -12,5 +12,5 @@ public record struct ActivityDto
     public string City { get; set; }
     public string Venue { get; set; }
     public string HostUsername { get; set; }
-    public List<ActivityAttendee> Attendees { get; set; }
+    public List<ProfileDto> Attendees { get; set; }
 }

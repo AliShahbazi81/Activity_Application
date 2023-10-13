@@ -1,6 +1,7 @@
 using System.Data;
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Entities.JoinTables;
+using ActivityApplication.DataAccess.Entities.Users;
 using ActivityApplication.Domain.Results;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
@@ -56,7 +57,7 @@ public class ActivityService : IActivityService
         // Save and check if successful
         await dbContext.SaveChangesAsync();
 
-        var returnedActivityDto = await MapToDto(activity);
+        var returnedActivityDto = MapToDto(activity);
         return Result<ActivityDto>.Success(returnedActivityDto);
     }
 
@@ -64,7 +65,7 @@ public class ActivityService : IActivityService
     {
         var activity = await CheckActivityId(activityId);
 
-        var getDto = await MapToDto(activity);
+        var getDto = MapToDto(activity);
 
         return Result<ActivityDto>.Success(getDto);
     }
@@ -74,9 +75,11 @@ public class ActivityService : IActivityService
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
         var activities = await dbContext.Activities
             .AsNoTracking()
+            .Include(a => a.Attendees)
+            .ThenInclude(aa => aa.User)
             .ToListAsync();
 
-        var activityDtos = await Task.WhenAll(activities.Select(MapToDto));
+        var activityDtos = activities.Select(MapToDto);
 
         return Result<IEnumerable<ActivityDto>>.Success(activityDtos);
     }
@@ -141,9 +144,14 @@ public class ActivityService : IActivityService
         }
     }
 
-    private async Task<ActivityDto> MapToDto(DataAccess.Entities.Activities.Activity? activity)
+    private ActivityDto MapToDto(DataAccess.Entities.Activities.Activity? activity)
     {
-        var getAttendees = await AttendeesListAsync(activity.Id);
+        var profiles = activity.Attendees.Select(a => MapToProfileDto(a.User)).ToList();
+
+        var hostUserName = activity.Attendees
+            .Select(x => x.User.UserName)
+            .FirstOrDefault();
+
         return new ActivityDto
         {
             Id = activity.Id,
@@ -153,7 +161,18 @@ public class ActivityService : IActivityService
             Category = activity.Category,
             City = activity.City,
             Venue = activity.Venue,
-            Attendees = getAttendees.ToList()
+            HostUsername = hostUserName,
+            Attendees = profiles
+        };
+    }
+
+    private ProfileDto MapToProfileDto(User attendee)
+    {
+        return new ProfileDto
+        {
+            Username = attendee.UserName,
+            DisplayName = attendee.DisplayName,
+            Bio = attendee.Bio
         };
     }
 
@@ -211,12 +230,13 @@ public class ActivityService : IActivityService
         return await getActivity.SingleAsync();
     }
 
-    private async Task<IEnumerable<ActivityAttendee>> AttendeesListAsync(Guid activityId)
+    private async Task<IEnumerable<User>> AttendeesListAsync(Guid activityId)
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
         var getList = await dbContext.ActivityAttendees
             .AsNoTracking()
             .Where(x => x.ActivityId == activityId)
+            .Select(x => x.User)
             .ToListAsync();
 
         return getList;
