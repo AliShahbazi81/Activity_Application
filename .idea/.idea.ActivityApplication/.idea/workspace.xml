@@ -10,13 +10,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Adjust namespaces">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Returning Activity along with attendees">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/IUserAccessor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/UserAccessor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +201,8 @@
       <workItem from="1696994569209" duration="4118000" />
       <workItem from="1697051805957" duration="2574000" />
       <workItem from="1697139192402" duration="4263000" />
-      <workItem from="1697151040067" duration="3082000" />
+      <workItem from="1697151040067" duration="3572000" />
+      <workItem from="1697214354991" duration="5494000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -432,7 +444,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697145537934</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Returning Activity along with attendees">
+      <option name="closed" value="true" />
+      <created>1697157724490</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1697157724490</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +461,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Use service in Controller, add Swagger" />
     <MESSAGE value="Implemented all of the services in Controller" />
     <MESSAGE value="Add Exception Solution folder to Activity Service" />
     <MESSAGE value="Create guard for activity service" />
@@ -466,7 +485,8 @@
     <MESSAGE value="Add relations between Attendees and Activities" />
     <MESSAGE value="Add AttendeeActivity as Dto when getting an activity" />
     <MESSAGE value="Adjust namespaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust namespaces" />
+    <MESSAGE value="Returning Activity along with attendees" />
+    <option name="LAST_COMMIT_MESSAGE" value="Returning Activity along with attendees" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

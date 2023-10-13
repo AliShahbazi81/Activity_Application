@@ -4,6 +4,7 @@ using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 
 namespace ActivityApplication.Controllers.ActivityControllers;
 
@@ -80,6 +81,20 @@ public class ActivityController : BaseApiController
         catch (Exception e)
         {
             _logger.LogError("Error on creating the activity: ", e.Message);
+            return BadRequest();
+        }
+    }
+
+    [HttpPost("{id}/attend")]
+    public async Task<IActionResult> Attend(Guid id)
+    {
+        try
+        {
+            return HandleResult(await _service.UpdateAttendeesAsync(id));
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("Error on attending the activity: ", e.Message);
             return BadRequest();
         }
     }

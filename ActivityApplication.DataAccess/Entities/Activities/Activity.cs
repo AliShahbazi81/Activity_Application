@@ -11,6 +11,6 @@ public class Activity
     public string Category { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
     public string Venue { get; set; } = string.Empty;
-
+    public bool IsCanceled { get; set; } = false;
     public virtual ICollection<ActivityAttendee> Attendees { get; set; }
 }

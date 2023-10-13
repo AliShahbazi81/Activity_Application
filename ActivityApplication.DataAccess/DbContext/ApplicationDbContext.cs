@@ -12,7 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, Guid>
     {
     }
 
-    public DbSet<Activity?> Activities { get; set; }
+    public DbSet<Activity> Activities { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<ActivityAttendee> ActivityAttendees { get; set; }
 

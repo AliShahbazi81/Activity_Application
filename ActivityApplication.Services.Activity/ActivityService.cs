@@ -1,8 +1,8 @@
 using System.Data;
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Entities.JoinTables;
-using ActivityApplication.DataAccess.Entities.Users;
 using ActivityApplication.Domain.Results;
+using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +14,7 @@ public class ActivityService : IActivityService
 {
     private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
     private readonly ILogger<ActivityService> _logger;
+    private readonly IUserAccessor _userAccessor;
     private const int TitleLength = 5;
     private const int CityLength = 5;
     private const int CategoryLength = 5;
@@ -21,10 +22,11 @@ public class ActivityService : IActivityService
     private const int DescriptionLength = 10;
 
     // Comment
-    public ActivityService(IDbContextFactory<ApplicationDbContext> context, ILogger<ActivityService> logger)
+    public ActivityService(IDbContextFactory<ApplicationDbContext> context, ILogger<ActivityService> logger, IUserAccessor userAccessor)
     {
         _contextFactory = context;
         _logger = logger;
+        _userAccessor = userAccessor;
     }
 
     public async Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto, Guid userId)
@@ -123,6 +125,60 @@ public class ActivityService : IActivityService
         return await dbContext.SaveChangesAsync() > 0 ? Result<bool>.Success(true) : Result<bool>.Failure("Failed to delete the activity.");
     }
 
+    public async Task<Result<bool>> UpdateAttendeesAsync(Guid activityId)
+    {
+        // Create dbContext
+        var dbContext = await _contextFactory.CreateDbContextAsync();
+
+        // Get desired activity
+        var activity = await dbContext.Activities
+            .Include(a => a.Attendees)
+            .ThenInclude(u => u.User)
+            .SingleOrDefaultAsync(x => x.Id == activityId);
+
+        // Check if the activity exists or not
+        if (activity == null) return Result<bool>.Failure("Failed to fetch the activity!");
+
+        // Get The user who wants to participate/cancel participation
+        var user = dbContext.Users
+            .FirstOrDefault(x => x.UserName == _userAccessor.GetUsername());
+
+        // Check if user exists or not
+        if (user == null) return Result<bool>.Failure("Failed to fetch the user!");
+
+        // Get the Host Username
+        var hostUsername = activity.Attendees
+            .FirstOrDefault(x => x.IsHost)?.User.UserName;
+
+        // Get the attendees
+        var attendance = activity.Attendees
+            .FirstOrDefault(x => x.User.UserName == user.UserName);
+
+        // Check if attendance is not null
+        if (attendance != null && hostUsername == user.UserName)
+            activity.IsCanceled = !activity.IsCanceled;
+
+        if (attendance != null && hostUsername != user.UserName)
+            activity.Attendees.Remove(attendance);
+
+        if (attendance == null)
+        {
+            attendance = new ActivityAttendee
+            {
+                User = user,
+                Activity = activity,
+                IsHost = false
+            };
+            activity.Attendees.Add(attendance);
+        }
+
+        // Save to database
+        var result = await dbContext.SaveChangesAsync() > 0;
+
+        // Return the result 
+        return result ? Result<bool>.Success(true) : Result<bool>.Failure("Action failed!");
+    }
+
     private async Task<TResult?> ExecuteInTransactionAsync<TResult>(
         Func<ApplicationDbContext,
             Task<TResult?>> action,
@@ -166,7 +222,7 @@ public class ActivityService : IActivityService
         };
     }
 
-    private ProfileDto MapToProfileDto(User attendee)
+    private ProfileDto MapToProfileDto(DataAccess.Entities.Users.User attendee)
     {
         return new ProfileDto
         {
@@ -230,7 +286,7 @@ public class ActivityService : IActivityService
         return await getActivity.SingleAsync();
     }
 
-    private async Task<IEnumerable<User>> AttendeesListAsync(Guid activityId)
+    private async Task<IEnumerable<DataAccess.Entities.Users.User>> AttendeesListAsync(Guid activityId)
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
         var getList = await dbContext.ActivityAttendees

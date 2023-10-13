@@ -6,6 +6,7 @@ using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Entities.Users;
 using ActivityApplication.DataAccess.Seed;
 using ActivityApplication.Domain.ExceptionsHandling;
+using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
 using ActivityApplication.Services.User.Services.Token;
@@ -155,6 +156,8 @@ builder.Services.AddMediatR
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Membership Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<TokenService>();
 
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ User Accessor Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 
 var app = builder.Build();
 

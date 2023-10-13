@@ -33,6 +33,9 @@ public interface IActivityService
     /// <returns></returns>
     Task<Result<bool>> UpdateActivityAsync(Guid activityId, ActivityDto activityDto);
 
+
+    Task<Result<bool>> UpdateAttendeesAsync(Guid activityId);
+
     /// <summary>
     /// Delete an activity from database
     /// </summary>
