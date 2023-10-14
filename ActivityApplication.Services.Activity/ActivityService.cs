@@ -65,7 +65,10 @@ public class ActivityService : IActivityService
 
     public async Task<Result<ActivityDto>> GetActivityAsync(Guid activityId)
     {
-        var activity = await CheckActivityId(activityId);
+        var dbContext = await _contextFactory.CreateDbContextAsync();
+
+        var activity = await CheckActivityId(dbContext, activityId);
+        ;
 
         var getDto = MapToDto(activity);
 
@@ -99,14 +102,24 @@ public class ActivityService : IActivityService
         // Using a new DB context
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
 
+        var activity = await dbContext.Activities
+            .Where(x => x.Id == activityId)
+            .SingleOrDefaultAsync();
+
         // Check and get the activity
-        var activity = await CheckActivityId(activityId);
+        if (activity == null)
+            return Result<bool>.Failure("Activity not found.");
 
         // Update the entity with the provided DTO
         UpdateEntity(activity, activityDto);
 
         // Save changes and return success status
-        return await dbContext.SaveChangesAsync() > 0 ? Result<bool>.Success(true) : Result<bool>.Failure("Failed to update the activity.");
+        var saved = await dbContext.SaveChangesAsync() > 0;
+
+        if (saved)
+            return Result<bool>.Success(true);
+
+        return Result<bool>.Failure("Failed to update the activity.");
     }
 
 
@@ -116,7 +129,7 @@ public class ActivityService : IActivityService
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
 
         // Check and get the activity
-        var activity = await CheckActivityId(activityId);
+        var activity = await CheckActivityId(dbContext, activityId);
 
         // Remove the activity
         dbContext.Activities.Remove(activity);
@@ -255,6 +268,7 @@ public class ActivityService : IActivityService
         activity.Category = activityDto.Category;
         activity.City = activityDto.City;
         activity.Venue = activityDto.Venue;
+        activity.IsCanceled = activityDto.IsCanceled;
     }
 
     private static void InputValidation(
@@ -273,17 +287,13 @@ public class ActivityService : IActivityService
         Guards.ActivityGuard.CheckLength(description, DescriptionLength);
     }
 
-    private async Task<DataAccess.Entities.Activities.Activity?> CheckActivityId(Guid activityId)
+    private async Task<DataAccess.Entities.Activities.Activity?> CheckActivityId(ApplicationDbContext dbContext, Guid activityId)
     {
-        await using var dbContext = await _contextFactory.CreateDbContextAsync();
+        var getActivity = await dbContext.Activities
+            .Where(x => x.Id == activityId)
+            .SingleOrDefaultAsync();
 
-        var getActivity = dbContext.Activities
-            .Where(x => x.Id == activityId);
-
-        if (!await getActivity.AnyAsync())
-            throw new IdNotFoundException();
-
-        return await getActivity.SingleAsync();
+        return getActivity ?? null;
     }
 
     private async Task<IEnumerable<DataAccess.Entities.Users.User>> AttendeesListAsync(Guid activityId)

@@ -99,15 +99,16 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpPut("Update/{activityId:guid}")]
+    [Authorize(Policy = "IsActivityHost")]
+    [HttpPut("Update/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> UpdateActivity(Guid activityId, ActivityDto activityDto)
+    public async Task<IActionResult> UpdateActivity(Guid id, ActivityDto activityDto)
     {
         try
         {
-            return HandleResult(await _service.UpdateActivityAsync(activityId, activityDto));
+            return HandleResult(await _service.UpdateActivityAsync(id, activityDto));
         }
         catch (IdNotFoundException e)
         {
@@ -131,15 +132,16 @@ public class ActivityController : BaseApiController
         }
     }
 
-    [HttpDelete("Delete/{activityId:guid}")]
+    [Authorize(Policy = "IsActivityHost")]
+    [HttpDelete("Delete/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> DeleteActivity(Guid activityId)
+    public async Task<ActionResult> DeleteActivity(Guid id)
     {
         try
         {
-            return HandleResult(await _service.DeleteActivityAsync(activityId));
+            return HandleResult(await _service.DeleteActivityAsync(id));
         }
         catch (IdNotFoundException e)
         {
