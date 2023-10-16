@@ -3,6 +3,7 @@ import {Button, Icon, Item, Segment} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import {Activity} from "../../../types/activity";
 import {format} from "date-fns";
+import ActivityListItemAttendee from "./ActivityListItemAttendee";
 
 interface Props {
 	  activity: Activity
@@ -48,7 +49,10 @@ export default function ActivityListItem({activity}: Props)
 												{activity.title}
 										  </Item.Header>
 										  <Item.Description>
-												Hosted by Bob
+												Hosted by
+												<Link to={`profiles/${activity.hostUsername}`} >
+													   {" " + activity.hostUsername?.toUpperCase()}
+												</Link>
 										  </Item.Description>
 									</Item.Content>
 							  </Item>
@@ -61,7 +65,7 @@ export default function ActivityListItem({activity}: Props)
 				  </Segment>
 				  
 				  <Segment secondary>
-						Attendees go here
+						<ActivityListItemAttendee attendees={activity.attendees!} />
 				  </Segment>
 				  
 				  {/*! When we use floated in any of the components, we do have to use clearing attr in the Segment*/}
