@@ -1,5 +1,6 @@
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Entities.Activities;
+using ActivityApplication.DataAccess.Entities.JoinTables;
 using ActivityApplication.DataAccess.Entities.Users;
 using Microsoft.AspNetCore.Identity;
 
@@ -7,162 +8,252 @@ namespace ActivityApplication.DataAccess.Seed;
 
 public static class DbInitializer
 {
-    public static async Task Initializer(ApplicationDbContext dbContext, UserManager<User> userManager,
+    public static async Task Initializer(ApplicationDbContext context, UserManager<User> userManager,
         RoleManager<Role> roleManager)
     {
         // Seeding User
-        if (dbContext.Users.Any())
-            return;
-
-        var admin = new Role
+        if (!userManager.Users.Any() && !context.Activities.Any())
         {
-            Name = "Admin"
-        };
-        await roleManager.CreateAsync(admin);
-
-        var member = new Role
-        {
-            Name = "Member"
-        };
-        await roleManager.CreateAsync(member);
-
-
-        var user = new User
-        {
-            UserName = "admin",
-            Name = "User",
-            Surname = "UserSurname",
-            Email = "alishahbazi799@gmail.com",
-            DisplayName = "Admin",
-            LockoutEnabled = false
-        };
-
-        await userManager.CreateAsync(user, "@GG001323132300gg");
-        await userManager.AddToRoleAsync(user, "Admin");
-
-        var memberUser = new User
-        {
-            UserName = "memberUser",
-            Name = "Member",
-            Surname = "MemberSurname",
-            DisplayName = "Member",
-            Email = "alishahbazi899@gmail.com",
-            LockoutEnabled = false
-        };
-
-        await userManager.CreateAsync(memberUser, "@GG001323132300gg");
-        await userManager.AddToRoleAsync(memberUser, "Member");
-
-        var testUser = new User
-        {
-            UserName = "testUser",
-            Name = "Test",
-            Surname = "TestSurname",
-            DisplayName = "Test",
-            Email = "alishahbazi999@gmail.com",
-            LockoutEnabled = false
-        };
-
-        await userManager.CreateAsync(testUser, "@GG001323132300gg");
-        await userManager.AddToRoleAsync(testUser, "Member");
-
-        if (dbContext.Activities.Any()) return;
-
-        var activities = new List<Activity>
-        {
-            new()
+            var users = new List<User>
             {
-                Title = "Past Activity 1",
-                Date = DateTime.UtcNow.AddMonths(-2),
-                Description = "Activity 2 months ago",
-                Category = "drinks",
-                City = "London",
-                Venue = "Pub"
-            },
-            new()
-            {
-                Title = "Past Activity 2",
-                Date = DateTime.UtcNow.AddMonths(-1),
-                Description = "Activity 1 month ago",
-                Category = "culture",
-                City = "Paris",
-                Venue = "Louvre"
-            },
-            new()
-            {
-                Title = "Future Activity 1",
-                Date = DateTime.UtcNow.AddMonths(1),
-                Description = "Activity 1 month in future",
-                Category = "culture",
-                City = "London",
-                Venue = "Natural History Museum"
-            },
-            new()
-            {
-                Title = "Future Activity 2",
-                Date = DateTime.UtcNow.AddMonths(2),
-                Description = "Activity 2 months in future",
-                Category = "music",
-                City = "London",
-                Venue = "O2 Arena"
-            },
-            new()
-            {
-                Title = "Future Activity 3",
-                Date = DateTime.UtcNow.AddMonths(3),
-                Description = "Activity 3 months in future",
-                Category = "drinks",
-                City = "London",
-                Venue = "Another pub"
-            },
-            new()
-            {
-                Title = "Future Activity 4",
-                Date = DateTime.UtcNow.AddMonths(4),
-                Description = "Activity 4 months in future",
-                Category = "drinks",
-                City = "London",
-                Venue = "Yet another pub"
-            },
-            new()
-            {
-                Title = "Future Activity 5",
-                Date = DateTime.UtcNow.AddMonths(5),
-                Description = "Activity 5 months in future",
-                Category = "drinks",
-                City = "London",
-                Venue = "Just another pub"
-            },
-            new()
-            {
-                Title = "Future Activity 6",
-                Date = DateTime.UtcNow.AddMonths(6),
-                Description = "Activity 6 months in future",
-                Category = "music",
-                City = "London",
-                Venue = "Roundhouse Camden"
-            },
-            new()
-            {
-                Title = "Future Activity 7",
-                Date = DateTime.UtcNow.AddMonths(7),
-                Description = "Activity 2 months ago",
-                Category = "travel",
-                City = "London",
-                Venue = "Somewhere on the Thames"
-            },
-            new()
-            {
-                Title = "Future Activity 8",
-                Date = DateTime.UtcNow.AddMonths(8),
-                Description = "Activity 8 months in future",
-                Category = "film",
-                City = "London",
-                Venue = "Cinema"
-            }
-        };
+                new()
+                {
+                    DisplayName = "Bob",
+                    UserName = "bob",
+                    Email = "bob@test.com"
+                },
+                new()
+                {
+                    DisplayName = "Jane",
+                    UserName = "jane",
+                    Email = "jane@test.com"
+                },
+                new()
+                {
+                    DisplayName = "Tom",
+                    UserName = "tom",
+                    Email = "tom@test.com"
+                }
+            };
 
-        await dbContext.Activities.AddRangeAsync(activities);
-        await dbContext.SaveChangesAsync();
+            foreach (var user in users) await userManager.CreateAsync(user, "Pa$$w0rd");
+
+            var activities = new List<Activity>
+            {
+                new()
+                {
+                    Title = "Past Activity 1",
+                    Date = DateTime.UtcNow.AddMonths(-2),
+                    Description = "Activity 2 months ago",
+                    Category = "drinks",
+                    City = "London",
+                    Venue = "Pub",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[0],
+                            IsHost = true
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Past Activity 2",
+                    Date = DateTime.UtcNow.AddMonths(-1),
+                    Description = "Activity 1 month ago",
+                    Category = "culture",
+                    City = "Paris",
+                    Venue = "The Louvre",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[0],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[1],
+                            IsHost = false
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 1",
+                    Date = DateTime.UtcNow.AddMonths(1),
+                    Description = "Activity 1 month in future",
+                    Category = "music",
+                    City = "London",
+                    Venue = "Wembly Stadium",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[2],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[1],
+                            IsHost = false
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 2",
+                    Date = DateTime.UtcNow.AddMonths(2),
+                    Description = "Activity 2 months in future",
+                    Category = "food",
+                    City = "London",
+                    Venue = "Jamies Italian",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[0],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[2],
+                            IsHost = false
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 3",
+                    Date = DateTime.UtcNow.AddMonths(3),
+                    Description = "Activity 3 months in future",
+                    Category = "drinks",
+                    City = "London",
+                    Venue = "Pub",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[1],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[0],
+                            IsHost = false
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 4",
+                    Date = DateTime.UtcNow.AddMonths(4),
+                    Description = "Activity 4 months in future",
+                    Category = "culture",
+                    City = "London",
+                    Venue = "British Museum",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[1],
+                            IsHost = true
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 5",
+                    Date = DateTime.UtcNow.AddMonths(5),
+                    Description = "Activity 5 months in future",
+                    Category = "drinks",
+                    City = "London",
+                    Venue = "Punch and Judy",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[0],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[1],
+                            IsHost = false
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 6",
+                    Date = DateTime.UtcNow.AddMonths(6),
+                    Description = "Activity 6 months in future",
+                    Category = "music",
+                    City = "London",
+                    Venue = "O2 Arena",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[2],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[1],
+                            IsHost = false
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 7",
+                    Date = DateTime.UtcNow.AddMonths(7),
+                    Description = "Activity 7 months in future",
+                    Category = "travel",
+                    City = "Berlin",
+                    Venue = "All",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[0],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[2],
+                            IsHost = false
+                        }
+                    }
+                },
+                new()
+                {
+                    Title = "Future Activity 8",
+                    Date = DateTime.UtcNow.AddMonths(8),
+                    Description = "Activity 8 months in future",
+                    Category = "drinks",
+                    City = "London",
+                    Venue = "Pub",
+                    Attendees = new List<ActivityAttendee>
+                    {
+                        new()
+                        {
+                            User = users[2],
+                            IsHost = true
+                        },
+                        new()
+                        {
+                            User = users[1],
+                            IsHost = false
+                        }
+                    }
+                }
+            };
+
+            await context.Activities.AddRangeAsync(activities);
+            await context.SaveChangesAsync();
+        }
     }
 }
