@@ -21,6 +21,6 @@ public static class UserExtension
 
     public static string GetUserFullName(this ClaimsPrincipal user)
     {
-        return $"{user.FindFirstValue(ClaimTypes.GivenName)} {user.FindFirstValue(ClaimTypes.Surname)}";
+        return $@"{user.FindFirstValue(ClaimTypes.GivenName)} {user.FindFirstValue(ClaimTypes.Surname)}";
     }
 }

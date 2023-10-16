@@ -4,7 +4,6 @@ using ActivityApplication.DataAccess.Entities.JoinTables;
 using ActivityApplication.Domain.Results;
 using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Services.Activity.DTO;
-using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -68,7 +67,6 @@ public class ActivityService : IActivityService
         var dbContext = await _contextFactory.CreateDbContextAsync();
 
         var activity = await CheckActivityId(dbContext, activityId);
-        ;
 
         var getDto = MapToDto(activity);
 
@@ -116,10 +114,7 @@ public class ActivityService : IActivityService
         // Save changes and return success status
         var saved = await dbContext.SaveChangesAsync() > 0;
 
-        if (saved)
-            return Result<bool>.Success(true);
-
-        return Result<bool>.Failure("Failed to update the activity.");
+        return saved ? Result<bool>.Success(true) : Result<bool>.Failure("Failed to update the activity.");
     }
 
 

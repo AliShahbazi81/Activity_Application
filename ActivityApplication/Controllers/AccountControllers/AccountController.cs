@@ -39,7 +39,7 @@ public class AccountController : ControllerBase
             return new UserDto
             {
                 Username = user.UserName,
-                Image = null,
+                Image = string.Empty,
                 Token = await _tokenService.GenerateToken(user.Id),
                 DisplayName = user.DisplayName
             };
@@ -94,7 +94,7 @@ public class AccountController : ControllerBase
         return new JsonResult(new UserDto
         {
             DisplayName = user.DisplayName,
-            Image = null,
+            Image = string.Empty,
             Token = await _tokenService.GenerateToken(user.Id),
             Username = user.UserName
         });
