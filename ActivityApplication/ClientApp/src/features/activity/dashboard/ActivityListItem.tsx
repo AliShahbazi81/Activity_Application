@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Icon, Item, Segment} from "semantic-ui-react";
+import {Button, Icon, Item, Label, Segment} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import {Activity} from "../../../types/activity";
 import {format} from "date-fns";
@@ -50,10 +50,24 @@ export default function ActivityListItem({activity}: Props)
 										  </Item.Header>
 										  <Item.Description>
 												Hosted by
-												<Link to={`profiles/${activity.hostUsername}`} >
-													   {" " + activity.hostUsername?.toUpperCase()}
+												<Link to={`profiles/${activity.host?.displayName}`} >
+													   {" " + activity.host?.displayName.toUpperCase()}
 												</Link>
 										  </Item.Description>
+										  {activity.isHost && (
+												<Item.Description>
+													  <Label basic color={"orange"}>
+															You are hosting this activity!
+													  </Label>
+												</Item.Description>
+										  )}
+										  {!activity.isHost && activity.isGoing &&(
+												<Item.Description>
+													  <Label basic color={"green"}>
+															You are going this activity!
+													  </Label>
+												</Item.Description>
+										  )}
 									</Item.Content>
 							  </Item>
 						</Item.Group>

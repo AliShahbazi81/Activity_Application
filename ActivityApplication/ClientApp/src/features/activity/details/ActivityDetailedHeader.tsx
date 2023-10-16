@@ -1,6 +1,6 @@
-import { observer } from 'mobx-react-lite';
+import {observer} from 'mobx-react-lite';
 import React from 'react'
-import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
+import {Button, Header, Image, Item, Segment} from 'semantic-ui-react'
 import {Activity} from "../../../types/activity";
 import {Link} from "react-router-dom";
 import {format} from "date-fns";
@@ -22,7 +22,7 @@ interface Props {
 	  activity: Activity
 }
 
-export default observer (function ActivityDetailedHeader({activity}: Props) {
+export default observer(function ActivityDetailedHeader({activity}: Props) {
 	  return (
 			<Segment.Group>
 				  <Segment basic attached='top' style={{padding: '0'}}>
@@ -38,7 +38,10 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
 												/>
 												<p>{format(activity.date!, "dd MMM yyyy")}</p>
 												<p>
-													  Hosted by <strong>Bob</strong>
+													  Hosted by
+													  <Link to={`/profiles/${activity.host?.username}`}>
+															<strong>{" " + activity.host?.displayName.toUpperCase()}</strong>
+													  </Link>
 												</p>
 										  </Item.Content>
 									</Item>
@@ -46,16 +49,25 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
 						</Segment>
 				  </Segment>
 				  <Segment clearing attached='bottom'>
-						<Button color='teal'>Join Activity</Button>
-						<Button>Cancel attendance</Button>
-						<Button 
-							  color='orange' 
-							  floated='right'
-							  as={Link}
-							  to={`/manage/${activity.id}`}
-						>
-							  Manage Event
-						</Button>
+						{/*
+							1. If user is host -> They can manage the activity
+							2. If they are not host, and joined -> They can cancel their attendance
+							3. If they are not host and not joined the activity -> They can join the activity
+						*/}
+						{activity.isHost ? (
+							  <Button
+									color='orange'
+									floated='right'
+									as={Link}
+									to={`/manage/${activity.id}`}
+							  >
+									Manage Event
+							  </Button>
+						) : activity.isGoing ? (
+							  <Button>Cancel attendance</Button>
+						) : (
+							  <Button color='teal'>Join Activity</Button>
+						)}
 				  </Segment>
 			</Segment.Group>
 	  )

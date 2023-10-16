@@ -10,5 +10,8 @@ export interface Activity {
 	  venue: string
 	  hostUsername?: string
 	  isCancelled?: boolean
+	  isHost?: boolean
+	  isGoing?: boolean
+	  host?: Profile
 	  attendees?: Profile[]
 }

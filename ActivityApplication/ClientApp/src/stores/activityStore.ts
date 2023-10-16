@@ -3,6 +3,7 @@ import {Activity} from "../types/activity";
 import agent from "../api/agent";
 import {v4 as uuid} from 'uuid';
 import {format} from "date-fns";
+import {store} from "./store";
 
 export default class ActivityStore {
 	  activityRegistry = new Map<string, Activity>();
@@ -91,6 +92,23 @@ export default class ActivityStore {
 	  }
 
 	  private setActivityDate = (activity: Activity) => {
+			
+			const user = store.userStore.user;
+			
+			// If user is Authenticated
+			if (user)
+			{
+				  // If the username of the user is found in the attendees, then return true
+				  activity.isGoing = activity.attendees!.some(
+						 a => a.username === user.username
+				  )
+				  // If the username of the user is equal with the username of activity's creator. return true
+				  activity.isHost = activity.hostUsername === user.username
+				  
+				  // Get the profile of activity's creator
+				  activity.host = activity.attendees?.find(u => u.username === activity.hostUsername)
+			}
+			
 			activity.date = new Date(activity.date!)
 			this.activityRegistry.set(activity.id, activity)
 	  }
