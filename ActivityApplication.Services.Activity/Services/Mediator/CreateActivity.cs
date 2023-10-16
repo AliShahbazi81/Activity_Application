@@ -8,7 +8,7 @@ public class CreateActivity
 {
     public class Command : IRequest
     {
-        public DataAccess.Activities.Activity Activity { get; set; }
+        public DataAccess.Entities.Activities.Activity Activity { get; set; }
     }
 
     public class Handler : IRequestHandler<Command>

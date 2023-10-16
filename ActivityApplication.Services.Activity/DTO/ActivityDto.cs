@@ -1,3 +1,5 @@
+using ActivityApplication.DataAccess.Entities.JoinTables;
+
 namespace ActivityApplication.Services.Activity.DTO;
 
 public record struct ActivityDto
@@ -9,4 +11,7 @@ public record struct ActivityDto
     public string Category { get; set; }
     public string City { get; set; }
     public string Venue { get; set; }
+    public string HostUsername { get; set; }
+    public bool IsCanceled { get; set; }
+    public List<ProfileDto> Attendees { get; set; }
 }

@@ -35,7 +35,15 @@
 
     <ItemGroup>
         <ProjectReference Include="..\ActivityApplication.DataAccess\ActivityApplication.DataAccess.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Domain\ActivityApplication.Domain.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Infrastructure\ActivityApplication.Infrastructure.csproj"/>
         <ProjectReference Include="..\ActivityApplication.Services.Activity\ActivityApplication.Services.Activity.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Services.Membership\ActivityApplication.Services.Membership.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

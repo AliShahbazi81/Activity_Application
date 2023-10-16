@@ -1,3 +1,4 @@
+using ActivityApplication.Domain.Results;
 using ActivityApplication.Services.Activity.DTO;
 
 namespace ActivityApplication.Services.Activity;
@@ -9,20 +10,20 @@ public interface IActivityService
     /// </summary>
     /// <param name="activityDto"></param>
     /// <returns></returns>
-    Task<ActivityDto?> CreateActivityAsync(ActivityDto activityDto);
+    Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto, Guid userId);
 
     /// <summary>
     /// Get an Activity using activityId
     /// </summary>
     /// <param name="activityId"></param>
     /// <returns></returns>
-    Task<ActivityDto> GetActivityAsync(Guid activityId);
+    Task<Result<ActivityDto>> GetActivityAsync(Guid activityId);
 
     /// <summary>
     /// Get all of the available activities
     /// </summary>
     /// <returns></returns>
-    Task<IEnumerable<ActivityDto>> GetActivitiesAsync();
+    Task<Result<IEnumerable<ActivityDto>>> GetActivitiesAsync();
 
     /// <summary>
     /// Update an activity
@@ -30,14 +31,15 @@ public interface IActivityService
     /// <param name="activityId"></param>
     /// <param name="activityDto"></param>
     /// <returns></returns>
-    Task<bool> UpdateActivityAsync(
-        Guid activityId,
-        ActivityDto activityDto);
+    Task<Result<bool>> UpdateActivityAsync(Guid activityId, ActivityDto activityDto);
+
+
+    Task<Result<bool>> UpdateAttendeesAsync(Guid activityId);
 
     /// <summary>
     /// Delete an activity from database
     /// </summary>
     /// <param name="activityId"></param>
     /// <returns></returns>
-    Task<bool> DeleteActivityAsync(Guid activityId);
+    Task<Result<bool>> DeleteActivityAsync(Guid activityId);
 }

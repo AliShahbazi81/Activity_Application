@@ -17,7 +17,7 @@ namespace ActivityApplication.DataAccess.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
 
-            modelBuilder.Entity("ActivityApplication.DataAccess.Activities.Activity", b =>
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Activities.Activity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,6 +38,9 @@ namespace ActivityApplication.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsCanceled")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -51,7 +54,25 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.ToTable("Activities");
                 });
 
-            modelBuilder.Entity("ActivityApplication.DataAccess.Users.Role", b =>
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.JoinTables.ActivityAttendee", b =>
+                {
+                    b.Property<Guid>("ActivityId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsHost")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ActivityId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ActivityAttendees");
+                });
+
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,37 +101,37 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7ff6586b-c0b2-48c5-927e-1b4d94b0f6d1"),
+                            Id = new Guid("ea695385-d7c2-4909-8e3f-a1c1ff94185b"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("b92bbdbb-1cf3-4f74-b2fb-c0a77955f1c4"),
+                            Id = new Guid("27015e2f-e073-4358-8b06-09d2b444c609"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("391cf023-cceb-4a3b-84f3-812eb7a5cb16"),
+                            Id = new Guid("d57685c3-470d-434e-b988-bf38f60d99a8"),
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = new Guid("ac3ee2bb-6d54-45a3-b268-edbc9b682078"),
+                            Id = new Guid("933c8f2b-5187-40fb-b541-0ad7a3b3f5f8"),
                             Name = "BannedUser",
                             NormalizedName = "BANNED_USER"
                         },
                         new
                         {
-                            Id = new Guid("6fd46975-b5bb-4213-9e07-147e65112f10"),
+                            Id = new Guid("95c3e755-53ee-4b73-a5d9-de4347ffe352"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
                 });
 
-            modelBuilder.Entity("ActivityApplication.DataAccess.Users.User", b =>
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,6 +139,10 @@ namespace ActivityApplication.DataAccess.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -132,6 +157,10 @@ namespace ActivityApplication.DataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -296,9 +325,28 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.JoinTables.ActivityAttendee", b =>
+                {
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Activities.Activity", "Activity")
+                        .WithMany("Attendees")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.User", "User")
+                        .WithMany("Activities")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
-                    b.HasOne("ActivityApplication.DataAccess.Users.Role", null)
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -307,7 +355,7 @@ namespace ActivityApplication.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("ActivityApplication.DataAccess.Users.User", null)
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -316,7 +364,7 @@ namespace ActivityApplication.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("ActivityApplication.DataAccess.Users.User", null)
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -325,13 +373,13 @@ namespace ActivityApplication.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("ActivityApplication.DataAccess.Users.Role", null)
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ActivityApplication.DataAccess.Users.User", null)
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -340,11 +388,21 @@ namespace ActivityApplication.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("ActivityApplication.DataAccess.Users.User", null)
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Activities.Activity", b =>
+                {
+                    b.Navigation("Attendees");
+                });
+
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.User", b =>
+                {
+                    b.Navigation("Activities");
                 });
 #pragma warning restore 612, 618
         }

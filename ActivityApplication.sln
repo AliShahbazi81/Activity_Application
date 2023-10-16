@@ -2,11 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication", "ActivityApplication\ActivityApplication.csproj", "{4A660871-5841-4164-BEBD-AA46886845F1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{9F42ABE2-58D3-4651-ABDD-161FB50F17D3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Domain", "ActivityApplication.Domain\ActivityApplication.Domain.csproj", "{108EE573-9AE3-4A92-B3DE-6D5F5D2C1E5D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{184D38E2-9C0E-4401-872F-EBB8BD321F19}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{184D38E2-9C0E-4401-872F-EBB8BD321F19}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DD1C6603-B6E4-4290-ADAD-1C2F0FFEF2EC}"
 EndProject
@@ -19,6 +17,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.DataAccess", "ActivityApplication.DataAccess\ActivityApplication.DataAccess.csproj", "{7B083D4A-9DDD-4749-9CB5-41CDCC7080DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Services.Activity", "ActivityApplication.Services.Activity\ActivityApplication.Services.Activity.csproj", "{3B956874-8E0F-459B-A745-B46C007BA72B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Services.Membership", "ActivityApplication.Services.Membership\ActivityApplication.Services.Membership.csproj", "{CC2413B3-EBA9-4B0F-866F-B24ADB7E09E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{54051344-F4A0-4052-80B7-6C7960353717}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{7AF3C3BF-2C0E-4ABC-B48C-B3D2C25DD175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,12 +50,17 @@ Global
 		{3B956874-8E0F-459B-A745-B46C007BA72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B956874-8E0F-459B-A745-B46C007BA72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B956874-8E0F-459B-A745-B46C007BA72B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2413B3-EBA9-4B0F-866F-B24ADB7E09E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2413B3-EBA9-4B0F-866F-B24ADB7E09E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2413B3-EBA9-4B0F-866F-B24ADB7E09E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2413B3-EBA9-4B0F-866F-B24ADB7E09E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{108EE573-9AE3-4A92-B3DE-6D5F5D2C1E5D} = {9F42ABE2-58D3-4651-ABDD-161FB50F17D3}
 		{4A660871-5841-4164-BEBD-AA46886845F1} = {1B7E4A8E-1847-42BB-BEE9-892399F59C52}
-		{E86EFA24-F697-4EF1-8DA9-27E1F573374C} = {1B7E4A8E-1847-42BB-BEE9-892399F59C52}
 		{7B083D4A-9DDD-4749-9CB5-41CDCC7080DC} = {55342C0F-87E0-4077-B669-A88F1FE8422E}
 		{3B956874-8E0F-459B-A745-B46C007BA72B} = {184D38E2-9C0E-4401-872F-EBB8BD321F19}
+		{CC2413B3-EBA9-4B0F-866F-B24ADB7E09E6} = {184D38E2-9C0E-4401-872F-EBB8BD321F19}
+		{E86EFA24-F697-4EF1-8DA9-27E1F573374C} = {54051344-F4A0-4052-80B7-6C7960353717}
+		{108EE573-9AE3-4A92-B3DE-6D5F5D2C1E5D} = {7AF3C3BF-2C0E-4ABC-B48C-B3D2C25DD175}
 	EndGlobalSection
 EndGlobal
