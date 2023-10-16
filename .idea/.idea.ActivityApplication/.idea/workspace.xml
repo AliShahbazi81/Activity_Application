@@ -10,13 +10,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Add attendance services for users">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/IsHostRequirement.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Domain/ActivityApplication.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Domain/ActivityApplication.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Domain/ExceptionsHandling/ExceptionMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Domain/ExceptionsHandling/ExceptionMiddleware.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +36,22 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bcfe9914a24997ba8a749caddea54ae74cb8019dd695ea0a0ad26385102d/AuthorizationHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e74356f198b598e97eaeea83e8b7b1f2bfe27c0a39fedf86bb7dc44827fbda/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/IsHostRequirement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -77,7 +84,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
     &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat &amp; Apply Syntax Style&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alish\\WebstormProjects\\Activity_Application\\ActivityApplication\\ClientApp\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -164,6 +171,9 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\alish\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="" />
@@ -196,7 +206,11 @@
       <workItem from="1697051805957" duration="2574000" />
       <workItem from="1697139192402" duration="4263000" />
       <workItem from="1697151040067" duration="3572000" />
-      <workItem from="1697214354991" duration="15165000" />
+      <workItem from="1697214354991" duration="17178000" />
+      <workItem from="1697423356462" duration="282000" />
+      <workItem from="1697423665166" duration="1071000" />
+      <workItem from="1697425148038" duration="276000" />
+      <workItem from="1697425443294" duration="312000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -454,7 +468,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697230975272</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Add Authorization for editing an activity">
+      <option name="closed" value="true" />
+      <created>1697263078775</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1697263078777</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +485,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Exception Solution folder to Activity Service" />
     <MESSAGE value="Create guard for activity service" />
     <MESSAGE value="Flow error handling, refactoring Activity flow" />
     <MESSAGE value="Make the first request from clientSide to Back" />
@@ -488,91 +509,8 @@
     <MESSAGE value="Adjust namespaces" />
     <MESSAGE value="Returning Activity along with attendees" />
     <MESSAGE value="Add attendance services for users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add attendance services for users" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>128</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="114" containingFunctionPresentation="Method 'UpdateActivityAsync'">
-            <startOffsets>
-              <option value="4251" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4252" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>104</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="104" containingFunctionPresentation="Method 'UpdateActivityAsync'">
-            <startOffsets>
-              <option value="3496" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3618" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>109</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="109" containingFunctionPresentation="Method 'UpdateActivityAsync'">
-            <startOffsets>
-              <option value="3674" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3695" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>115</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="115" containingFunctionPresentation="Method 'UpdateActivityAsync'">
-            <startOffsets>
-              <option value="3840" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3876" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>122</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="118" containingFunctionPresentation="Method 'UpdateActivityAsync'">
-            <startOffsets>
-              <option value="4052" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4103" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>124</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="120" containingFunctionPresentation="Method 'UpdateActivityAsync'">
-            <startOffsets>
-              <option value="4113" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4123" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add Authorization for editing an activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Authorization for editing an activity" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
