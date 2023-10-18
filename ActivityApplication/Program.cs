@@ -6,6 +6,7 @@ using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Entities.Users;
 using ActivityApplication.DataAccess.Seed;
 using ActivityApplication.Domain.ExceptionsHandling;
+using ActivityApplication.Infrastructure.Images;
 using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
@@ -163,6 +164,9 @@ builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Security Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddAuthorization(opt => { opt.AddPolicy("IsActivityHost", policy => { policy.Requirements.Add(new IsHostRequirement()); }); });
 builder.Services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>();
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Cloudinary Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Cloudinary"));
 
 
 var app = builder.Build();

@@ -11,4 +11,9 @@
         <ProjectReference Include="..\ActivityApplication.Services.Membership\ActivityApplication.Services.Membership.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="CloudinaryDotNet" Version="1.22.0"/>
+    </ItemGroup>
+
+
 </Project>

@@ -4,7 +4,7 @@ import agent from "../api/agent";
 import {format} from "date-fns";
 import {store} from "./store";
 import {Profile} from "../types/profile";
-import {v4 as uuid} from 'uuid'; // This is a package which generates unique IDs
+import {v4 as uuid} from 'uuid';
 
 export default class ActivityStore {
 	  activityRegistry = new Map<string, Activity>();

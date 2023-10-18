@@ -39,6 +39,7 @@ export default function ActivityListItem({activity}: Props) {
 							  <Item>
 									<Item.Image
 										  circular
+										  style={{marginBottom: 5}}
 										  size={"tiny"}
 										  src={"assets/user.png"}
 										  alt={"User Avatar"}

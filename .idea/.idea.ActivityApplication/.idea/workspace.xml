@@ -11,11 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Images/CloudinarySettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/UserProfile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityListItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityListItemAttendee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityListItemAttendee.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -514,66 +521,6 @@
     <MESSAGE value="Add attendance services for users" />
     <MESSAGE value="Add Authorization for editing an activity" />
     <option name="LAST_COMMIT_MESSAGE" value="Add Authorization for editing an activity" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>59</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="59" containingFunctionPresentation="Method 'CreateActivityAsync'" />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>219</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="214" containingFunctionPresentation="Method 'MapToDto'" />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>222</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="217" containingFunctionPresentation="Lambda expression inside Method 'MapToDto'" />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>221</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="216" containingFunctionPresentation="Method 'MapToDto'" />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>225</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="220" containingFunctionPresentation="Method 'MapToDto'" />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>237</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="232" containingFunctionPresentation="Method 'MapToDto'" />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>240</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="235" containingFunctionPresentation="Method 'MapToProfileDto'" />
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>241</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="236" containingFunctionPresentation="Method 'MapToProfileDto'" />
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
-          <line>247</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="242" containingFunctionPresentation="Method 'MapToProfileDto'" />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
