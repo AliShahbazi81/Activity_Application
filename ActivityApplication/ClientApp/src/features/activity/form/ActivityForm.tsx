@@ -3,7 +3,7 @@ import {Button, Header, Segment} from "semantic-ui-react";
 import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import {Activity} from "../../../types/activity";
+import {ActivityFormValues} from "../../../types/activity";
 import LoadingComponent from "../../../components/LoadingComponent";
 import {Formik, Form} from "formik";
 import * as Yup from "yup";
@@ -19,20 +19,11 @@ export default observer(function ActivityForm()
     const {id} = useParams();
     const navigate = useNavigate();
     
-    const [activity, setActivity] = useState<Activity>({
-        id: "",
-        title: "",
-        description: "",
-        category: "",
-        date: null,
-        city: "",
-        venue: ""
-    })
+    const [activity, setActivity] = useState<ActivityFormValues>(new ActivityFormValues())
     
     const {
         createActivity,
         updateActivity,
-        loading,
         loadActivity,
         loadingInitial
     } = activityStore
@@ -50,23 +41,19 @@ export default observer(function ActivityForm()
     useEffect(() => {
         if(id) loadActivity(id)
               // Since we know that in this case DEFINITELY we will have an activity, we will not consider TypeScript's error
-              .then(activity => setActivity(activity!))
+              .then(activity => setActivity(new ActivityFormValues(activity)))
     }, [id, loadActivity]);
 
     
-    function handleFormSubmit(activity: Activity)
+    function handleFormSubmit(activity: ActivityFormValues)
     {
         // If we do have an id, then we are updating the activity, otherwise, we are creating a new one
         if (!activity.id)
-        {
             createActivity(activity)
                   .then(() => navigate(`/activities/${activity.id}`))
-        }
         else
-        {
             updateActivity(activity)
                   .then(() => navigate(`/activities/${activity.id}`))
-        }
     }
 
     /*function handleOnChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
@@ -121,7 +108,7 @@ export default observer(function ActivityForm()
                                 positive
                                 type={"submit"}
                                 content={"Submit"}
-                                loading={loading}
+                                loading={isSubmitting}
                                 onSubmit={handleSubmit}
                                 disabled={isSubmitting || !dirty || !isValid}
                           />

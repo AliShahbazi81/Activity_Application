@@ -258,7 +258,8 @@ public class ActivityService : IActivityService
         ActivityDto activityDto)
     {
         activity.Title = activityDto.Title;
-        activity.Date = Convert.ToDateTime(activityDto.Date.ToUniversalTime().ToString("g"));
+        if (activityDto.Date != null)
+            activity.Date = Convert.ToDateTime(activityDto.Date.ToString("o"));
         activity.Description = activityDto.Description;
         activity.Category = activityDto.Category;
         activity.City = activityDto.City;

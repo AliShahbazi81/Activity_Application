@@ -1,20 +1,14 @@
 import {makeAutoObservable, runInAction} from "mobx";
-import {Activity} from "../types/activity";
+import {Activity, ActivityFormValues} from "../types/activity";
 import agent from "../api/agent";
-import {v4 as uuid} from 'uuid';
 import {format} from "date-fns";
 import {store} from "./store";
 import {Profile} from "../types/profile";
 
 export default class ActivityStore {
 	  activityRegistry = new Map<string, Activity>();
-
 	  selectedActivity: Activity | undefined = undefined
-
-	  editMode = false
-
 	  loading = false
-
 	  loadingInitial = false
 
 	  constructor() {
@@ -48,7 +42,7 @@ export default class ActivityStore {
 			try {
 				  const activities = await agent.Activities.list();
 				  activities.forEach(activity => {
-						this.setActivityDate(activity);
+						this.setActivity(activity);
 				  });
 				  this.loadingInitial = false;
 			} catch (error) {
@@ -75,7 +69,7 @@ export default class ActivityStore {
 						runInAction(() => {
 							  this.selectedActivity = activity;
 						})
-						this.setActivityDate(activity)
+						this.setActivity(activity)
 						this.setLoadingInitial(false);
 						return activity;
 				  } catch (error) {
@@ -92,7 +86,7 @@ export default class ActivityStore {
 			return this.activityRegistry.get(id)
 	  }
 
-	  private setActivityDate = (activity: Activity) => {
+	  private setActivity = (activity: Activity) => {
 			
 			const user = store.userStore.user;
 			
@@ -114,41 +108,44 @@ export default class ActivityStore {
 			this.activityRegistry.set(activity.id, activity)
 	  }
 
-	  createActivity = async (activity: Activity) => {
-			activity.id = uuid();
+	  createActivity = async (activity: ActivityFormValues) => {
+			// When creating an activity, the creator of the activity is the first Attendee and the host of the activity
+			const user = store.userStore.user;
+			const attendee = new Profile(user!);
 			try {
 				  await agent.Activities.create(activity)
+				  const newActivity = new Activity(activity);
+				  // Set the host's username to the creator of the activity using their username
+				  newActivity.hostUsername = user!.username;
+				  // Set the first attendee of the activity - the creator of the activity
+				  newActivity.attendees = [attendee]
+				  this.setActivity(newActivity);
 				  // If successfully created, then we have to update our activities
 				  runInAction(() => {
-						// this.activities.push(activity)
-						this.activityRegistry.set(activity.id, activity)
-						this.selectedActivity = activity
-						this.editMode = false
-						this.loading = false
+						this.selectedActivity = newActivity;
 				  })
 			} catch (error) {
 				  console.log(error)
-				  runInAction(() => {
-						this.loading = false
-				  })
 			}
 	  }
 
-	  updateActivity = async (activity: Activity) => {
+	  updateActivity = async (activity: ActivityFormValues) => {
 			try {
+				  const originalActivity = this.getActivity(activity.id!);
+				  activity.hostUsername = originalActivity?.hostUsername;
+				  activity.attendees = originalActivity?.attendees;
 				  await agent.Activities.update(activity)
 				  runInAction(() => {
-						// this.activities = [...this.activities.filter(x => x.id !== activity.id), activity]
-						this.activityRegistry.set(activity.id, activity)
-						this.selectedActivity = activity
-						this.editMode = false
-						this.loading = false
+						if (activity.id)
+						{
+							  // Everything inside the getActivity will be overwritten with the activity. Just the ones which have changed
+							  const updatedActivity = {...this.getActivity(activity.id), ...activity}
+							  this.activityRegistry.set(activity.id, updatedActivity as Activity)
+							  this.selectedActivity = updatedActivity as Activity
+						}
 				  })
 			} catch (error) {
 				  console.log(error)
-				  runInAction(() => {
-						this.loading = false
-				  })
 			}
 	  }
 

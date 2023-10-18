@@ -1,10 +1,9 @@
 import axios, {AxiosError, AxiosResponse} from "axios";
-import {Activity} from "../types/activity";
+import {Activity, ActivityFormValues} from "../types/activity";
 import {toast} from "react-toastify";
 import {router} from "../router/Routes";
 import {store} from "../stores/store";
 import {User, UserFormValues} from "../types/user";
-import activityDashboard from "../features/activity/dashboard/ActivityDashboard";
 
 // Set some delay
 const sleep = (delay: number) => {
@@ -100,8 +99,8 @@ const requests = {
 const Activities = {
 	  list: () => requests.get<Activity[]>("Activity/Get"),
 	  details: (id: string) => requests.get<Activity>(`Activity/Get/${id}`),
-	  create: (activity: Activity) => requests.post<void>("Activity/Create", activity),
-	  update: (activity: Activity) => requests.put<void>(`Activity/Update/${activity.id}`, activity),
+	  create: (activity: ActivityFormValues) => requests.post<void>("Activity/Create", activity),
+	  update: (activity: ActivityFormValues) => requests.put<void>(`Activity/Update/${activity.id}`, activity),
 	  delete: (id: string) => requests.del<void>(`Activity/Delete/${id}`),
 	  attend:(id: string) => requests.post<void>(`Activity/${id}/attend`, {})
 }
