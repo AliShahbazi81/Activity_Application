@@ -10,6 +10,9 @@ using ActivityApplication.Infrastructure.Images;
 using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
+using ActivityApplication.Services.Image.DTO;
+using ActivityApplication.Services.Image.Services;
+using ActivityApplication.Services.Image.Services.Accessor;
 using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -167,6 +170,9 @@ builder.Services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>()
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Cloudinary Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Cloudinary"));
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Image Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddScoped<IImageAccessor, ImageAccessor>();
 
 
 var app = builder.Build();

@@ -15,4 +15,7 @@ public class User : IdentityUser<Guid>
     public string DeletedBy { get; set; } = string.Empty;
 
     public virtual ICollection<ActivityAttendee> Activities { get; set; }
+
+    // Each user can upload 1 or many images
+    public virtual ICollection<Photo> Photos { get; set; }
 }

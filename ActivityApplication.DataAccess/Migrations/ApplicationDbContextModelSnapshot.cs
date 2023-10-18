@@ -72,6 +72,28 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.ToTable("ActivityAttendees");
                 });
 
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.Photo", b =>
+                {
+                    b.Property<string>("PublicId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PublicId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -101,31 +123,31 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ea695385-d7c2-4909-8e3f-a1c1ff94185b"),
+                            Id = new Guid("9bb4ee50-7e9e-4029-88fe-36bd887580b1"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("27015e2f-e073-4358-8b06-09d2b444c609"),
+                            Id = new Guid("29cf36b2-aa9e-48a7-8bcc-bc6fa92c1eb5"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("d57685c3-470d-434e-b988-bf38f60d99a8"),
+                            Id = new Guid("4167269c-6888-41ae-9a9d-5e92f68f0c71"),
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = new Guid("933c8f2b-5187-40fb-b541-0ad7a3b3f5f8"),
+                            Id = new Guid("cd0f32db-726b-4736-bb5f-d23fdb440063"),
                             Name = "BannedUser",
                             NormalizedName = "BANNED_USER"
                         },
                         new
                         {
-                            Id = new Guid("95c3e755-53ee-4b73-a5d9-de4347ffe352"),
+                            Id = new Guid("3d16dc0a-4cde-459d-8f78-95e0b9bb35ec"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -344,6 +366,17 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.Photo", b =>
+                {
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.User", "User")
+                        .WithMany("Photos")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("ActivityApplication.DataAccess.Entities.Users.Role", null)
@@ -403,6 +436,8 @@ namespace ActivityApplication.DataAccess.Migrations
             modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.User", b =>
                 {
                     b.Navigation("Activities");
+
+                    b.Navigation("Photos");
                 });
 #pragma warning restore 612, 618
         }
