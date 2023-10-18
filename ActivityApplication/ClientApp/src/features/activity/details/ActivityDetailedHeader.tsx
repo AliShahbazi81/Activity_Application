@@ -4,7 +4,6 @@ import {Button, Header, Image, Item, Segment} from 'semantic-ui-react'
 import {Activity} from "../../../types/activity";
 import {Link} from "react-router-dom";
 import {format} from "date-fns";
-import userStore from "../../../stores/userStore";
 import {useStore} from "../../../stores/store";
 
 const activityImageStyle = {

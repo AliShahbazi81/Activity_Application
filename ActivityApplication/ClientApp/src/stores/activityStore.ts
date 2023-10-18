@@ -4,6 +4,7 @@ import agent from "../api/agent";
 import {format} from "date-fns";
 import {store} from "./store";
 import {Profile} from "../types/profile";
+import { v4 as uuid} from 'uuid'; // This is a package which generates unique IDs
 
 export default class ActivityStore {
 	  activityRegistry = new Map<string, Activity>();
@@ -111,14 +112,18 @@ export default class ActivityStore {
 	  createActivity = async (activity: ActivityFormValues) => {
 			// When creating an activity, the creator of the activity is the first Attendee and the host of the activity
 			const user = store.userStore.user;
-			const attendee = new Profile(user!);
+			const profile = new Profile(user!);
 			try {
+				  activity.id = uuid();
+				  activity.hostUsername = user!.username;
+				  activity.attendees = [profile];
+				  
 				  await agent.Activities.create(activity)
 				  const newActivity = new Activity(activity);
 				  // Set the host's username to the creator of the activity using their username
-				  newActivity.hostUsername = user!.username;
+				  /*newActivity.hostUsername = user!.username;*/
 				  // Set the first attendee of the activity - the creator of the activity
-				  newActivity.attendees = [attendee]
+				  /*newActivity.attendees = [profile]*/
 				  this.setActivity(newActivity);
 				  // If successfully created, then we have to update our activities
 				  runInAction(() => {

@@ -31,12 +31,12 @@ public class ActivityService : IActivityService
     public async Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto, Guid userId)
     {
         // Validate the input
-        InputValidation(activityDto.Date,
+        /*InputValidation(activityDto.Date,
             activityDto.Title,
             activityDto.Category,
             activityDto.City,
             activityDto.Venue,
-            activityDto.Description);
+            activityDto.Description);*/
 
         // Convert the DTO to an entity
         var activity = MapToEntity(activityDto);
@@ -50,6 +50,7 @@ public class ActivityService : IActivityService
         {
             UserId = userId,
             Activity = activity,
+            ActivityId = activity.Id,
             IsHost = true
         };
 
@@ -58,7 +59,13 @@ public class ActivityService : IActivityService
         // Save and check if successful
         await dbContext.SaveChangesAsync();
 
-        var returnedActivityDto = MapToDto(activity);
+        // Re-query the database to get fully loaded activity entity
+        var savedActivity = await dbContext.Activities
+            .Include(a => a.Attendees)
+            .ThenInclude(aa => aa.User)
+            .SingleOrDefaultAsync(a => a.Id == activity.Id);
+
+        var returnedActivityDto = MapToDto(savedActivity);
         return Result<ActivityDto>.Success(returnedActivityDto);
     }
 

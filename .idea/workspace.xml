@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Create and update activity with attendees" />
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Fix bug DateTime after updating an activity">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +110,7 @@
       <workItem from="1697214356767" duration="2686000" />
       <workItem from="1697425161891" duration="1231000" />
       <workItem from="1697509897016" duration="1492000" />
-      <workItem from="1697590901665" duration="6481000" />
+      <workItem from="1697590901665" duration="9125000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -327,14 +336,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697598227100</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Fix bug DateTime after updating an activity">
+      <option name="closed" value="true" />
+      <created>1697599389420</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1697599389420</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix error where react could not distinguish between Create an Activity and Manage an activity" />
     <MESSAGE value="Use navigation in Create and manage activity" />
     <MESSAGE value="Separating HomePage from navbar" />
     <MESSAGE value="ActivityListItem UI improvements" />
@@ -359,6 +375,7 @@
     <MESSAGE value="RegisterForm basic logics" />
     <MESSAGE value="Update attendee creation in activityStore" />
     <MESSAGE value="Create and update activity with attendees" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create and update activity with attendees" />
+    <MESSAGE value="Fix bug DateTime after updating an activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug DateTime after updating an activity" />
   </component>
 </project>
