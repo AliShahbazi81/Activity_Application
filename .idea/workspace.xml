@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Update attendee creation in activityStore">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/activity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/activity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
-    </list>
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Create and update activity with attendees" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +101,7 @@
       <workItem from="1697214356767" duration="2686000" />
       <workItem from="1697425161891" duration="1231000" />
       <workItem from="1697509897016" duration="1492000" />
-      <workItem from="1697590901665" duration="5969000" />
+      <workItem from="1697590901665" duration="6481000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -328,14 +319,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697592637218</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Create and update activity with attendees">
+      <option name="closed" value="true" />
+      <created>1697598227100</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1697598227100</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix error where the ActivityForm used to not open when it is needed" />
     <MESSAGE value="Fix error where react could not distinguish between Create an Activity and Manage an activity" />
     <MESSAGE value="Use navigation in Create and manage activity" />
     <MESSAGE value="Separating HomePage from navbar" />
@@ -360,6 +358,7 @@
     <MESSAGE value="Send JWT with each Axios request to the server" />
     <MESSAGE value="RegisterForm basic logics" />
     <MESSAGE value="Update attendee creation in activityStore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update attendee creation in activityStore" />
+    <MESSAGE value="Create and update activity with attendees" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create and update activity with attendees" />
   </component>
 </project>

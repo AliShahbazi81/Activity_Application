@@ -117,8 +117,8 @@ public class ActivityController : BaseApiController
         }
         catch (DateTimeValidationException e)
         {
-            _logger.LogError("Date input validation error! ", e.Message);
-            return BadRequest("Date input validation error!");
+            _logger.LogError("The chosen date has passed!", e.Message);
+            return BadRequest("The chosen date has passed!");
         }
         catch (StringLengthException e)
         {
