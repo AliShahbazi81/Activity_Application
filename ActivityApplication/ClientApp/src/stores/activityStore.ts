@@ -4,20 +4,19 @@ import agent from "../api/agent";
 import {format} from "date-fns";
 import {store} from "./store";
 import {Profile} from "../types/profile";
-import { v4 as uuid} from 'uuid'; // This is a package which generates unique IDs
+import {v4 as uuid} from 'uuid'; // This is a package which generates unique IDs
 
 export default class ActivityStore {
 	  activityRegistry = new Map<string, Activity>();
+
 	  selectedActivity: Activity | undefined = undefined
+
 	  loading = false
+
 	  loadingInitial = false
 
 	  constructor() {
 			makeAutoObservable(this)
-	  }
-
-	  setLoadingInitial = (state: boolean) => {
-			this.loadingInitial = state;
 	  }
 
 	  // Sort the activities list by Date
@@ -36,6 +35,10 @@ export default class ActivityStore {
 						return activities
 				  }, {} as { [key: string]: Activity[] })
 			)
+	  }
+
+	  setLoadingInitial = (state: boolean) => {
+			this.loadingInitial = state;
 	  }
 
 	  loadActivities = async () => {
@@ -82,33 +85,6 @@ export default class ActivityStore {
 
 	  }
 
-	  private getActivity = (id: string) => {
-			// The method down below, returns either An Activity OR Undefined. We have to check the returned value
-			return this.activityRegistry.get(id)
-	  }
-
-	  private setActivity = (activity: Activity) => {
-			
-			const user = store.userStore.user;
-			
-			// If user is Authenticated
-			if (user)
-			{
-				  // If the username of the user is found in the attendees, then return true
-				  activity.isGoing = activity.attendees!.some(
-						 a => a.username === user.username
-				  )
-				  // If the username of the user is equal with the username of activity's creator. return true
-				  activity.isHost = activity.hostUsername === user.username
-				  
-				  // Get the profile of activity's creator
-				  activity.host = activity.attendees?.find(u => u.username === activity.hostUsername)
-			}
-			
-			activity.date = new Date(activity.date!)
-			this.activityRegistry.set(activity.id, activity)
-	  }
-
 	  createActivity = async (activity: ActivityFormValues) => {
 			// When creating an activity, the creator of the activity is the first Attendee and the host of the activity
 			const user = store.userStore.user;
@@ -117,7 +93,7 @@ export default class ActivityStore {
 				  activity.id = uuid();
 				  activity.hostUsername = user!.username;
 				  activity.attendees = [profile];
-				  
+
 				  await agent.Activities.create(activity)
 				  const newActivity = new Activity(activity);
 				  // Set the host's username to the creator of the activity using their username
@@ -141,8 +117,7 @@ export default class ActivityStore {
 				  activity.attendees = originalActivity?.attendees;
 				  await agent.Activities.update(activity)
 				  runInAction(() => {
-						if (activity.id)
-						{
+						if (activity.id) {
 							  // Everything inside the getActivity will be overwritten with the activity. Just the ones which have changed
 							  const updatedActivity = {...this.getActivity(activity.id), ...activity}
 							  this.activityRegistry.set(activity.id, updatedActivity as Activity)
@@ -169,25 +144,22 @@ export default class ActivityStore {
 				  })
 			}
 	  }
-	  
+
 	  updateAttendance = async () => {
 			const user = store.userStore.user;
 			this.loading = true;
-			try 
-			{
+			try {
 				  await agent.Activities.attend(this.selectedActivity!.id);
 				  // Setting properties if the user goes or not going to the Activity
 				  runInAction(() => {
 						// If user is going, and they do not want to go anymore -> Is Going = false
-						if (this.selectedActivity?.isGoing)
-						{
+						if (this.selectedActivity?.isGoing) {
 							  // Delete the current user from the list of attendees for the specific and selected Activity
 							  this.selectedActivity.attendees = this.selectedActivity.attendees?.filter(a => a.username !== user?.username);
 							  this.selectedActivity.isGoing = false;
 						}
 						// Else, Is going -> true
-						else
-						{
+						else {
 							  const attendee = new Profile(user!)
 							  // Join the current user to the list of attendees for the specific and selected Activity
 							  this.selectedActivity?.attendees?.push(attendee);
@@ -195,14 +167,53 @@ export default class ActivityStore {
 						}
 						this.activityRegistry.set(this.selectedActivity!.id, this.selectedActivity!);
 				  })
-			}
-			catch (error)
-			{
+			} catch (error) {
 				  console.log(error)
-			}
-			finally 
-			{
+			} finally {
 				  runInAction(() => this.loading = false)
 			}
+	  }
+
+	  cancelActivityToggle = async () => {
+			this.loading = true;
+			try {
+				  await agent.Activities.attend(this.selectedActivity!.id);
+				  runInAction(() => {
+						this.selectedActivity!.isCancelled = !this.selectedActivity!.isCancelled;
+						this.activityRegistry.set(this.selectedActivity!.id, this.selectedActivity!);
+				  })
+			} catch (error) {
+				  console.log(error)
+			} finally {
+				  runInAction(() => {
+						this.loading = false;
+				  })
+			}
+	  }
+
+	  private getActivity = (id: string) => {
+			// The method down below, returns either An Activity OR Undefined. We have to check the returned value
+			return this.activityRegistry.get(id)
+	  }
+
+	  private setActivity = (activity: Activity) => {
+
+			const user = store.userStore.user;
+
+			// If user is Authenticated
+			if (user) {
+				  // If the username of the user is found in the attendees, then return true
+				  activity.isGoing = activity.attendees!.some(
+						a => a.username === user.username
+				  )
+				  // If the username of the user is equal with the username of activity's creator. return true
+				  activity.isHost = activity.hostUsername === user.username
+
+				  // Get the profile of activity's creator
+				  activity.host = activity.attendees?.find(u => u.username === activity.hostUsername)
+			}
+
+			activity.date = new Date(activity.date!)
+			this.activityRegistry.set(activity.id, activity)
 	  }
 }

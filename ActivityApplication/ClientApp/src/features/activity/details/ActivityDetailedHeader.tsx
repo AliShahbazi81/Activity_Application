@@ -1,6 +1,6 @@
 import {observer} from 'mobx-react-lite';
 import React from 'react'
-import {Button, Header, Image, Item, Segment} from 'semantic-ui-react'
+import {Button, Header, Image, Item, Label, Segment} from 'semantic-ui-react'
 import {Activity} from "../../../types/activity";
 import {Link} from "react-router-dom";
 import {format} from "date-fns";
@@ -24,10 +24,18 @@ interface Props {
 }
 
 export default observer(function ActivityDetailedHeader({activity}: Props) {
-	  const {activityStore: {updateAttendance, loading}} = useStore();
+	  const {activityStore: {updateAttendance, cancelActivityToggle, loading}} = useStore();
 	  return (
 			<Segment.Group>
 				  <Segment basic attached='top' style={{padding: '0'}}>
+						{activity.isCancelled &&
+                            <Label
+                                ribbon
+                                color={"red"}
+                                content={"Cancelled"}
+                                style={{position: "absolute", zIndex: 1000, left: -14, top: 20}}
+                            />
+						}
 						<Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle}/>
 						<Segment style={activityImageTextStyle} basic>
 							  <Item.Group>
@@ -57,25 +65,37 @@ export default observer(function ActivityDetailedHeader({activity}: Props) {
 							3. If they are not host and not joined the activity -> They can join the activity
 						*/}
 						{activity.isHost ? (
-							  <Button
-									color='orange'
-									floated='right'
-									as={Link}
-									to={`/manage/${activity.id}`}
-							  >
-									Manage Event
-							  </Button>
+							  <>
+									<Button
+										  basic
+										  color={activity.isCancelled ? "green" : "red"}
+										  floated={"left"}
+										  content={activity.isCancelled ? "Re-activate Activity" : "Cancel the Activity"}
+										  onClick={cancelActivityToggle}
+										  loading={loading}
+									/>
+									<Button
+										  disabled={activity.isCancelled}
+										  color='orange'
+										  floated='right'
+										  as={Link}
+										  to={`/manage/${activity.id}`}
+									>
+										  Manage Event
+									</Button>
+							  </>
 						) : activity.isGoing ? (
 							  /* Since we do not have any parameters for the updateAttendance, we do not have to make the onClick as a fallback function */
-							  <Button 
-									onClick={updateAttendance} 
+							  <Button
+									onClick={updateAttendance}
 									loading={loading}>
 									Cancel attendance
 							  </Button>
 						) : (
-							  <Button 
-									color='teal' 
-									onClick={updateAttendance} 
+							  <Button
+									disabled={activity.isCancelled}
+									color='teal'
+									onClick={updateAttendance}
 									loading={loading}>
 									Join Activity
 							  </Button>

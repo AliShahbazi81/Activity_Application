@@ -11,12 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedHeader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/activityStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -522,120 +521,55 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>59</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="59" containingFunctionPresentation="Method 'CreateActivityAsync'">
-            <startOffsets>
-              <option value="2030" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2065" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="59" containingFunctionPresentation="Method 'CreateActivityAsync'" />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>219</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="214" containingFunctionPresentation="Method 'MapToDto'">
-            <startOffsets>
-              <option value="7604" />
-              <option value="7650" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7684" />
-              <option value="7673" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="214" containingFunctionPresentation="Method 'MapToDto'" />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>222</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="217" containingFunctionPresentation="Lambda expression inside Method 'MapToDto'">
-            <startOffsets>
-              <option value="7757" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7763" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="217" containingFunctionPresentation="Lambda expression inside Method 'MapToDto'" />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>221</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="216" containingFunctionPresentation="Method 'MapToDto'">
-            <startOffsets>
-              <option value="7694" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7804" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="216" containingFunctionPresentation="Method 'MapToDto'" />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>225</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="220" containingFunctionPresentation="Method 'MapToDto'">
-            <startOffsets>
-              <option value="7814" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8239" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="220" containingFunctionPresentation="Method 'MapToDto'" />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>237</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="232" containingFunctionPresentation="Method 'MapToDto'">
-            <startOffsets>
-              <option value="8244" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8245" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="232" containingFunctionPresentation="Method 'MapToDto'" />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>240</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="235" containingFunctionPresentation="Method 'MapToProfileDto'">
-            <startOffsets>
-              <option value="8331" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8332" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="235" containingFunctionPresentation="Method 'MapToProfileDto'" />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>241</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="236" containingFunctionPresentation="Method 'MapToProfileDto'">
-            <startOffsets>
-              <option value="8341" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8504" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="236" containingFunctionPresentation="Method 'MapToProfileDto'" />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs</url>
           <line>247</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="242" containingFunctionPresentation="Method 'MapToProfileDto'">
-            <startOffsets>
-              <option value="8509" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8510" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Activity\ActivityService.cs" initialLine="242" containingFunctionPresentation="Method 'MapToProfileDto'" />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
