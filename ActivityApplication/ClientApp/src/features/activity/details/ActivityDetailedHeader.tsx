@@ -4,6 +4,8 @@ import {Button, Header, Image, Item, Segment} from 'semantic-ui-react'
 import {Activity} from "../../../types/activity";
 import {Link} from "react-router-dom";
 import {format} from "date-fns";
+import userStore from "../../../stores/userStore";
+import {useStore} from "../../../stores/store";
 
 const activityImageStyle = {
 	  filter: 'brightness(30%)'
@@ -23,6 +25,7 @@ interface Props {
 }
 
 export default observer(function ActivityDetailedHeader({activity}: Props) {
+	  const {activityStore: {updateAttendance, loading}} = useStore();
 	  return (
 			<Segment.Group>
 				  <Segment basic attached='top' style={{padding: '0'}}>
@@ -64,9 +67,19 @@ export default observer(function ActivityDetailedHeader({activity}: Props) {
 									Manage Event
 							  </Button>
 						) : activity.isGoing ? (
-							  <Button>Cancel attendance</Button>
+							  /* Since we do not have any parameters for the updateAttendance, we do not have to make the onClick as a fallback function */
+							  <Button 
+									onClick={updateAttendance} 
+									loading={loading}>
+									Cancel attendance
+							  </Button>
 						) : (
-							  <Button color='teal'>Join Activity</Button>
+							  <Button 
+									color='teal' 
+									onClick={updateAttendance} 
+									loading={loading}>
+									Join Activity
+							  </Button>
 						)}
 				  </Segment>
 			</Segment.Group>

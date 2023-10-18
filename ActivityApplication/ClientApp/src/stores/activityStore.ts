@@ -4,6 +4,7 @@ import agent from "../api/agent";
 import {v4 as uuid} from 'uuid';
 import {format} from "date-fns";
 import {store} from "./store";
+import {Profile} from "../types/profile";
 
 export default class ActivityStore {
 	  activityRegistry = new Map<string, Activity>();
@@ -164,6 +165,42 @@ export default class ActivityStore {
 				  runInAction(() => {
 						this.loading = false
 				  })
+			}
+	  }
+	  
+	  updateAttendance = async () => {
+			const user = store.userStore.user;
+			this.loading = true;
+			try 
+			{
+				  await agent.Activities.attend(this.selectedActivity!.id);
+				  // Setting properties if the user goes or not going to the Activity
+				  runInAction(() => {
+						// If user is going, and they do not want to go anymore -> Is Going = false
+						if (this.selectedActivity?.isGoing)
+						{
+							  // Delete the current user from the list of attendees for the specific and selected Activity
+							  this.selectedActivity.attendees = this.selectedActivity.attendees?.filter(a => a.username !== user?.username);
+							  this.selectedActivity.isGoing = false;
+						}
+						// Else, Is going -> true
+						else
+						{
+							  const attendee = new Profile(user!)
+							  // Join the current user to the list of attendees for the specific and selected Activity
+							  this.selectedActivity?.attendees?.push(attendee);
+							  this.selectedActivity!.isGoing = true;
+						}
+						this.activityRegistry.set(this.selectedActivity!.id, this.selectedActivity!);
+				  })
+			}
+			catch (error)
+			{
+				  console.log(error)
+			}
+			finally 
+			{
+				  runInAction(() => this.loading = false)
 			}
 	  }
 }

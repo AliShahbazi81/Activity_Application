@@ -4,6 +4,7 @@ import {toast} from "react-toastify";
 import {router} from "../router/Routes";
 import {store} from "../stores/store";
 import {User, UserFormValues} from "../types/user";
+import activityDashboard from "../features/activity/dashboard/ActivityDashboard";
 
 // Set some delay
 const sleep = (delay: number) => {
@@ -101,7 +102,8 @@ const Activities = {
 	  details: (id: string) => requests.get<Activity>(`Activity/Get/${id}`),
 	  create: (activity: Activity) => requests.post<void>("Activity/Create", activity),
 	  update: (activity: Activity) => requests.put<void>(`Activity/Update/${activity.id}`, activity),
-	  delete: (id: string) => requests.del<void>(`Activity/Delete/${id}`)
+	  delete: (id: string) => requests.del<void>(`Activity/Delete/${id}`),
+	  attend:(id: string) => requests.post<void>(`Activity/${id}/attend`, {})
 }
 
 
