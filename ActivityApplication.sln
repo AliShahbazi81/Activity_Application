@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Infrastructure.UploadImage", "ActivityApplication.Infrastructure.UploadImage\ActivityApplication.Infrastructure.UploadImage.csproj", "{2FB6A935-DF0D-43FE-84C9-469BC983CBAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Services.User", "ActivityApplication.Services.User\ActivityApplication.Services.User.csproj", "{FC3E9E12-B161-432D-BE13-1F860E6D68EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{2FB6A935-DF0D-43FE-84C9-469BC983CBAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FB6A935-DF0D-43FE-84C9-469BC983CBAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FB6A935-DF0D-43FE-84C9-469BC983CBAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3E9E12-B161-432D-BE13-1F860E6D68EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3E9E12-B161-432D-BE13-1F860E6D68EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3E9E12-B161-432D-BE13-1F860E6D68EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3E9E12-B161-432D-BE13-1F860E6D68EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4A660871-5841-4164-BEBD-AA46886845F1} = {1B7E4A8E-1847-42BB-BEE9-892399F59C52}
@@ -90,5 +96,6 @@ Global
 		{4912DF3A-15DC-4144-84E0-CE355E20AC15} = {184D38E2-9C0E-4401-872F-EBB8BD321F19}
 		{578B760F-C012-4079-89FE-DD596C815617} = {184D38E2-9C0E-4401-872F-EBB8BD321F19}
 		{2FB6A935-DF0D-43FE-84C9-469BC983CBAA} = {54051344-F4A0-4052-80B7-6C7960353717}
+		{FC3E9E12-B161-432D-BE13-1F860E6D68EF} = {184D38E2-9C0E-4401-872F-EBB8BD321F19}
 	EndGlobalSection
 EndGlobal

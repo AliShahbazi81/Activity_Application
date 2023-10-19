@@ -13,6 +13,7 @@ using ActivityApplication.Infrastrucutre.UploadImage.Services;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
 using ActivityApplication.Services.Image.Services;
+using ActivityApplication.Services.User.Services;
 using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -175,6 +176,9 @@ builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection(
 builder.Services.AddScoped<ICloudinaryImageService, CloudinaryImageService>();
 builder.Services.AddScoped<IImageMetaDataService, ImageMetaDataService>();
 builder.Services.AddScoped<IImageManager, ImageManager>();
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ User Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

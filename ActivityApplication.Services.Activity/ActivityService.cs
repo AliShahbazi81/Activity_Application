@@ -4,6 +4,7 @@ using ActivityApplication.DataAccess.Entities.JoinTables;
 using ActivityApplication.Domain.Results;
 using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Services.Activity.DTO;
+using ActivityApplication.Services.DTO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 

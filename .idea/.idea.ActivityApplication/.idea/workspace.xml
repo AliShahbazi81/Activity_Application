@@ -10,11 +10,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Delete User's photo">
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Fix bug for ImageController, SetMain">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.User/Services/IUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.User/Services/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ProfileDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/UserControllers/ProfileController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ImageControllers/ImageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ImageControllers/ImageController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services/ActivityApplication.Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services/ActivityApplication.Services.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +56,7 @@
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/ICloudinaryImageService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -215,7 +227,7 @@
       <workItem from="1697425148038" duration="276000" />
       <workItem from="1697425443294" duration="312000" />
       <workItem from="1697590909452" duration="6842000" />
-      <workItem from="1697672939482" duration="14518000" />
+      <workItem from="1697672939482" duration="19581000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -505,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697686575028</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fix bug for ImageController, SetMain">
+      <option name="closed" value="true" />
+      <created>1697691031113</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1697691031113</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +534,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Start implementing MediatR in Activity Service" />
     <MESSAGE value="Replace the services with MediatR queries and commands" />
     <MESSAGE value="Bring back the previous service to controller" />
     <MESSAGE value="Adjust namespaces in Activity Controller" />
@@ -539,7 +558,40 @@
     <MESSAGE value="Upload user's image on Courinary cloud" />
     <MESSAGE value="Add high service for Services" />
     <MESSAGE value="Delete User's photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete User's photo" />
+    <MESSAGE value="Fix bug for ImageController, SetMain" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug for ImageController, SetMain" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ActivityApplication.Services.User/Services/UserService.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.User\Services\UserService.cs" initialLine="28" containingFunctionPresentation="Method 'GetUserProfileByUsernameAsync'">
+            <startOffsets>
+              <option value="900" />
+            </startOffsets>
+            <endOffsets>
+              <option value="958" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ActivityApplication.Services.User/Services/UserService.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.User\Services\UserService.cs" initialLine="30" containingFunctionPresentation="Method 'GetUserProfileByUsernameAsync'">
+            <startOffsets>
+              <option value="968" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1014" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
