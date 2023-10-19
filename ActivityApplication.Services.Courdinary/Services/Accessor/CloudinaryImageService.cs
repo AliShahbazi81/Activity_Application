@@ -1,17 +1,17 @@
-using ActivityApplication.Infrastructure.Images;
-using ActivityApplication.Services.Image.DTO;
+using ActivityApplication.Infrastructure.Courdinary.Settings;
+using ActivityApplication.Services.DTO;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
-namespace ActivityApplication.Services.Image.Services.Accessor;
+namespace ActivityApplication.Infrastructure.Courdinary.Services.Accessor;
 
-public class ImageAccessor : IImageAccessor
+public class CloudinaryImageService : ICloudinaryImageService
 {
     private readonly Cloudinary _cloudinary;
 
-    public ImageAccessor(IOptions<CloudinarySettings> config)
+    public CloudinaryImageService(IOptions<CloudinarySettings> config)
     {
         // Since we are using parentheses, the ordering is important. This is not object 
         var account = new Account(

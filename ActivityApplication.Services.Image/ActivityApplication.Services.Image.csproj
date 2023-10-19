@@ -25,6 +25,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\ActivityApplication.Infrastructure\ActivityApplication.Infrastructure.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Services\ActivityApplication.Services.csproj"/>
     </ItemGroup>
 
 </Project>

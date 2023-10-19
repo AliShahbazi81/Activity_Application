@@ -10,7 +10,7 @@ public interface IActivityService
     /// </summary>
     /// <param name="activityDto"></param>
     /// <returns></returns>
-    Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto, Guid userId);
+    Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto);
 
     /// <summary>
     /// Get an Activity using activityId

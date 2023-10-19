@@ -28,7 +28,7 @@ public class ActivityService : IActivityService
         _userAccessor = userAccessor;
     }
 
-    public async Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto, Guid userId)
+    public async Task<Result<ActivityDto>> CreateActivityAsync(ActivityDto activityDto)
     {
         // Validate the input
         /*InputValidation(activityDto.Date,
@@ -48,7 +48,7 @@ public class ActivityService : IActivityService
         // Add the created activity to the relational DbSet with Attendees
         var attendee = new ActivityAttendee
         {
-            UserId = userId,
+            UserId = _userAccessor.GetUserId(),
             Activity = activity,
             ActivityId = activity.Id,
             IsHost = true
@@ -156,7 +156,7 @@ public class ActivityService : IActivityService
 
         // Get The user who wants to participate/cancel participation
         var user = dbContext.Users
-            .FirstOrDefault(x => x.UserName == _userAccessor.GetUsername());
+            .FirstOrDefault(x => x.UserName == _userAccessor.GetUserUsername());
 
         // Check if user exists or not
         if (user == null) return Result<bool>.Failure("Failed to fetch the user!");

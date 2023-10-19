@@ -1,10 +1,8 @@
-using ActivityApplication.Infrastructure.Extensions;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.DTO;
 using ActivityApplication.Services.Activity.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 
 namespace ActivityApplication.Controllers.ActivityControllers;
 
@@ -66,7 +64,7 @@ public class ActivityController : BaseApiController
     {
         try
         {
-            return HandleResult(await _service.CreateActivityAsync(activityDto, User.GetUserId()));
+            return HandleResult(await _service.CreateActivityAsync(activityDto));
         }
         catch (DateTimeValidationException e)
         {

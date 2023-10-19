@@ -6,13 +6,13 @@ using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.DataAccess.Entities.Users;
 using ActivityApplication.DataAccess.Seed;
 using ActivityApplication.Domain.ExceptionsHandling;
-using ActivityApplication.Infrastructure.Images;
+using ActivityApplication.Infrastructure.Courdinary.Services.Accessor;
+using ActivityApplication.Infrastructure.Courdinary.Settings;
 using ActivityApplication.Infrastructure.Security;
+using ActivityApplication.Infrastrucutre.UploadImage.Services;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
-using ActivityApplication.Services.Image.DTO;
 using ActivityApplication.Services.Image.Services;
-using ActivityApplication.Services.Image.Services.Accessor;
 using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -172,8 +172,9 @@ builder.Services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>()
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Cloudinary"));
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Image Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-builder.Services.AddScoped<IImageAccessor, ImageAccessor>();
-
+builder.Services.AddScoped<ICloudinaryImageService, CloudinaryImageService>();
+builder.Services.AddScoped<IImageMetaDataService, ImageMetaDataService>();
+builder.Services.AddScoped<IImageManager, ImageManager>();
 
 var app = builder.Build();
 

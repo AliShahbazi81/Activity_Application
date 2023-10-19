@@ -2,5 +2,8 @@ namespace ActivityApplication.Infrastructure.Security;
 
 public interface IUserAccessor
 {
-    public string? GetUsername();
+    Guid GetUserId();
+    string? GetUserUsername();
+    string? GetUserRole();
+    string GetUserFullName();
 }

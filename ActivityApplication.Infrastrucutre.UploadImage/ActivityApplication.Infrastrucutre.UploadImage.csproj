@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ActivityApplication.Services.Courdinary\ActivityApplication.Services.Courdinary.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Services.Image\ActivityApplication.Services.Image.csproj"/>
+    </ItemGroup>
+
+</Project>

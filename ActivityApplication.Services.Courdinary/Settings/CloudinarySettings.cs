@@ -1,4 +1,4 @@
-namespace ActivityApplication.Infrastructure.Images;
+namespace ActivityApplication.Infrastructure.Courdinary.Settings;
 
 public class CloudinarySettings
 {
