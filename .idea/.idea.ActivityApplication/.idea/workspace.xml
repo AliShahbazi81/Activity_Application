@@ -10,30 +10,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/Services/IImageManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/Services/ImageManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/ActivityApplication.Services.Courdinary.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ImageControllers/ImageController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Add high service for Services">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Users/Photo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Users/Photo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Images/CloudinarySettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Settings/CloudinarySettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/IUserAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/IUserAccessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20230923005402_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20230923005402_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231008182809_AddFieldsToUserEntity.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231008182809_AddFieldsToUserEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231011025201_RelationBetweenAttendeesAndActivities.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231011025201_RelationBetweenAttendeesAndActivities.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013190444_AddIsCanceledToActivity.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013190444_AddIsCanceledToActivity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013205712_AddIsCanceledToActivityEntity.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013205712_AddIsCanceledToActivityEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/UserAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/UserAccessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/ActivityApplication.Services.Image.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/ActivityApplication.Services.Image.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/DTO/ImageUploadDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ImageUploadDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/Accessor/IImageAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/ICloudinaryImageService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/Accessor/ImageAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/CloudinaryImageService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/ActivityApplication.Infrastrucutre.UploadImage.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/ActivityApplication.Infrastructure.UploadImage.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/Services/IImageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/Services/IImageManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/Services/ImageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/Services/ImageManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/CloudinaryImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/CloudinaryImageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ImageUploadDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ImageUploadDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ImageControllers/ImageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ImageControllers/ImageController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +60,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e74356f198b598e97eaeea83e8b7b1f2bfe27c0a39fedf86bb7dc44827fbda/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/Services/IImageManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/Services/ImageManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/IsHostRequirement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,40 +90,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.7352025&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.17.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.55&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat &amp; Apply Syntax Style&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alish\\WebstormProjects\\Activity_Application\\ActivityApplication\\ClientApp\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.3522388",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.nodejs.core.library.configured.version": "16.17.0",
+    "javascript.nodejs.core.library.typings.version": "16.18.55",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "rider.code.cleanup.on.save": "true",
+    "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+    "ts.external.directory.path": "C:\\Users\\alish\\WebstormProjects\\Activity_Application\\ActivityApplication\\ClientApp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\alish\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\alish\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\alish\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -233,7 +237,7 @@
       <workItem from="1697425148038" duration="276000" />
       <workItem from="1697425443294" duration="312000" />
       <workItem from="1697590909452" duration="6842000" />
-      <workItem from="1697672939482" duration="5300000" />
+      <workItem from="1697672939482" duration="12463000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -499,7 +503,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697263078777</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Upload user's image on Courinary cloud">
+      <option name="closed" value="true" />
+      <created>1697679814615</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1697679814615</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Add high service for Services">
+      <option name="closed" value="true" />
+      <created>1697679852360</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1697679852360</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,8 +528,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Create guard for activity service" />
-    <MESSAGE value="Flow error handling, refactoring Activity flow" />
     <MESSAGE value="Make the first request from clientSide to Back" />
     <MESSAGE value="Start implementing MediatR in Activity Service" />
     <MESSAGE value="Replace the services with MediatR queries and commands" />
@@ -533,7 +551,54 @@
     <MESSAGE value="Returning Activity along with attendees" />
     <MESSAGE value="Add attendance services for users" />
     <MESSAGE value="Add Authorization for editing an activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Authorization for editing an activity" />
+    <MESSAGE value="Upload user's image on Courinary cloud" />
+    <MESSAGE value="Add high service for Services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add high service for Services" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs</url>
+          <line>61</line>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Image\Services\ImageMetaDataService.cs" initialLine="61" containingFunctionPresentation="Method 'DeleteAsync'">
+            <startOffsets>
+              <option value="1949" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1949" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs</url>
+          <line>69</line>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Image\Services\ImageMetaDataService.cs" initialLine="69" containingFunctionPresentation="Method 'DeleteAsync'">
+            <startOffsets>
+              <option value="2186" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2237" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs</url>
+          <line>71</line>
+          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Image\Services\ImageMetaDataService.cs" initialLine="71" containingFunctionPresentation="Method 'DeleteAsync'">
+            <startOffsets>
+              <option value="2247" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2385" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

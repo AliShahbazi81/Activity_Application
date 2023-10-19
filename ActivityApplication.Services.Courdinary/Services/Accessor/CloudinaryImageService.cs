@@ -50,6 +50,7 @@ public class CloudinaryImageService : ICloudinaryImageService
     {
         var deleteParams = new DeletionParams(publicId);
         var result = await _cloudinary.DestroyAsync(deleteParams);
-        return result.Result == "Ok" ? result.Result : null;
+        Console.WriteLine($"Delete Result: {result.Result}, {result.Error?.Message}"); // Log result and error message
+        return result.Result == "ok" ? result.Result : null;
     }
 }

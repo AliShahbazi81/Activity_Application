@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Services", "ActivityApplication.Services\ActivityApplication.Services.csproj", "{578B760F-C012-4079-89FE-DD596C815617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Infrastrucutre.UploadImage", "ActivityApplication.Infrastrucutre.UploadImage\ActivityApplication.Infrastrucutre.UploadImage.csproj", "{2FB6A935-DF0D-43FE-84C9-469BC983CBAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Infrastructure.UploadImage", "ActivityApplication.Infrastructure.UploadImage\ActivityApplication.Infrastructure.UploadImage.csproj", "{2FB6A935-DF0D-43FE-84C9-469BC983CBAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

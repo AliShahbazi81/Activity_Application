@@ -5,9 +5,9 @@ namespace ActivityApplication.Infrastructure.Security;
 
 public class UserAccessor : IUserAccessor
 {
-    private readonly HttpContextAccessor _httpContextAccessor;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public UserAccessor(HttpContextAccessor httpContextAccessor)
+    public UserAccessor(IHttpContextAccessor httpContextAccessor)
     {
         _httpContextAccessor = httpContextAccessor;
     }

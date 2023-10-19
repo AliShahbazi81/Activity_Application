@@ -22,7 +22,21 @@ public class ImageController : BaseApiController
         {
             var result = await _imageManager.UploadAsync(file);
 
-            return Ok(result);
+            return HandleResult(result);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete(string publicId)
+    {
+        try
+        {
+            return HandleResult(await _imageManager.DeleteAsync(publicId));
         }
         catch (Exception e)
         {

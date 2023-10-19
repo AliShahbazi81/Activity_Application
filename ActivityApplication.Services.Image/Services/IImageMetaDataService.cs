@@ -1,3 +1,5 @@
+using ActivityApplication.DataAccess.Entities.Users;
+using ActivityApplication.Domain.Results;
 using ActivityApplication.Services.DTO;
 
 namespace ActivityApplication.Services.Image.Services;
@@ -9,5 +11,12 @@ public interface IImageMetaDataService
     /// </summary>
     /// <param name="uploadDto"></param>
     /// <returns>bool</returns>
-    Task<bool> UploadAsync(ImageUploadDto? uploadDto);
+    Task<Result<ImageUploadDto>> UploadAsync(ImageUploadDto? uploadDto);
+
+    /// <summary>
+    /// Delete photo based on the publicId returned from Cloudinary service
+    /// </summary>
+    /// <param name="publicId"></param>
+    /// <returns>String Result</returns>
+    Task<Result<string>> DeleteAsync(string publicId);
 }
