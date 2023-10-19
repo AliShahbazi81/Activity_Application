@@ -72,11 +72,18 @@ public class ImageMetaDataService : IImageMetaDataService
     {
         await using var dbContext = await _context.CreateDbContextAsync();
 
-        var getPhoto = await GetUserPhotoAsync(publicId);
+        var userPhotos = await dbContext.Users
+            .Where(u => u.Id == _userAccessor.GetUserId())
+            .SelectMany(u => u.Photos)
+            .ToListAsync();
 
-        var currentMain = await GetCurrentMainPhotoAsync();
+        var currentMain = userPhotos.FirstOrDefault(p => p.IsMain);
+        var getPhoto = userPhotos.FirstOrDefault(p => p.PublicId == publicId);
 
-        if (currentMain is not null)
+        if (getPhoto == null)
+            return Result<string>.Failure("Failed to find the photo");
+
+        if (currentMain != null)
             currentMain.IsMain = false;
 
         getPhoto.IsMain = true;
@@ -88,16 +95,16 @@ public class ImageMetaDataService : IImageMetaDataService
             : Result<string>.Failure("Failed to set the main photo");
     }
 
-    private async Task<Photo> GetUserPhotoAsync(string publicId)
+    private async Task<Photo?> GetUserPhotoAsync(string publicId)
     {
         await using var dbContext = await _context.CreateDbContextAsync();
 
         var getPhoto = await dbContext.Users
             .Where(x => x.Id == _userAccessor.GetUserId())
             .SelectMany(x => x.Photos)
-            .SingleAsync(x => x.PublicId == publicId);
+            .SingleOrDefaultAsync(x => x.PublicId == publicId);
 
-        return getPhoto;
+        return getPhoto ?? null;
     }
 
     private async Task<Photo?> GetCurrentMainPhotoAsync()
@@ -108,7 +115,7 @@ public class ImageMetaDataService : IImageMetaDataService
         var getPhoto = await dbContext.Users
             .Where(x => x.Id == _userAccessor.GetUserId())
             .SelectMany(x => x.Photos)
-            .SingleAsync(x => x.IsMain == true);
+            .SingleOrDefaultAsync(x => x.IsMain == true);
 
         return getPhoto ?? null;
     }
