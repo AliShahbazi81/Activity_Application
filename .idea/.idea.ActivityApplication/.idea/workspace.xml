@@ -10,33 +10,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Add high service for Services">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Delete User's photo">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20230923005402_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20230923005402_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231008182809_AddFieldsToUserEntity.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231008182809_AddFieldsToUserEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231011025201_RelationBetweenAttendeesAndActivities.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231011025201_RelationBetweenAttendeesAndActivities.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013190444_AddIsCanceledToActivity.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013190444_AddIsCanceledToActivity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013205712_AddIsCanceledToActivityEntity.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231013205712_AddIsCanceledToActivityEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/UserAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/UserAccessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/ActivityApplication.Infrastrucutre.UploadImage.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/ActivityApplication.Infrastructure.UploadImage.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/Services/IImageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/Services/IImageManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastrucutre.UploadImage/Services/ImageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/Services/ImageManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/CloudinaryImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/CloudinaryImageService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ImageUploadDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ImageUploadDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/ImageControllers/ImageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/ImageControllers/ImageController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +215,7 @@
       <workItem from="1697425148038" duration="276000" />
       <workItem from="1697425443294" duration="312000" />
       <workItem from="1697590909452" duration="6842000" />
-      <workItem from="1697672939482" duration="12463000" />
+      <workItem from="1697672939482" duration="14518000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -519,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697679852360</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Delete User's photo">
+      <option name="closed" value="true" />
+      <created>1697686575028</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1697686575028</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +514,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Make the first request from clientSide to Back" />
     <MESSAGE value="Start implementing MediatR in Activity Service" />
     <MESSAGE value="Replace the services with MediatR queries and commands" />
     <MESSAGE value="Bring back the previous service to controller" />
@@ -553,52 +538,8 @@
     <MESSAGE value="Add Authorization for editing an activity" />
     <MESSAGE value="Upload user's image on Courinary cloud" />
     <MESSAGE value="Add high service for Services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add high service for Services" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs</url>
-          <line>61</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Image\Services\ImageMetaDataService.cs" initialLine="61" containingFunctionPresentation="Method 'DeleteAsync'">
-            <startOffsets>
-              <option value="1949" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1949" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs</url>
-          <line>69</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Image\Services\ImageMetaDataService.cs" initialLine="69" containingFunctionPresentation="Method 'DeleteAsync'">
-            <startOffsets>
-              <option value="2186" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2237" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs</url>
-          <line>71</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Image\Services\ImageMetaDataService.cs" initialLine="71" containingFunctionPresentation="Method 'DeleteAsync'">
-            <startOffsets>
-              <option value="2247" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2385" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Delete User's photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete User's photo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

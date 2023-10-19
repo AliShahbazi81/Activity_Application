@@ -59,16 +59,57 @@ public class ImageMetaDataService : IImageMetaDataService
     {
         await using var dbContext = await _context.CreateDbContextAsync();
 
-        var getPhoto = await dbContext.Users
-            .Where(x => x.Id == _userAccessor.GetUserId())
-            .SelectMany(x => x.Photos)
-            .SingleAsync(x => x.PublicId == publicId);
-
+        var getPhoto = await GetUserPhotoAsync(publicId);
 
         dbContext.Remove(getPhoto);
 
         var saved = await dbContext.SaveChangesAsync() > 0;
 
         return saved ? Result<string>.Success("Photo has been deleted successfully!") : Result<string>.Failure("Error while deleting the photo!");
+    }
+
+    public async Task<Result<string>> SetMainPhotoAsync(string publicId)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync();
+
+        var getPhoto = await GetUserPhotoAsync(publicId);
+
+        var currentMain = await GetCurrentMainPhotoAsync();
+
+        if (currentMain is not null)
+            currentMain.IsMain = false;
+
+        getPhoto.IsMain = true;
+
+        var saved = await dbContext.SaveChangesAsync() > 0;
+
+        return saved
+            ? Result<string>.Success("The selected photo is now set to your main photo")
+            : Result<string>.Failure("Failed to set the main photo");
+    }
+
+    private async Task<Photo> GetUserPhotoAsync(string publicId)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync();
+
+        var getPhoto = await dbContext.Users
+            .Where(x => x.Id == _userAccessor.GetUserId())
+            .SelectMany(x => x.Photos)
+            .SingleAsync(x => x.PublicId == publicId);
+
+        return getPhoto;
+    }
+
+    private async Task<Photo?> GetCurrentMainPhotoAsync()
+    {
+        await using var dbContext = await _context.CreateDbContextAsync();
+
+        // Get photo with IsMain flag 
+        var getPhoto = await dbContext.Users
+            .Where(x => x.Id == _userAccessor.GetUserId())
+            .SelectMany(x => x.Photos)
+            .SingleAsync(x => x.IsMain == true);
+
+        return getPhoto ?? null;
     }
 }

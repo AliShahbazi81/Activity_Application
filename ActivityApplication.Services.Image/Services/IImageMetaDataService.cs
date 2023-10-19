@@ -19,4 +19,6 @@ public interface IImageMetaDataService
     /// <param name="publicId"></param>
     /// <returns>String Result</returns>
     Task<Result<string>> DeleteAsync(string publicId);
+
+    Task<Result<string>> SetMainPhotoAsync(string publicId);
 }
