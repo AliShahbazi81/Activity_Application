@@ -4,6 +4,7 @@ import {toast} from "react-toastify";
 import {router} from "../router/Routes";
 import {store} from "../stores/store";
 import {User, UserFormValues} from "../types/user";
+import {Profile} from "../types/profile";
 
 // Set some delay
 const sleep = (delay: number) => {
@@ -114,10 +115,15 @@ const Account = {
 	  register: (user: UserFormValues) => requests.post<User>("Account/Register", user)
 }
 
+const Profiles = {
+	  get: (username: string) => requests.get<Profile>(`/Profile/${username}`)
+}
+
 // Configuring which requests can be accessed in the application
 const agent = {
 	  Activities,
-	  Account
+	  Account,
+	  Profiles
 }
 
 // Export the agents in which we wish to use in the application

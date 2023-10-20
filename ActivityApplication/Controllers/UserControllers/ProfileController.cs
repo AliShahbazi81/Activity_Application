@@ -15,12 +15,12 @@ public class ProfileController : BaseApiController
         _userService = userService;
     }
 
-    [HttpGet("/profiles/{userName}")]
+    [HttpGet("{userName}")]
     public async Task<IActionResult> ProfileDetail(string userName)
     {
         try
         {
-            return HandleResult(await _userService.GetUserProfileByUsernameAsync(userName));
+            return HandleResult(await _userService.GetUserProfileByUsernameAsync(userName.ToLower()));
         }
         catch (Exception e)
         {
