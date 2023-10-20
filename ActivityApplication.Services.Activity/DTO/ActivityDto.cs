@@ -14,5 +14,5 @@ public record struct ActivityDto
     public string Venue { get; set; }
     public string HostUsername { get; set; }
     public bool IsCanceled { get; set; }
-    public List<ProfileDto> Attendees { get; set; }
+    public List<AttendeeDto> Attendees { get; set; }
 }

@@ -29,22 +29,30 @@ public class AccountController : ControllerBase
     [HttpPost("Login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user = await _userManager.FindByEmailAsync(loginDto.Email);
+        var user = await _userManager.Users
+            .Include(x => x.Photos)
+            .FirstOrDefaultAsync(x => x.Email == loginDto.Email);
 
         if (user == null) return Unauthorized();
 
         var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
 
-        if (result)
-            return new UserDto
-            {
-                Username = user.UserName,
-                Image = string.Empty,
-                Token = await _tokenService.GenerateToken(user.Id),
-                DisplayName = user.DisplayName
-            };
+        if (!result) return Unauthorized();
 
-        return Unauthorized();
+        var mainPhotoUrl = user.Photos.Any()
+            ? user.Photos
+                .Where(photo => photo.UserId == user.Id && photo.IsMain)
+                .Select(p => p.Url)
+                .SingleOrDefault()
+            : null;
+
+        return new UserDto
+        {
+            Username = user.UserName,
+            Image = mainPhotoUrl,
+            Token = await _tokenService.GenerateToken(user.Id),
+            DisplayName = user.DisplayName
+        };
     }
 
     [AllowAnonymous]

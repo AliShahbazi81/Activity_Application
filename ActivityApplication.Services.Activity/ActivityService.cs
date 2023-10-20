@@ -84,10 +84,12 @@ public class ActivityService : IActivityService
     public async Task<Result<IEnumerable<ActivityDto>>> GetActivitiesAsync()
     {
         await using var dbContext = await _contextFactory.CreateDbContextAsync();
+
         var activities = await dbContext.Activities
             .AsNoTracking()
             .Include(a => a.Attendees)
             .ThenInclude(aa => aa.User)
+            .ThenInclude(p => p.Photos)
             .ToListAsync();
 
         var activityDtos = activities.Select(MapToDto);
@@ -216,11 +218,13 @@ public class ActivityService : IActivityService
         }
     }
 
-    private ActivityDto MapToDto(DataAccess.Entities.Activities.Activity? activity)
+    private static ActivityDto MapToDto(DataAccess.Entities.Activities.Activity? activity)
     {
-        var profiles = activity.Attendees.Select(a => MapToProfileDto(a.User)).ToList();
+        var profiles = activity?.Attendees?
+            .Select(a => MapToProfileDto(a.User))
+            .ToList() ?? new List<AttendeeDto>();
 
-        var hostUserName = activity.Attendees
+        var hostUserName = activity?.Attendees?
             .Select(x => x.User.UserName)
             .FirstOrDefault();
 
@@ -238,13 +242,22 @@ public class ActivityService : IActivityService
         };
     }
 
-    private ProfileDto MapToProfileDto(DataAccess.Entities.Users.User attendee)
+    private static AttendeeDto MapToProfileDto(DataAccess.Entities.Users.User attendee)
     {
-        return new ProfileDto
+        var mainPhoto = attendee?.Photos?.Any() == true
+            ? attendee.Photos
+                .Where(x => x.IsMain)
+                .Select(x => x.Url)
+                .SingleOrDefault()
+            : null;
+
+
+        return new AttendeeDto
         {
             Username = attendee.UserName,
             DisplayName = attendee.DisplayName,
-            Bio = attendee.Bio
+            Bio = attendee.Bio,
+            Image = mainPhoto
         };
     }
 

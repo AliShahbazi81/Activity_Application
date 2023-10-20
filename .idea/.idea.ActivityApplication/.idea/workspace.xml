@@ -10,12 +10,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Creating UserService Project">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/AttendeeDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +48,12 @@
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Infrastructure.UploadImage/Services/ImageManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Infrastructure/Security/IsHostRequirement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ProfileDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/ICloudinaryImageService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ActivityApplication.Services/DTO/ProfileDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -217,7 +223,7 @@
       <workItem from="1697425148038" duration="276000" />
       <workItem from="1697425443294" duration="312000" />
       <workItem from="1697590909452" duration="6842000" />
-      <workItem from="1697672939482" duration="22565000" />
+      <workItem from="1697672939482" duration="25479000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -523,7 +529,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697743448243</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Fix SetMainPhoto's bug where user's could not set another photo as their main photo">
+      <option name="closed" value="true" />
+      <created>1697757788290</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1697757788290</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Creating UserService Project">
+      <option name="closed" value="true" />
+      <created>1697757803545</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1697757803545</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,8 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Bring back the previous service to controller" />
-    <MESSAGE value="Adjust namespaces in Activity Controller" />
     <MESSAGE value="Adding comment" />
     <MESSAGE value="Error handling from Server side" />
     <MESSAGE value="Exception middleware" />
@@ -568,7 +588,9 @@
     <MESSAGE value="Delete User's photo" />
     <MESSAGE value="Fix bug for ImageController, SetMain" />
     <MESSAGE value="UserService for getting user's profile details" />
-    <option name="LAST_COMMIT_MESSAGE" value="UserService for getting user's profile details" />
+    <MESSAGE value="Fix SetMainPhoto's bug where user's could not set another photo as their main photo" />
+    <MESSAGE value="Creating UserService Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating UserService Project" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

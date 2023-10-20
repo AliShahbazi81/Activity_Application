@@ -83,6 +83,10 @@ public class ImageMetaDataService : IImageMetaDataService
         if (getPhoto == null)
             return Result<string>.Failure("Failed to find the photo");
 
+        // If the chosen photo is already set to main
+        if (currentMain != null && currentMain.PublicId == publicId)
+            return Result<string>.Failure("This photo is already your main photo");
+
         if (currentMain != null)
             currentMain.IsMain = false;
 
