@@ -10,17 +10,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Creating UserService Project">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/AttendeeDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Activity/DTO/ActivityDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Return user's photo after login">
       <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/AccountControllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +45,7 @@
     <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services/DTO/ProfileDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication/Controllers/AccountControllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -223,7 +215,7 @@
       <workItem from="1697425148038" duration="276000" />
       <workItem from="1697425443294" duration="312000" />
       <workItem from="1697590909452" duration="6842000" />
-      <workItem from="1697672939482" duration="25479000" />
+      <workItem from="1697672939482" duration="25802000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -545,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697757803545</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Return user's photo after login">
+      <option name="closed" value="true" />
+      <created>1697760672489</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1697760672489</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Adding comment" />
     <MESSAGE value="Error handling from Server side" />
     <MESSAGE value="Exception middleware" />
     <MESSAGE value="Error handling in Client-Side" />
@@ -590,7 +589,8 @@
     <MESSAGE value="UserService for getting user's profile details" />
     <MESSAGE value="Fix SetMainPhoto's bug where user's could not set another photo as their main photo" />
     <MESSAGE value="Creating UserService Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating UserService Project" />
+    <MESSAGE value="Return user's photo after login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Return user's photo after login" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

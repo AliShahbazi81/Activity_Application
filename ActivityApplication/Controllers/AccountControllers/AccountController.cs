@@ -1,6 +1,7 @@
 using System.Net.Mime;
 using System.Security.Claims;
 using ActivityApplication.DataAccess.Entities.Users;
+using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Services.User.DTOs;
 using ActivityApplication.Services.User.Services.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,11 +19,13 @@ public class AccountController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
     private readonly TokenService _tokenService;
+    private readonly IUserAccessor _userAccessor;
 
-    public AccountController(UserManager<User> userManager, TokenService tokenService)
+    public AccountController(UserManager<User> userManager, TokenService tokenService, IUserAccessor userAccessor)
     {
         _userManager = userManager;
         _tokenService = tokenService;
+        _userAccessor = userAccessor;
     }
 
     [AllowAnonymous]
@@ -91,7 +94,10 @@ public class AccountController : ControllerBase
     [HttpGet("GetCurrentUser")]
     public async Task<ActionResult<UserDto>> GetCurrentUser()
     {
-        var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+        var user = await _userManager.Users
+            .Include(x => x.Photos)
+            .Where(x => x.Id == _userAccessor.GetUserId())
+            .SingleOrDefaultAsync();
 
         return await CreateUserObject(user!);
     }
@@ -99,10 +105,17 @@ public class AccountController : ControllerBase
 
     private async Task<ActionResult<UserDto>> CreateUserObject(User user)
     {
+        var photoUrl = user.Photos.Any()
+            ? user.Photos
+                .Where(x => x.UserId == user.Id && x.IsMain)
+                .Select(x => x.Url)
+                .SingleOrDefault()
+            : null;
+
         return new JsonResult(new UserDto
         {
             DisplayName = user.DisplayName,
-            Image = string.Empty,
+            Image = photoUrl,
             Token = await _tokenService.GenerateToken(user.Id),
             Username = user.UserName
         });
