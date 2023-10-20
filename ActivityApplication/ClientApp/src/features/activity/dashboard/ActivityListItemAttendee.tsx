@@ -3,7 +3,7 @@ import React from "react";
 import {Image, List, Popup} from "semantic-ui-react";
 import {Profile} from "../../../types/profile";
 import {Link} from "react-router-dom";
-import UserProfile from "../../profiles/UserProfile";
+import UserProfile from "../../profiles/ProfileCard";
 
 interface Props {
 	  attendees: Profile[]
@@ -19,7 +19,7 @@ export default observer(function ActivityListItemAttendee({attendees}: Props) {
 							  trigger={
 									<List.Item
 										  as={Link}
-										  to={`profiles/${attendee.username}`}
+										  to={`/profiles/${attendee.username}`}
 									>
 										  <Image
 												circular

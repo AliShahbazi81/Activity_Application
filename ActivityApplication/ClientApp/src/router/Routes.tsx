@@ -8,6 +8,7 @@ import TestErrors from "../features/errors/TestError";
 import NotFound from "../features/errors/NotFound";
 import ServerError from "../features/errors/ServerError";
 import LoginForm from "../features/activity/Users/LoginForm";
+import ProfilePage from "../features/profiles/ProfilePage";
 
 export const routes: RouteObject[] = [
 	  {
@@ -19,6 +20,7 @@ export const routes: RouteObject[] = [
 				  //! Since both create and manage are using the same component, we HAVE TO set key property to them, otherwise, react cannot
 				  //! understand the difference when we route between these 2 components
 				  {path: "createActivity", element: <ActivityForm key={"create"}/>},
+				  {path: "profiles/:username", element: <ProfilePage/>},
 				  /* Editing an activity will be done in the ActivityForm as well*/
 				  {path: "manage/:id", element: <ActivityForm key={"manage"}/>},
 				  {path: "login", element: <LoginForm />},
