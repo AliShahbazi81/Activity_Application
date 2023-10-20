@@ -4,7 +4,7 @@ import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {ActivityFormValues} from "../../../types/activity";
-import LoadingComponent from "../../../components/LoadingComponent";
+import LoadingComponent from "../../../components/loading/LoadingComponent";
 import {Formik, Form} from "formik";
 import * as Yup from "yup";
 import MyTextInput from "../../../components/Form/MyTextInput";

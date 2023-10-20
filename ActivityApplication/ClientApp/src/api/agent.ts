@@ -4,7 +4,7 @@ import {toast} from "react-toastify";
 import {router} from "../router/Routes";
 import {store} from "../stores/store";
 import {User, UserFormValues} from "../types/user";
-import {Profile} from "../types/profile";
+import {Photo, Profile} from "../types/profile";
 
 // Set some delay
 const sleep = (delay: number) => {
@@ -116,7 +116,16 @@ const Account = {
 }
 
 const Profiles = {
-	  get: (username: string) => requests.get<Profile>(`/Profile/${username}`)
+	  get: (username: string) => requests.get<Profile>(`/Profile/${username}`),
+	  /*! Since we want to send file to our server, we have to use Axios instead of simple request method */
+	  uploadPhoto: (file: Blob) => {
+			let formDate = new FormData();
+			/* Name of the file in append has to be the same with the API Controller */
+			formDate.append("File", file);
+			return axios.post<Photo>("/Image", formDate, {
+				  headers: {"Content-Type": "multipart/form-data"}
+			})
+	  }
 }
 
 // Configuring which requests can be accessed in the application

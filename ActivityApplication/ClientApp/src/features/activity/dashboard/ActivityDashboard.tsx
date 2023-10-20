@@ -3,7 +3,7 @@ import {Grid, List} from "semantic-ui-react";
 import ActivityList from "./ActivityList";
 import {useStore} from "../../../stores/store";
 import {observer} from "mobx-react-lite";
-import LoadingComponent from "../../../components/LoadingComponent";
+import LoadingComponent from "../../../components/loading/LoadingComponent";
 import ActivityFilters from "./ActivityFilters";
 
 export default observer(function ActivityDashboard() {

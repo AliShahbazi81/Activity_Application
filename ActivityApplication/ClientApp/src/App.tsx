@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {Container} from "semantic-ui-react";
-import NavBar from "./components/navbar";
+import NavBar from "./components/navbar/navbar";
 import {observer} from "mobx-react-lite";
 import {Outlet, useLocation} from "react-router-dom";
 import HomePage from "./features/home/HomePage";
 import {ToastContainer} from "react-toastify";
 import {useStore} from "./stores/store";
-import LoadingComponent from './components/LoadingComponent';
+import LoadingComponent from './components/loading/LoadingComponent';
 import ModalContainer from './components/modals/ModalContainer';
 
 const App: React.FC = () => {

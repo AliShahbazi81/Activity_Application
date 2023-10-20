@@ -2,7 +2,7 @@ import {Button, Container, Dropdown, Image, Menu} from "semantic-ui-react";
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import {observer} from "mobx-react-lite";
-import {useStore} from "../stores/store";
+import {useStore} from "../../stores/store";
 
 export default observer(function NavBar() {
 	  const {userStore: {user, logout}} = useStore();

@@ -1,7 +1,7 @@
 import {Grid} from "semantic-ui-react";
 import React, {useEffect} from "react";
 import {useStore} from "../../../stores/store";
-import LoadingComponent from "../../../components/LoadingComponent";
+import LoadingComponent from "../../../components/loading/LoadingComponent";
 import {observer} from "mobx-react-lite";
 import {useParams} from "react-router-dom";
 import ActivityDetailedHeader from "./ActivityDetailedHeader";

@@ -5,7 +5,7 @@ import ProfileContent from "./ProfileContent";
 import { observer } from "mobx-react-lite";
 import {useParams} from "react-router-dom";
 import {useStore} from "../../stores/store";
-import LoadingComponent from "../../components/LoadingComponent";
+import LoadingComponent from "../../components/loading/LoadingComponent";
 
 export default observer(function ProfilePage()
 {
