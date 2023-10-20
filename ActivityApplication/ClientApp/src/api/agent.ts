@@ -125,7 +125,9 @@ const Profiles = {
 			return axios.post<Photo>("/Image", formDate, {
 				  headers: {"Content-Type": "multipart/form-data"}
 			})
-	  }
+	  },
+	  setMainPhoto: (publicId: string) => requests.put(`/Image/${publicId}/setMain`, {}),
+	  deletePhoto: (id: string) => requests.del(`/Image/${id}`)
 }
 
 // Configuring which requests can be accessed in the application

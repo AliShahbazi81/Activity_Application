@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {Button, Grid, Header, Image} from "semantic-ui-react";
+import {Button, Grid, Header} from "semantic-ui-react";
 import PhotoWidgetDropzone from "./PhotoWidgetDropzone";
-import {resolveUrl} from "ajv/dist/compile/resolve";
 import PhotoWidgetCropper from "./PhotoWidgetCropper";
 
 interface Props{

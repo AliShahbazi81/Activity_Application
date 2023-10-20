@@ -4,24 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Add photo based on user's authentication">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/imageUpload/PhotoUploadWidget.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/imageUpload/PhotoWidgetCropper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/imageUpload/PhotoWidgetDropzone.tsx" afterDir="false" />
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Crop and preview image before uploading in user's profile">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/LoadingComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/loading/LoadingComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/navbar/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/dashboard/ActivityDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/form/ActivityForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/imageUpload/PhotoUploadWidget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/imageUpload/PhotoUploadWidget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/imageUpload/PhotoWidgetCropper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/components/imageUpload/PhotoWidgetCropper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePhotos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePhotos.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/profileStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/profileStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/userStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/userStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +116,8 @@
       <workItem from="1697590901665" duration="9742000" />
       <workItem from="1697672930009" duration="7235000" />
       <workItem from="1697770884752" duration="700000" />
-      <workItem from="1697774591049" duration="5563000" />
+      <workItem from="1697774591049" duration="5915000" />
+      <workItem from="1697826235173" duration="2681000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -390,14 +383,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697783479154</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Crop and preview image before uploading in user's profile">
+      <option name="closed" value="true" />
+      <created>1697787589963</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1697787589963</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ActivityFilters UI improvements" />
     <MESSAGE value="HomePage UI improvements" />
     <MESSAGE value="Add AxiosError in case of errors after receiving response from server" />
     <MESSAGE value="Centralizing all the errors handling in the agent.ts" />
@@ -422,6 +422,7 @@
     <MESSAGE value="Displaying user's image, fix error for profile pages" />
     <MESSAGE value="Display user's information in Profile section" />
     <MESSAGE value="Add photo based on user's authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add photo based on user's authentication" />
+    <MESSAGE value="Crop and preview image before uploading in user's profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crop and preview image before uploading in user's profile" />
   </component>
 </project>
