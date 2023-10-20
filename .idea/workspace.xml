@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Displaying user's image, fix error for profile pages">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfileContent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfileHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePhotos.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/profileStore.ts" afterDir="false" />
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Display user's information in Profile section">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/UserControllers/ProfileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/UserControllers/ProfileController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePhotos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/profiles/ProfilePhotos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/profileStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/profileStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +55,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.other&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alish\\WebstormProjects\\Activity_Application\\ActivityApplication\\ClientApp\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -114,7 +108,9 @@
       <workItem from="1697425161891" duration="1231000" />
       <workItem from="1697509897016" duration="1492000" />
       <workItem from="1697590901665" duration="9742000" />
-      <workItem from="1697672930009" duration="7096000" />
+      <workItem from="1697672930009" duration="7235000" />
+      <workItem from="1697770884752" duration="700000" />
+      <workItem from="1697774591049" duration="1501000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -364,14 +360,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697767621987</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Display user's information in Profile section">
+      <option name="closed" value="true" />
+      <created>1697770776924</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1697770776924</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ActivityListItem UI improvements" />
     <MESSAGE value="ActivityDetails UI improvements" />
     <MESSAGE value="ActivityFilters UI improvements" />
     <MESSAGE value="HomePage UI improvements" />
@@ -396,6 +399,7 @@
     <MESSAGE value="Fix bug DateTime after updating an activity" />
     <MESSAGE value="Fixing bug for creating an activity" />
     <MESSAGE value="Displaying user's image, fix error for profile pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Displaying user's image, fix error for profile pages" />
+    <MESSAGE value="Display user's information in Profile section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Display user's information in Profile section" />
   </component>
 </project>
