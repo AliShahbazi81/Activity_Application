@@ -117,6 +117,8 @@ const Account = {
 
 const Profiles = {
 	  get: (username: string) => requests.get<Profile>(`/Profile/${username}`),
+	  // You can use Partial<Profile> if only some fields will be updated
+	  updateProfile: (profile: Partial<Profile>) => requests.put(`/Profile/Update/${profile.username}`, profile),
 	  /*! Since we want to send file to our server, we have to use Axios instead of simple request method */
 	  uploadPhoto: (file: Blob) => {
 			let formDate = new FormData();

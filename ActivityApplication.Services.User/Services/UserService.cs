@@ -1,6 +1,7 @@
 using ActivityApplication.DataAccess.DbContext;
 using ActivityApplication.Domain.Results;
 using ActivityApplication.Services.DTO;
+using ActivityApplication.Services.User.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace ActivityApplication.Services.User.Services;
@@ -29,6 +30,24 @@ public class UserService : IUserService
         var profileDto = await MapToProfileDto(getUser, userName);
 
         return Result<ProfileDto>.Success(profileDto);
+    }
+
+    public async Task<Result<string>> EditUserProfileById(Guid userId, UserEditDto userEditDto)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync();
+
+        var getUser = await dbContext.Users
+            .SingleOrDefaultAsync(x => x.Id == userId);
+
+        if (getUser is null)
+            return Result<string>.Failure("Failed to find specific user");
+
+        getUser.DisplayName = userEditDto.DisplayName;
+        getUser.Bio = userEditDto.Bio;
+
+        var saved = await dbContext.SaveChangesAsync() > 0;
+
+        return saved ? Result<string>.Success("Changes have been saved") : Result<string>.Failure("Failed to save the changes");
     }
 
     private async Task<ProfileDto?> MapToProfileDto(DataAccess.Entities.Users.User userEntity, string userName)

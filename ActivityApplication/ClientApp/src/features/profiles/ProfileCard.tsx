@@ -8,7 +8,15 @@ interface Props {
 	  profile: Profile;
 }
 
-export default observer(function UserProfile({profile}: Props) {
+export default observer(function ProfileCard({profile}: Props) {
+	  
+	  // If user's bio is longer than 37 characters, then we have to make it shorter.
+	  // Hence, the Profile Card will not mess
+	  function truncate(str: string | undefined) {
+			if (str)
+				  return str.length > 40 ? str.substring(0, 37) + "..." : str;
+	  }
+	  
 	  return (
 			<Card as={Link} to={`/profiles/${profile.username}`}>
 				  <Image src={profile.image || "/assets/user.png"}/>
@@ -17,7 +25,7 @@ export default observer(function UserProfile({profile}: Props) {
 							  {profile.displayName}
 						</Card.Header>
 						<Card.Description>
-							  Bio goes here
+							  {truncate(profile.bio)}
 						</Card.Description>
 				  </Card.Content>
 				  <Card.Content extra>
