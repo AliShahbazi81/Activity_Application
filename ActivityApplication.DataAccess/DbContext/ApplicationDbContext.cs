@@ -1,4 +1,5 @@
 using ActivityApplication.DataAccess.Entities.Activities;
+using ActivityApplication.DataAccess.Entities.Comments;
 using ActivityApplication.DataAccess.Entities.JoinTables;
 using ActivityApplication.DataAccess.Entities.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -16,6 +17,7 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, Guid>
     public DbSet<User> Users { get; set; }
     public DbSet<ActivityAttendee> ActivityAttendees { get; set; }
     public DbSet<Photo> Photos { get; set; }
+    public DbSet<Comment> Comments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -43,5 +45,11 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, Guid>
                 new Role { Id = Guid.NewGuid(), Name = "BannedUser", NormalizedName = "BANNED_USER" },
                 new Role { Id = Guid.NewGuid(), Name = "Moderator", NormalizedName = "MODERATOR" }
             );
+
+        /* If an activity is deleted, delete the comments as well */
+        builder.Entity<Comment>()
+            .HasOne(a => a.Activity)
+            .WithMany(c => c.Comments)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

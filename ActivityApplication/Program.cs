@@ -12,6 +12,7 @@ using ActivityApplication.Infrastructure.Security;
 using ActivityApplication.Infrastrucutre.UploadImage.Services;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
+using ActivityApplication.Services.Comment.Services;
 using ActivityApplication.Services.Image.Services;
 using ActivityApplication.Services.User.Services;
 using ActivityApplication.Services.User.Services.Token;
@@ -179,6 +180,9 @@ builder.Services.AddScoped<IImageManager, ImageManager>();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ User Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<IUserService, UserService>();
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Comment Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddScoped<ICommentService, CommentService>();
 
 var app = builder.Build();
 

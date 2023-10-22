@@ -1,3 +1,4 @@
+using ActivityApplication.DataAccess.Entities.Comments;
 using ActivityApplication.DataAccess.Entities.JoinTables;
 
 namespace ActivityApplication.DataAccess.Entities.Activities;
@@ -13,4 +14,5 @@ public class Activity
     public string Venue { get; set; } = string.Empty;
     public bool IsCanceled { get; set; } = false;
     public virtual ICollection<ActivityAttendee> Attendees { get; set; }
+    public virtual ICollection<Comment> Comments { get; set; }
 }

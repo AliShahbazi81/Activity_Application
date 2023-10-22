@@ -11,10 +11,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Comments/Comment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Dto/CommentDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +234,7 @@
       <workItem from="1697672939482" duration="28372000" />
       <workItem from="1697774592548" duration="2086000" />
       <workItem from="1697826239968" duration="6196000" />
+      <workItem from="1697991613543" duration="6716000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />

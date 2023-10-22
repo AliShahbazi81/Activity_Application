@@ -37,6 +37,7 @@
         <ProjectReference Include="..\ActivityApplication.DataAccess\ActivityApplication.DataAccess.csproj"/>
         <ProjectReference Include="..\ActivityApplication.Domain\ActivityApplication.Domain.csproj"/>
         <ProjectReference Include="..\ActivityApplication.Infrastructure.UploadImage\ActivityApplication.Infrastructure.UploadImage.csproj"/>
+        <ProjectReference Include="..\ActivityApplication.Services.Comment\ActivityApplication.Services.Comment.csproj"/>
         <ProjectReference Include="..\ActivityApplication.Services.Courdinary\ActivityApplication.Services.Courdinary.csproj"/>
         <ProjectReference Include="..\ActivityApplication.Infrastructure\ActivityApplication.Infrastructure.csproj"/>
         <ProjectReference Include="..\ActivityApplication.Services.Activity\ActivityApplication.Services.Activity.csproj"/>
