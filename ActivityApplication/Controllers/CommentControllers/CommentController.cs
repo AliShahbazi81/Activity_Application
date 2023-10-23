@@ -38,7 +38,7 @@ public class CommentController : BaseApiController
     {
         try
         {
-            return HandleResult(await _commentService.CreateCommentAsync(activityId, _userAccessor.GetUserId(), commentDto));
+            return HandleResult(await _commentService.CreateCommentAsync(activityId, _userAccessor.GetUserId(), ""));
         }
         catch (Exception e)
         {

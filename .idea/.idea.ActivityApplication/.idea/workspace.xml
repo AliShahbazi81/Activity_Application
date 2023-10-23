@@ -10,24 +10,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Comments/Comment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Dto/CommentDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Send and get comments for a specific activity">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/commentStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/comments.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/SignalR/CommentHub.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedChat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedChat.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6a4abc33381932734b5fe8e665891a89f052eeee41e2debe188594bce29675c/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81a3bcf4bb6aa5e62a9839f9cfeeba6126496f4fa07d1e57b27a5176e42525/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9bb0e6bbedf35fc571ed74a11a203249a0444c51c17022b495da731f8cedbf/DefaultHubDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba42fa83f66411607f71ed975b8e32754845f82070f9872d3b77d0a9c25de28/ClaimsPrincipal.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bcfe9914a24997ba8a749caddea54ae74cb8019dd695ea0a0ad26385102d/AuthorizationHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -57,11 +58,8 @@
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/ActivityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Activity/IActivityService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Courdinary/Services/Accessor/ICloudinaryImageService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication.Services.Image/Services/IImageMetaDataService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication.Services.Image/Services/ImageMetaDataService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services.Membership/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication.Services/DTO/ProfileDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/alish/WebstormProjects/Activity_Application/ActivityApplication/Controllers/AccountControllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Controllers/ActivityControllers/ActivityController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ActivityApplication/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -234,7 +232,7 @@
       <workItem from="1697672939482" duration="28372000" />
       <workItem from="1697774592548" duration="2086000" />
       <workItem from="1697826239968" duration="6196000" />
-      <workItem from="1697991613543" duration="6716000" />
+      <workItem from="1697991613543" duration="18138000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -572,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697761238236</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Send and get comments for a specific activity">
+      <option name="closed" value="true" />
+      <created>1698017810737</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1698017810737</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +598,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Exception middleware" />
     <MESSAGE value="Error handling in Client-Side" />
     <MESSAGE value="Register and Login process" />
     <MESSAGE value="Add JWT for authentication" />
@@ -617,7 +622,8 @@
     <MESSAGE value="Creating UserService Project" />
     <MESSAGE value="Return user's photo after login" />
     <MESSAGE value="Return user's image for GetCurrentUser in AccountController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Return user's image for GetCurrentUser in AccountController" />
+    <MESSAGE value="Send and get comments for a specific activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send and get comments for a specific activity" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

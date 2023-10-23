@@ -5,18 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Edit user's profile displayName and bio">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Comments/Comment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Dto/CommentDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/commentStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/comments.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/SignalR/CommentHub.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Activities/Activity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedChat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedChat.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +126,7 @@
       <workItem from="1697770884752" duration="700000" />
       <workItem from="1697774591049" duration="5915000" />
       <workItem from="1697826235173" duration="9386000" />
-      <workItem from="1697991606292" duration="1212000" />
+      <workItem from="1697991606292" duration="9699000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />

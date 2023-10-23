@@ -16,6 +16,7 @@ using ActivityApplication.Services.Comment.Services;
 using ActivityApplication.Services.Image.Services;
 using ActivityApplication.Services.User.Services;
 using ActivityApplication.Services.User.Services.Token;
+using ActivityApplication.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -145,6 +146,15 @@ builder.Services.AddAuthentication(options =>
                     logger.LogWarning("Token security stamp is not valid.");
                     context.Fail("Token security stamp is not valid.");
                 }
+            },
+            // If we are using SignalR, since the request is not HTTP, we have to authenticate users with query
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chat"))
+                    context.Token = accessToken;
+                return Task.CompletedTask;
             }
         };
     });
@@ -183,6 +193,10 @@ builder.Services.AddScoped<IUserService, UserService>();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Comment Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<ICommentService, CommentService>();
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Other Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddSignalR();
+
 
 var app = builder.Build();
 
@@ -231,6 +245,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.MapControllerRoute(
     "default",
     "{controller}/{action=Index}/{id?}");
+app.MapHub<CommentHub>("/chat");
 
 app.MapFallbackToFile("index.html");
 

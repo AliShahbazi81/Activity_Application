@@ -17,7 +17,7 @@ public class CommentService : ICommentService
     public async Task<Result<CommentDto>> CreateCommentAsync(
         Guid activityId,
         Guid userId,
-        CommentDto commentDto)
+        string body)
     {
         await using var dbContext = await _context.CreateDbContextAsync();
 
@@ -40,7 +40,7 @@ public class CommentService : ICommentService
         {
             Author = user,
             Activity = activity,
-            Body = commentDto.Body
+            Body = body
         };
 
         dbContext.Comments.Add(comment);

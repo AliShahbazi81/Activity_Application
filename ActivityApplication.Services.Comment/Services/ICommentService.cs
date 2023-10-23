@@ -8,7 +8,7 @@ public interface ICommentService
     Task<Result<CommentDto>> CreateCommentAsync(
         Guid activityId,
         Guid userId,
-        CommentDto commentDto);
+        string body);
 
     Task<Result<IEnumerable<CommentDto>>> GetComments(Guid activityId);
 }
