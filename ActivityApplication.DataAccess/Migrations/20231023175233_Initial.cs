@@ -210,6 +210,34 @@ namespace ActivityApplication.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Body = table.Column<string>(type: "TEXT", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    AuthorId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    ActivityId = table.Column<Guid>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comments_Activities_ActivityId",
+                        column: x => x.ActivityId,
+                        principalTable: "Activities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Comments_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Photos",
                 columns: table => new
                 {
@@ -234,11 +262,11 @@ namespace ActivityApplication.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { new Guid("3ce94a01-2b3e-4c01-aead-c0a4e8ea3d1e"), null, "Admin", "ADMIN" },
-                    { new Guid("764f2569-d4da-4d24-b006-3bafeb666ab3"), null, "Member", "MEMBER" },
-                    { new Guid("9761a6ef-61f2-4178-b9f1-19fd57e7721a"), null, "User", "USER" },
-                    { new Guid("bafc9b1a-b787-433a-8ac7-8076ac879f03"), null, "Moderator", "MODERATOR" },
-                    { new Guid("f394e967-2177-4aba-88db-ec389958c79d"), null, "BannedUser", "BANNED_USER" }
+                    { new Guid("1b8a2848-1552-4d3f-be91-c77925738e47"), null, "Member", "MEMBER" },
+                    { new Guid("613a2eda-0151-4927-aed0-daf63bb9e6e5"), null, "Moderator", "MODERATOR" },
+                    { new Guid("b1ea3992-33db-49ff-b9c4-df0f95e9081b"), null, "Admin", "ADMIN" },
+                    { new Guid("b670ce1f-e360-4f10-8186-5f22489a3dd0"), null, "User", "USER" },
+                    { new Guid("e85fe3f4-6277-4a04-b1f2-08fb27ab385b"), null, "BannedUser", "BANNED_USER" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -284,6 +312,16 @@ namespace ActivityApplication.DataAccess.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comments_ActivityId",
+                table: "Comments",
+                column: "ActivityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comments_AuthorId",
+                table: "Comments",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Photos_UserId",
                 table: "Photos",
                 column: "UserId");
@@ -311,13 +349,16 @@ namespace ActivityApplication.DataAccess.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Comments");
+
+            migrationBuilder.DropTable(
                 name: "Photos");
 
             migrationBuilder.DropTable(
-                name: "Activities");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
+                name: "Activities");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

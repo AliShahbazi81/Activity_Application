@@ -54,6 +54,8 @@ public class CommentHub : Hub
         }
     }
 
+    // Once user connects to the hub, then the sequences happen
+    // We want to get the Comments for a specific activity once the user us connected to the hub
     public override async Task OnConnectedAsync()
     {
         var httpContext = Context.GetHttpContext();

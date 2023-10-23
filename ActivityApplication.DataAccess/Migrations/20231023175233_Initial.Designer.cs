@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ActivityApplication.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231019033420_Initial")]
+    [Migration("20231023175233_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -55,6 +55,34 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Activities");
+                });
+
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Comments.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<Guid>("ActivityId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActivityId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("ActivityApplication.DataAccess.Entities.JoinTables.ActivityAttendee", b =>
@@ -126,31 +154,31 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3ce94a01-2b3e-4c01-aead-c0a4e8ea3d1e"),
+                            Id = new Guid("b1ea3992-33db-49ff-b9c4-df0f95e9081b"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("9761a6ef-61f2-4178-b9f1-19fd57e7721a"),
+                            Id = new Guid("b670ce1f-e360-4f10-8186-5f22489a3dd0"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("764f2569-d4da-4d24-b006-3bafeb666ab3"),
+                            Id = new Guid("1b8a2848-1552-4d3f-be91-c77925738e47"),
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = new Guid("f394e967-2177-4aba-88db-ec389958c79d"),
+                            Id = new Guid("e85fe3f4-6277-4a04-b1f2-08fb27ab385b"),
                             Name = "BannedUser",
                             NormalizedName = "BANNED_USER"
                         },
                         new
                         {
-                            Id = new Guid("bafc9b1a-b787-433a-8ac7-8076ac879f03"),
+                            Id = new Guid("613a2eda-0151-4927-aed0-daf63bb9e6e5"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -350,6 +378,25 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Comments.Comment", b =>
+                {
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Activities.Activity", "Activity")
+                        .WithMany("Comments")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ActivityApplication.DataAccess.Entities.Users.User", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+
+                    b.Navigation("Author");
+                });
+
             modelBuilder.Entity("ActivityApplication.DataAccess.Entities.JoinTables.ActivityAttendee", b =>
                 {
                     b.HasOne("ActivityApplication.DataAccess.Entities.Activities.Activity", "Activity")
@@ -434,6 +481,8 @@ namespace ActivityApplication.DataAccess.Migrations
             modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Activities.Activity", b =>
                 {
                     b.Navigation("Attendees");
+
+                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("ActivityApplication.DataAccess.Entities.Users.User", b =>

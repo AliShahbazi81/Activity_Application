@@ -151,31 +151,31 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f0f64481-6fe6-4e40-a46c-33185e0d3b5f"),
+                            Id = new Guid("b1ea3992-33db-49ff-b9c4-df0f95e9081b"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("7dcbfd32-7c4d-42f2-88f0-e5dfaef4e007"),
+                            Id = new Guid("b670ce1f-e360-4f10-8186-5f22489a3dd0"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("d3a65b2d-ddc6-4b36-bb57-4f4f308234e4"),
+                            Id = new Guid("1b8a2848-1552-4d3f-be91-c77925738e47"),
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = new Guid("677dcca9-28af-457f-8c34-6ad9d538c00b"),
+                            Id = new Guid("e85fe3f4-6277-4a04-b1f2-08fb27ab385b"),
                             Name = "BannedUser",
                             NormalizedName = "BANNED_USER"
                         },
                         new
                         {
-                            Id = new Guid("30f9dd1a-c231-44d2-bff7-dd286560f941"),
+                            Id = new Guid("613a2eda-0151-4927-aed0-daf63bb9e6e5"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
