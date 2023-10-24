@@ -14,7 +14,8 @@ const sleep = (delay: number) => {
 }
 
 // Configure default URL for APIs
-axios.defaults.baseURL = "http://localhost:3000/api/";
+// Get the url from .env file
+axios.defaults.baseURL = "http://localhost/api/";
 
 
 //! The setting down below will be used for each request that we send we axios

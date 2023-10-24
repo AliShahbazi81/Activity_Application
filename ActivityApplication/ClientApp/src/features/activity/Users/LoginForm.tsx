@@ -23,7 +23,7 @@ export default observer(function LoginForm()
 							  onSubmit={handleSubmit} 
 							  autoComplete={"off"}>
 							  <Header 
-									content={"Login to Reactivities"} 
+									content={"Login to Reactivitiesssss"} 
 									color={"teal"} 
 									textAlign={"center"}/>
 							  <MyTextInput 

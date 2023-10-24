@@ -29,10 +29,23 @@ COPY . .
 WORKDIR "/src/ActivityApplication"
 RUN dotnet build "ActivityApplication.csproj" -c Release -o /app/build
 
+
+# Publish the application
 FROM build AS publish
 RUN dotnet publish "ActivityApplication.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
+# Final runtime image
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ActivityApplication.dll"]
+
+# For development, use the build stage and enable hot reload
+FROM build AS dev
+WORKDIR /src/ActivityApplication
+COPY --from=publish /app/publish .
+
+# Enable hot reload
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+ENTRYPOINT ["dotnet", "watch", "run", "--no-restore", "--project", "ActivityApplication.csproj"]
+
+

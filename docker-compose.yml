@@ -9,6 +9,8 @@ services:
       - "8080:80"
     networks:
       - my_network
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=true
 
   frontend:
     build:
@@ -21,6 +23,7 @@ services:
       - my_network
     environment:
       - REACT_APP_API_URL=http://activityapplication_backend:80/api/
+      - CHOKIDAR_USEPOLLING=true
 
 networks:
   my_network:
