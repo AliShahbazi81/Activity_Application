@@ -15,12 +15,12 @@ const sleep = (delay: number) => {
 
 // Configure default URL for APIs
 // Get the url from .env file
-axios.defaults.baseURL = "http://localhost/api/";
+axios.defaults.baseURL = "https://localhost:7290/api/";
 
 
 //! The setting down below will be used for each request that we send we axios
 axios.interceptors.request.use(config => {
-	  
+
 	  // Send the saved token with each request
 	  const token = store.commonStore.token;
 	  if (token && config.headers)
@@ -40,27 +40,24 @@ axios.interceptors.response.use(async response => {
 	  const {data, status, config} = error.response as AxiosResponse;
 	  switch (status) {
 			// In case of Bad request, it can be validation error, hence, we will first check if the error is validation error or just
-				  // simple 400
+			// simple 400
 			case 400:
 				  // If user tried to access an id which does not exist in the context
-				  if(config.method === "get" && data.errors.hasOwnProperty("id"))
+				  if (config.method === "get" && data.errors.hasOwnProperty("id"))
 						router.navigate("/not-found")
-				  
+
 				  // If the error is validation error
-				  if (data.errors)
-				  {
+				  if (data.errors) {
 						// Get the validation errors one by one
 						const modalStateErrors = [];
-						for (const key in data.errors)
-						{
+						for (const key in data.errors) {
 							  if (data.errors[key])
 									modalStateErrors.push(data.errors[key])
 						}
 						throw modalStateErrors.flat();
 				  }
 				  // If it is just a simple 400
-				  else
-				  {
+				  else {
 						toast.error(data)
 				  }
 				  break;
@@ -104,7 +101,7 @@ const Activities = {
 	  create: (activity: ActivityFormValues) => requests.post<void>("Activity/Create", activity),
 	  update: (activity: ActivityFormValues) => requests.put<void>(`Activity/Update/${activity.id}`, activity),
 	  delete: (id: string) => requests.del<void>(`Activity/Delete/${id}`),
-	  attend:(id: string) => requests.post<void>(`Activity/${id}/attend`, {})
+	  attend: (id: string) => requests.post<void>(`Activity/${id}/attend`, {})
 }
 
 

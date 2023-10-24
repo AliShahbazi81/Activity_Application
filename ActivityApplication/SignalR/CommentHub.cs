@@ -1,5 +1,4 @@
 using ActivityApplication.Infrastructure.Security;
-using ActivityApplication.Services.Comment.Dto;
 using ActivityApplication.Services.Comment.Services;
 using Microsoft.AspNetCore.SignalR;
 

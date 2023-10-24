@@ -37,9 +37,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityApplication.Services.Comment", "ActivityApplication.Services.Comment\ActivityApplication.Services.Comment.csproj", "{E4DC3AFB-9D4E-47C9-BD0E-1D1BA0A2DE3E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4DBC59D-E970-4B49-B4FF-B5D607CDA31D}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
