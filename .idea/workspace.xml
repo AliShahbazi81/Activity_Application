@@ -4,29 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Edit user's profile displayName and bio">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/commentStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/types/comments.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/SignalR/CommentHub.cs" afterDir="false" />
+    <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Create and get comment for a specific activity">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/CommentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Comment/Services/ICommentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedChat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetailedChat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/features/activity/details/ActivityDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/CommentControllers/CommentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231023175233_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/20231023175233_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/.env" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/api/agent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/commentStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ClientApp/src/stores/commentStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,7 +138,8 @@
       <workItem from="1697770884752" duration="700000" />
       <workItem from="1697774591049" duration="5915000" />
       <workItem from="1697826235173" duration="9386000" />
-      <workItem from="1697991606292" duration="9699000" />
+      <workItem from="1697991606292" duration="10415000" />
+      <workItem from="1698097185246" duration="6354000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
@@ -416,14 +429,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697856926483</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Create and get comment for a specific activity">
+      <option name="closed" value="true" />
+      <created>1698033842674</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1698033842675</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Centralizing all the errors handling in the agent.ts" />
     <MESSAGE value="Add custom TextInput component" />
     <MESSAGE value="Add custom TextAreaInput component" />
     <MESSAGE value="Add custom SelectInput component" />
@@ -448,6 +468,7 @@
     <MESSAGE value="Crop and preview image before uploading in user's profile" />
     <MESSAGE value="SetMain and delete photo from user's profile" />
     <MESSAGE value="Edit user's profile displayName and bio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit user's profile displayName and bio" />
+    <MESSAGE value="Create and get comment for a specific activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create and get comment for a specific activity" />
   </component>
 </project>

@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace ActivityApplication.DataAccess.Migrations
+namespace ActivityApplication.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -262,11 +262,11 @@ namespace ActivityApplication.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { new Guid("1b8a2848-1552-4d3f-be91-c77925738e47"), null, "Member", "MEMBER" },
-                    { new Guid("613a2eda-0151-4927-aed0-daf63bb9e6e5"), null, "Moderator", "MODERATOR" },
-                    { new Guid("b1ea3992-33db-49ff-b9c4-df0f95e9081b"), null, "Admin", "ADMIN" },
-                    { new Guid("b670ce1f-e360-4f10-8186-5f22489a3dd0"), null, "User", "USER" },
-                    { new Guid("e85fe3f4-6277-4a04-b1f2-08fb27ab385b"), null, "BannedUser", "BANNED_USER" }
+                    { new Guid("21e189d9-46b5-4ea0-911f-4ff9a372a39e"), null, "User", "USER" },
+                    { new Guid("6a13b8bc-30ae-43dd-9a37-b9f7cfbf7c58"), null, "Member", "MEMBER" },
+                    { new Guid("8b8c495d-b626-407c-b615-d42f3b41ab4b"), null, "Admin", "ADMIN" },
+                    { new Guid("cb9a7ffd-8323-453d-8240-3f4fcc3e9958"), null, "BannedUser", "BANNED_USER" },
+                    { new Guid("e9c0cc59-befe-4355-a4fd-f48ad7afbbbd"), null, "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -3,16 +3,19 @@ using System;
 using ActivityApplication.DataAccess.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ActivityApplication.DataAccess.Migrations
+namespace ActivityApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231023235602_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
@@ -151,31 +154,31 @@ namespace ActivityApplication.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b1ea3992-33db-49ff-b9c4-df0f95e9081b"),
+                            Id = new Guid("8b8c495d-b626-407c-b615-d42f3b41ab4b"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = new Guid("b670ce1f-e360-4f10-8186-5f22489a3dd0"),
+                            Id = new Guid("21e189d9-46b5-4ea0-911f-4ff9a372a39e"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("1b8a2848-1552-4d3f-be91-c77925738e47"),
+                            Id = new Guid("6a13b8bc-30ae-43dd-9a37-b9f7cfbf7c58"),
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = new Guid("e85fe3f4-6277-4a04-b1f2-08fb27ab385b"),
+                            Id = new Guid("cb9a7ffd-8323-453d-8240-3f4fcc3e9958"),
                             Name = "BannedUser",
                             NormalizedName = "BANNED_USER"
                         },
                         new
                         {
-                            Id = new Guid("613a2eda-0151-4927-aed0-daf63bb9e6e5"),
+                            Id = new Guid("e9c0cc59-befe-4355-a4fd-f48ad7afbbbd"),
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });

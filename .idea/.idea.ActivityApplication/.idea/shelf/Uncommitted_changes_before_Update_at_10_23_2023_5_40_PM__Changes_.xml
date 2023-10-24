@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_10_23_2023_5_40_PM_[Changes]" date="1698097223338" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/shelf/Uncommitted_changes_before_Update_at_10_23_2023_5_40_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 10/23/2023 5:40 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="ActivityApplication/reactivities.db" />
+    <option name="AFTER_PATH" value="ActivityApplication/reactivities.db" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/shelf/Uncommitted_changes_before_Update_at_10_23_2023_5_40_PM_[Changes]/reactivities.db" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ActivityApplication/reactivities.db-wal" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ActivityApplication/reactivities.db-shm" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>

@@ -25,7 +25,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.WebHost.UseUrls("http://*:80");
 // Add services to the container.
 
 //! This means that all of the controllers do need Authorization
@@ -61,7 +61,11 @@ builder.Services.AddSwaggerGen(opt =>
 });
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Database Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-builder.Services.AddDbContextFactory<ApplicationDbContext>(opt => { opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")); });
+builder.Services.AddDbContextFactory<ApplicationDbContext>(opt =>
+{
+    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("ActivityApplication"));
+});
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Authentication Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddCors(options => options.AddPolicy("cors", policy => policy

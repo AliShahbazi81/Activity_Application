@@ -14,16 +14,16 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
 WORKDIR /src
 COPY ["ActivityApplication/ActivityApplication.csproj", "ActivityApplication/"]
 COPY ["ActivityApplication.DataAccess/ActivityApplication.DataAccess.csproj", "ActivityApplication.DataAccess/"]
-COPY ["ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj", "ActivityApplication.Services.Activity/"]
 COPY ["ActivityApplication.Domain/ActivityApplication.Domain.csproj", "ActivityApplication.Domain/"]
-COPY ["ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj", "ActivityApplication.Infrastructure/"]
-COPY ["ActivityApplication.Services.Membership/ActivityApplication.Services.Membership.csproj", "ActivityApplication.Services.Membership/"]
-COPY ["ActivityApplication.Services/ActivityApplication.Services.csproj", "ActivityApplication.Services/"]
-COPY ["ActivityApplication.Services.Image/ActivityApplication.Services.Image.csproj", "ActivityApplication.Services.Image/"]
 COPY ["ActivityApplication.Infrastructure.UploadImage/ActivityApplication.Infrastructure.UploadImage.csproj", "ActivityApplication.Infrastructure.UploadImage/"]
 COPY ["ActivityApplication.Services.Courdinary/ActivityApplication.Services.Courdinary.csproj", "ActivityApplication.Services.Courdinary/"]
-COPY ["ActivityApplication.Services.Comment/ActivityApplication.Services.Comment.csproj", "ActivityApplication.Services.Comment/"]
+COPY ["ActivityApplication.Services/ActivityApplication.Services.csproj", "ActivityApplication.Services/"]
+COPY ["ActivityApplication.Services.Image/ActivityApplication.Services.Image.csproj", "ActivityApplication.Services.Image/"]
+COPY ["ActivityApplication.Infrastructure/ActivityApplication.Infrastructure.csproj", "ActivityApplication.Infrastructure/"]
+COPY ["ActivityApplication.Services.Membership/ActivityApplication.Services.Membership.csproj", "ActivityApplication.Services.Membership/"]
+COPY ["ActivityApplication.Services.Activity/ActivityApplication.Services.Activity.csproj", "ActivityApplication.Services.Activity/"]
 COPY ["ActivityApplication.Services.User/ActivityApplication.Services.User.csproj", "ActivityApplication.Services.User/"]
+COPY ["ActivityApplication.Services.Comment/ActivityApplication.Services.Comment.csproj", "ActivityApplication.Services.Comment/"]
 RUN dotnet restore "ActivityApplication/ActivityApplication.csproj"
 COPY . .
 WORKDIR "/src/ActivityApplication"
