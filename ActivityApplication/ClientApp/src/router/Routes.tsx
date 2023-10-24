@@ -7,27 +7,27 @@ import ActivityDetails from "../features/activity/details/ActivityDetails";
 import TestErrors from "../features/errors/TestError";
 import NotFound from "../features/errors/NotFound";
 import ServerError from "../features/errors/ServerError";
-import LoginForm from "../features/activity/Users/LoginForm";
+import LoginForm from "../features/Users/LoginForm";
 import ProfilePage from "../features/profiles/ProfilePage";
 
 export const routes: RouteObject[] = [
 	  {
 			path: "/",
-			element: <App />,
+			element: <App/>,
 			children: [
-				  {path: "activities", element: <ActivityDashboard />},
-				  {path: "activities/:id", element: <ActivityDetails />},
+				  {path: "activities", element: <ActivityDashboard/>},
+				  {path: "activities/:id", element: <ActivityDetails/>},
 				  //! Since both create and manage are using the same component, we HAVE TO set key property to them, otherwise, react cannot
 				  //! understand the difference when we route between these 2 components
 				  {path: "createActivity", element: <ActivityForm key={"create"}/>},
 				  {path: "profiles/:username", element: <ProfilePage/>},
 				  /* Editing an activity will be done in the ActivityForm as well*/
 				  {path: "manage/:id", element: <ActivityForm key={"manage"}/>},
-				  {path: "login", element: <LoginForm />},
-				  {path: "errors", element: <TestErrors />},
-				  {path: "not-found", element: <NotFound />},
-				  {path: "server-error", element: <ServerError />},
-				  
+				  {path: "login", element: <LoginForm/>},
+				  {path: "errors", element: <TestErrors/>},
+				  {path: "not-found", element: <NotFound/>},
+				  {path: "server-error", element: <ServerError/>},
+
 				  // The route down below indicates that when user heads to whatever pages that do not exist in the application
 				  {path: "*", element: <Navigate replace to={"/not-found"}/>},
 			]

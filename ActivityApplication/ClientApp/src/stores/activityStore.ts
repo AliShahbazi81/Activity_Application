@@ -191,6 +191,10 @@ export default class ActivityStore {
 			}
 	  }
 
+	  clearSelectedActivity = async () => {
+			this.selectedActivity = undefined;
+	  }
+
 	  private getActivity = (id: string) => {
 			// The method down below, returns either An Activity OR Undefined. We have to check the returned value
 			return this.activityRegistry.get(id)
@@ -200,7 +204,7 @@ export default class ActivityStore {
 
 			const user = store.userStore.user;
 
-			// If user is Authenticated
+			// If a user is Authenticated
 			if (user) {
 				  // If the username of the user is found in the attendees, then return true
 				  activity.isGoing = activity.attendees!.some(

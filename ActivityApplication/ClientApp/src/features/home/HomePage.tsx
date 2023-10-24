@@ -3,37 +3,36 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {useStore} from "../../stores/store";
 import {observer} from "mobx-react-lite";
-import LoginForm from "../activity/Users/LoginForm";
-import RegisterForm from "../activity/Users/RegisterForm";
+import LoginForm from "../Users/LoginForm";
+import RegisterForm from "../Users/RegisterForm";
 
-export default observer(function HomePage()
-{
+export default observer(function HomePage() {
 	  const {userStore, modalStore} = useStore();
-	  
-	  return(
+
+	  return (
 			<Segment inverted textAlign={"center"} vertical className={"masthead"}>
 				  <Container text>
-						<Header as={"h1"} inverted > 
-							<Image size={"massive"} src={"/assets/logo.png"} alt={"Logo"} style={{marginBottom: 12}} />
+						<Header as={"h1"} inverted>
+							  <Image size={"massive"} src={"/assets/logo.png"} alt={"Logo"} style={{marginBottom: 12}}/>
 							  Reactivities
 						</Header>
 						{userStore.isLoggedIn ? (
-							 <>
-								   <Header as={"h2"} inverted content={"Welcome to Reactivities"}/>
-								   <Button as={Link} to={"/activities"} size={"huge"} inverted>
-										 Go to Activities !
-								   </Button>
-							 </> 
+							  <>
+									<Header as={"h2"} inverted content={"Welcome to Reactivities"}/>
+									<Button as={Link} to={"/activities"} size={"huge"} inverted>
+										  Go to Activities !
+									</Button>
+							  </>
 						) : (
 							  <>
-									<Button onClick={() => modalStore.openModal(<LoginForm />)} size={"huge"} inverted>
+									<Button onClick={() => modalStore.openModal(<LoginForm/>)} size={"huge"} inverted>
 										  Login!
 									</Button>
-									<Button onClick={() => modalStore.openModal(<RegisterForm />)} size={"huge"} inverted>
+									<Button onClick={() => modalStore.openModal(<RegisterForm/>)} size={"huge"} inverted>
 										  Register !
 									</Button>
 							  </>
-							  
+
 						)}
 				  </Container>
 			</Segment>

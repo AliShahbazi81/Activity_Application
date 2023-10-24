@@ -35,11 +35,11 @@ axios.interceptors.response.use(async response => {
 
 	  await sleep(1000);
 	  return response
-	  // In order to catch the errors, we have to specify our errors status and data when it comes back from the server
+	  // In order to catch the errors, we have to specify our error status and data when it comes back from the server
 }, (error: AxiosError) => {
 	  const {data, status, config} = error.response as AxiosResponse;
 	  switch (status) {
-			// In case of Bad request, it can be validation error, hence, we will first check if the error is validation error or just
+			// In case of Bad request, it can be a validation error, hence, we will first check if the error is a validation error or just
 			// simple 400
 			case 400:
 				  // If user tried to access an id which does not exist in the context
@@ -106,8 +106,8 @@ const Activities = {
 
 
 const Account = {
-	  // Get current user using the API in the back, returning a promise of type User
-	  // After Get,Post,Put, etc., the type we mention, is the type that we expect to be returned from our server
+	  // Get the current user using the API in the back, returning a promise of type User
+	  // After Get, Post, Put, etc., the type we mention is the type that we expect to be returned from our server
 	  current: () => requests.get<User>("Account/GetCurrentUser"),
 	  login: (user: UserFormValues) => requests.post<User>("Account/Login", user),
 	  register: (user: UserFormValues) => requests.post<User>("Account/Register", user)
@@ -120,7 +120,7 @@ const Profiles = {
 	  /*! Since we want to send file to our server, we have to use Axios instead of simple request method */
 	  uploadPhoto: (file: Blob) => {
 			let formDate = new FormData();
-			/* Name of the file in append has to be the same with the API Controller */
+			/* The Name of the file in appending has to be the same with the API Controller */
 			formDate.append("File", file);
 			return axios.post<Photo>("/Image", formDate, {
 				  headers: {"Content-Type": "multipart/form-data"}

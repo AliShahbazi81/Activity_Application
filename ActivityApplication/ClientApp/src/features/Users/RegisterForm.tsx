@@ -1,20 +1,19 @@
 import {ErrorMessage, Form, Formik} from "formik";
-import { observer } from "mobx-react-lite";
+import {observer} from "mobx-react-lite";
 import React from "react";
 import {Button, Header} from "semantic-ui-react";
-import MyTextInput from "../../../components/Form/MyTextInput";
-import {useStore} from "../../../stores/store";
-import ValidationError from "../../errors/ValidationError"; 
+import MyTextInput from "../../components/Form/MyTextInput";
+import {useStore} from "../../stores/store";
+import ValidationError from "../errors/ValidationError";
 import * as Yup from "yup";
 
-export default observer(function RegisterForm()
-{
+export default observer(function RegisterForm() {
 	  const {userStore} = useStore();
-	  return(
+	  return (
 			/* setErrors in Formik allows us to catch the errors inside the Formik tag*/
 			/* Client-side inputs validation will be checked using validationSchema in Formik */
 			<Formik
-				  initialValues={{displayName:"", username:"", email: "", password: "", error: null}}
+				  initialValues={{displayName: "", username: "", email: "", password: "", error: null}}
 				  onSubmit={(values, {setErrors}) =>
 						userStore.login(values)
 							  .catch(error => setErrors({error}))}
@@ -37,13 +36,13 @@ export default observer(function RegisterForm()
 									textAlign={"center"}/>
 							  <MyTextInput
 									placeholder={"Display Name"}
-									name={"displayName"} />
+									name={"displayName"}/>
 							  <MyTextInput
 									placeholder={"Username"}
-									name={"username"} />
+									name={"username"}/>
 							  <MyTextInput
 									placeholder={"Email"}
-									name={"email"} />
+									name={"email"}/>
 							  <MyTextInput
 									placeholder={"Password"}
 									name={"password"}

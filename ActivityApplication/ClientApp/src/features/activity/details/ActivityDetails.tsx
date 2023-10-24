@@ -15,32 +15,40 @@ export default observer(function ActivityDetails() {
 	  const {
 			selectedActivity: activity,
 			loadingInitial,
-			loadActivity
+			loadActivity,
+			clearSelectedActivity
 	  } = activityStore
-	  
+
 	  // we use useParams hooks to get the id from the route
 	  const {id} = useParams();
-	  
+
 	  // Then we are using the ID above to get the desired activity
 	  //! NOTE: useEffect hook works once the component is loaded.
 	  useEffect(() => {
-			if (id) loadActivity(id)
-	  }, [id, loadActivity])
-	  
+			if (id) {
+				  (async () => {
+						await loadActivity(id);
+				  })();
+			}
+			return () => {
+				  clearSelectedActivity();
+			};
+	  }, [id, loadActivity, clearSelectedActivity]);
+
 	  // If we forget to inject loadingInitial, Loading indicator will never disappear once we reload the page.
-	  // Do not forget to add it up 
-	  if (loadingInitial || !activity) return <LoadingComponent />;
-	  
+	  // Remember to add it up 
+	  if (loadingInitial || !activity) return <LoadingComponent/>;
+
 	  return (
 			<Grid>
-				 <Grid.Column width={10}>
-					   <ActivityDetailedHeader activity={activity} />
-					   <ActivityDetailedInfo activity={activity} />
-					   <ActivityDetailedChat activityId={activity.id} />
-				 </Grid.Column>
-				  
+				  <Grid.Column width={10}>
+						<ActivityDetailedHeader activity={activity}/>
+						<ActivityDetailedInfo activity={activity}/>
+						<ActivityDetailedChat activityId={activity.id}/>
+				  </Grid.Column>
+
 				  <Grid.Column width={6}>
-						<ActivityDetailedSidebar activity={activity} />
+						<ActivityDetailedSidebar activity={activity}/>
 				  </Grid.Column>
 			</Grid>
 	  )
