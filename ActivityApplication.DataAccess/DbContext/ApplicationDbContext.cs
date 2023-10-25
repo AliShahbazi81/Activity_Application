@@ -1,5 +1,6 @@
 using ActivityApplication.DataAccess.Entities.Activities;
 using ActivityApplication.DataAccess.Entities.Comments;
+using ActivityApplication.DataAccess.Entities.Followers;
 using ActivityApplication.DataAccess.Entities.JoinTables;
 using ActivityApplication.DataAccess.Entities.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -18,6 +19,7 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, Guid>
     public DbSet<ActivityAttendee> ActivityAttendees { get; set; }
     public DbSet<Photo> Photos { get; set; }
     public DbSet<Comment> Comments { get; set; }
+    public DbSet<UserFollowing> UserFollowings { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

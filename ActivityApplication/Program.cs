@@ -13,6 +13,7 @@ using ActivityApplication.Infrastrucutre.UploadImage.Services;
 using ActivityApplication.Services.Activity;
 using ActivityApplication.Services.Activity.Services.Mediator;
 using ActivityApplication.Services.Comment.Services;
+using ActivityApplication.Services.Followers.Services;
 using ActivityApplication.Services.Image.Services;
 using ActivityApplication.Services.User.Services;
 using ActivityApplication.Services.User.Services.Token;
@@ -60,11 +61,7 @@ builder.Services.AddSwaggerGen(opt =>
 });
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Database Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-builder.Services.AddDbContextFactory<ApplicationDbContext>(opt =>
-{
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"),
-        b => b.MigrationsAssembly("ActivityApplication"));
-});
+builder.Services.AddDbContextFactory<ApplicationDbContext>(opt => { opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")); });
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Authentication Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddCors(options => options.AddPolicy("cors", policy => policy
@@ -196,6 +193,9 @@ builder.Services.AddScoped<IUserService, UserService>();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Comment Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddScoped<ICommentService, CommentService>();
+
+//! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Follower Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+builder.Services.AddScoped<IFollowerService, FollowerService>();
 
 //! -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Other Services -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 builder.Services.AddSignalR();

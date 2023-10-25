@@ -1,3 +1,4 @@
+using ActivityApplication.DataAccess.Entities.Followers;
 using ActivityApplication.DataAccess.Entities.JoinTables;
 using Microsoft.AspNetCore.Identity;
 
@@ -18,4 +19,10 @@ public class User : IdentityUser<Guid>
 
     // Each user can upload 1 or many images
     public virtual ICollection<Photo> Photos { get; set; }
+
+    // Following users by a user
+    public virtual ICollection<UserFollowing> Followings { get; set; }
+
+    // Followers who followed a user
+    public virtual ICollection<UserFollowing> Followers { get; set; }
 }
