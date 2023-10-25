@@ -22,6 +22,8 @@ public class UserService : IUserService
         var getUser = await dbContext.Users
             .Where(x => x.UserName == userName)
             .Include(x => x.Photos)
+            .Include(x => x.Followers)
+            .Include(x => x.Followings)
             .SingleOrDefaultAsync();
 
         if (getUser == null)
@@ -58,6 +60,8 @@ public class UserService : IUserService
             DisplayName = userEntity.DisplayName,
             Bio = userEntity.Bio,
             Image = await GetUserMainPhotoUrlAsync(userName),
+            FollowersCount = userEntity.Followers.Count,
+            FollowingCount = userEntity.Followings.Count,
             Photos = userEntity.Photos.Any()
                 ? userEntity.Photos.Select(p => new ImageUploadDto
                 {

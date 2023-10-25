@@ -18,26 +18,12 @@ public class FollowerController : BaseApiController
         _followerService = followerService;
     }
 
-    [HttpPost("{targetUserId}")]
-    public async Task<IActionResult> Follow(Guid targetUserId)
+    [HttpPost("{id}")]
+    public async Task<IActionResult> Follow(Guid id)
     {
         try
         {
-            return HandleResult(await _followerService.FollowAsync(_userAccessor.GetUserId(), targetUserId));
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
-
-    [HttpDelete("{targetUserId}")]
-    public async Task<IActionResult> Unfollow(Guid targetUserId)
-    {
-        try
-        {
-            return HandleResult(await _followerService.UnfollowAsync(_userAccessor.GetUserId(), targetUserId));
+            return HandleResult(await _followerService.FollowAsync(_userAccessor.GetUserId(), id));
         }
         catch (Exception e)
         {

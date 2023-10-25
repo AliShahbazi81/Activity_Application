@@ -10,25 +10,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Followers/UserFollowing.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/IFollowerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/FollowerControllers/FollowerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-24__11_48a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-24__11_48a_m___Changes_.xml" afterDir="false" />
+    <list default="true" id="a537f703-8a28-4124-a941-7afcd4a2b58a" name="Changes" comment="Follower services">
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services/Services/CommonService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityApplication.Services/Services/ICommonService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_2023_10_33_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_2023_10_33_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/DbContext/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.DataAccess/Entities/Users/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Followers/ActivityApplication.Services.Followers.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Followers/ActivityApplication.Services.Followers.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/IFollowerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/IFollowerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.User/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.User/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ProfileDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services/DTO/ProfileDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/ActivityApplication.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/FollowerControllers/FollowerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/FollowerControllers/FollowerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -279,7 +272,7 @@
       <workItem from="1697826239968" duration="6196000" />
       <workItem from="1697991613543" duration="18138000" />
       <workItem from="1698184419368" duration="308000" />
-      <workItem from="1698184772693" duration="6105000" />
+      <workItem from="1698184772693" duration="11599000" />
     </task>
     <task id="LOCAL-00001" summary="Init files">
       <option name="closed" value="true" />
@@ -633,7 +626,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698113304114</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Follower services">
+      <option name="closed" value="true" />
+      <created>1698194066804</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1698194066804</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,7 +654,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Register and Login process" />
     <MESSAGE value="Add JWT for authentication" />
     <MESSAGE value="Add Authorization Requirement to the controllers" />
     <MESSAGE value="Get CurrentUser in AccountController" />
@@ -678,65 +678,8 @@
     <MESSAGE value="Return user's image for GetCurrentUser in AccountController" />
     <MESSAGE value="Send and get comments for a specific activity" />
     <MESSAGE value="Update the latest docker config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the latest docker config" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs</url>
-          <line>85</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Followers\Services\FollowerService.cs" initialLine="85" containingFunctionPresentation="Method 'UnfollowAsync'">
-            <startOffsets>
-              <option value="3154" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3202" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs</url>
-          <line>87</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Followers\Services\FollowerService.cs" initialLine="87" containingFunctionPresentation="Method 'UnfollowAsync'">
-            <startOffsets>
-              <option value="3212" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3263" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs</url>
-          <line>89</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Followers\Services\FollowerService.cs" initialLine="89" containingFunctionPresentation="Method 'UnfollowAsync'">
-            <startOffsets>
-              <option value="3281" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3410" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs</url>
-          <line>56</line>
-          <properties documentPath="C:\Users\alish\WebstormProjects\Activity_Application\ActivityApplication.Services.Followers\Services\FollowerService.cs" initialLine="56" containingFunctionPresentation="Method 'UnfollowAsync'">
-            <startOffsets>
-              <option value="1937" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1938" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Follower services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Follower services" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

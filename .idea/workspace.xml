@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fb73ac7-309e-41f7-a8c0-26f9db503253" name="Changes" comment="Create and get comment for a specific activity">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/dataSources/5560f5ac-dac0-47e1-ab72-aa74a65140b8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-24__11_48a_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/shelf/Uncommitted_changes_before_Update_at_2023-10-24__11_48a_m___Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityApplication/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_2023_10_33_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_2023_10_33_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/FollowerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/IFollowerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication.Services.Followers/Services/IFollowerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/Controllers/FollowerControllers/FollowerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/Controllers/FollowerControllers/FollowerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityApplication/reactivities.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +125,7 @@
       <workItem from="1697991606292" duration="10415000" />
       <workItem from="1698097185246" duration="9578000" />
       <workItem from="1698186188012" duration="34000" />
-      <workItem from="1698186240672" duration="1199000" />
+      <workItem from="1698186240672" duration="3016000" />
     </task>
     <task id="LOCAL-00001" summary="Test if the commit is considered as contribution in GitHub using Computer">
       <option name="closed" value="true" />
